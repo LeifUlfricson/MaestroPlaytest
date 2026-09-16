@@ -27,7 +27,14 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [],
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.resources.focus.max",
+        "value": 1
+      }
+    ],
     "slug": "project-senses",
     "traits": {
       "value": [

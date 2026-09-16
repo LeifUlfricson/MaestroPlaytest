@@ -135,6 +135,66 @@
         "predicate": [
           "maestro:craft:ethereal"
         ]
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.resources.focus.max",
+        "value": 1,
+        "predicate": [
+          "maestro:craft:elemental",
+          {
+            "gte": [
+              "self:level",
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.resources.focus.max",
+        "value": 1,
+        "predicate": [
+          "maestro:craft:sympathetic",
+          {
+            "gte": [
+              "self:level",
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.resources.focus.max",
+        "value": 1,
+        "predicate": [
+          "maestro:craft:flesh",
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.resources.focus.max",
+        "value": 1,
+        "predicate": [
+          "maestro:craft:ethereal",
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       }
     ],
     "slug": "maestros-craft",

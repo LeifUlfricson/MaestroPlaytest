@@ -12,6 +12,25 @@ Foundry v14 / PF2e 8.4.1" — and confirmed the core pawn-stats/projection pipel
 DESIGN.md's worked examples exactly on a live character sheet. `docs/QA.md` has the details of
 what's been checked so far and what's still outstanding.
 
+**Update 2:** a second live session, testing command spell proficiency, reported "Maestro's
+Mastery doesn't increase command spell DC to Master." That's actually correct per Q1's own
+resolution above (command spell proficiency caps at Expert, never Master) — but chasing it found
+two real bugs, both fixed:
+- `focus-entry.js`'s "Command Spells" spellcasting entry creation had the same unlocked
+  check-then-create race as the pawn Link effect duplicate (see M2/M3's fix above): answering the
+  Craft ChoiceSet could fire `updateItem` twice in close succession, both seeing no entry yet and
+  both creating one. Fixed with the same per-actor promise-chain lock, in `grant-spells.js` too
+  (it had an identical race granting the same command spell twice).
+- The focus pool never grew when a command spell was granted. The `grantSpell` in
+  `grant-spells.js` used to set `system.resources.focus.max` directly via `maestro.update()`; the
+  system recomputes that value from rule elements during data prep and stomped the manual write
+  back to 0 every time. The fix embeds an `ActiveEffectLike add` of 1 on the *granting feat or
+  feature* instead (`maestros-craft.json` for the four Craft-gated command spells, predicated on
+  craft + level; each feat itself for the five feat-gated ones) — matching how real PF2e focus
+  feats work. A rule on the *spell* item itself was tried first and silently discarded: PF2e
+  8.4.1 does not process `system.rules` on `spell`-type items at all, confirmed by embedding a
+  hand-built spell with a rule (no compendium involved) and seeing it come back empty.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

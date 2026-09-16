@@ -7,11 +7,26 @@ M8.
 **Status:** a first real session happened against Foundry v14 Build 367 / PF2e 8.4.1 (see the
 "Fix bugs found by live testing" commit). It covered module activation, applying the class item,
 choosing a Craft (Elemental), and creating a metal/fire pawn — roughly the "Setup" section below
-plus the Elemental row's 1st-level check. Everything else in this file, and 11th/17th level for
-every Craft, is still unverified. That first session found and fixed three real bugs (a PF2e
+plus the Elemental row's 1st-level check. That session found and fixed three real bugs (a PF2e
 version-compatibility mismatch, 16 broken icon paths, and two functional bugs in the Elemental
 Strike rule elements and the link service's duplicate-effect race) — see the CHANGELOG for
-details. Expect more of the same as the rest of this script gets run for the first time.
+details.
+
+A second session tested command spell proficiency at 17th level (Maestro's Mastery) and found two
+more real bugs, also fixed: the "Command Spells" spellcasting entry could be duplicated by the
+same check-then-create race as the pawn Link effect, and the focus pool never grew when a command
+spell was granted (its `ActiveEffectLike` had to move from the spell item, which PF2e 8.4.1
+ignores rule elements on entirely, to the granting feat/feature). See the CHANGELOG's "Update 2"
+for details, including confirmation that "Mastery doesn't push spell DC to Master" is correct
+per-design (Q1's resolution caps command spell proficiency at Expert), not a bug.
+
+Everything else in this file — 11th/17th level for every Craft besides the two checks above, and
+Flesh/Ethereal/Sympathetic entirely — is still unverified. Expect more of the same as the rest of
+this script gets run for the first time. One methodology note from the second session: a
+character's already-embedded items (class features, feats, spells) are copies frozen at grant
+time — updating a compendium source file does *not* retroactively update copies already on a
+character. Testing a compendium change against an existing character requires either deleting and
+re-granting the specific item, or testing on a fresh character instead.
 
 Before starting, run the automated checks that don't need Foundry:
 

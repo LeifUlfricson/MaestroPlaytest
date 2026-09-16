@@ -7,10 +7,8 @@ const SPELLS_PACK = `${MODULE_ID}.maestro-spells`;
 /**
  * DESIGN.md §7: "Code does this on createItem, because a GrantItem of a spell doesn't choose
  * an entry." Each command spell here is added to the Command Spells entry once its granting
- * feat/feature is present, and the focus pool grows by 1 with it. The four Craft-gated grants
- * (Elemental Font, Puppet's Curse, Blood of the Master, Spatial Surge) work now; the five
- * feat-gated ones wait on M7's feats to exist (Second String, Sacrifice Pawn, Project Senses,
- * Master's Will, Dextrous Mind) — their conditions are just always false until then.
+ * feat/feature is present; the granting feat/feature itself carries the focus-pool grant (see
+ * grantSpell's docblock below).
  */
 const GRANTS = [
   { spellSlug: "elemental-font", condition: (m) => getMaestroCraft(m) === "elemental" && levelOf(m) >= 5 },
@@ -32,15 +30,35 @@ function hasFeat(maestro, slug) {
   return maestro.items.some((i) => i.slug === slug);
 }
 
+/**
+ * Serializes sync() per maestro UUID. updateActor/createItem/updateItem can all fire in close
+ * succession for the same change (e.g. leveling up, or a Craft ChoiceSet answer that also
+ * updates the actor); without a lock, two overlapping calls both see a grant's spell missing
+ * and both create it, leaving a duplicate. Same race shape as link-service.js's pawnLocks and
+ * focus-entry.js's maestroLocks, found there first via live testing.
+ * @type {Map<string, Promise<void>>}
+ */
+const maestroLocks = new Map();
+
 export function registerSpellGrants() {
-  Hooks.on("updateActor", (actor) => sync(actor));
-  Hooks.on("createItem", (item) => item.actor && sync(item.actor));
-  Hooks.on("updateItem", (item) => item.actor && sync(item.actor));
+  Hooks.on("updateActor", (actor) => queueSync(actor));
+  Hooks.on("createItem", (item) => item.actor && queueSync(item.actor));
+  Hooks.on("updateItem", (item) => item.actor && queueSync(item.actor));
   Hooks.once("ready", () => {
     for (const actor of game.actors) {
-      if (isMaestro(actor)) sync(actor).catch((err) => console.error(`${MODULE_ID} |`, err));
+      if (isMaestro(actor)) queueSync(actor);
     }
   });
+}
+
+function queueSync(actor) {
+  if (!isMaestro(actor)) return;
+  const prior = maestroLocks.get(actor.uuid) ?? Promise.resolve();
+  const next = prior.then(() => sync(actor));
+  maestroLocks.set(
+    actor.uuid,
+    next.catch((err) => console.error(`${MODULE_ID} |`, err)),
+  );
 }
 
 function isMaestro(actor) {
@@ -58,7 +76,17 @@ async function sync(maestro) {
   }
 }
 
-/** (verify) system.resources.focus.max against the installed system. */
+/**
+ * The maestro's own focus pool growth (+1 per command spell, DESIGN.md §7) comes from an
+ * `ActiveEffectLike add` on the granting feat/feature (maestros-craft.json for the four
+ * Craft-gated spells, each granting feat for the five feat-gated ones), not from a rule on the
+ * spell itself. Two things were tried and found broken by live testing: setting
+ * `resources.focus.max` directly via `maestro.update()` (the system recomputes that value from
+ * rule elements during data prep and stomps a manual write back to 0 every time), and putting
+ * the `ActiveEffectLike` on the spell item itself (PF2E 8.4.1 discards `system.rules` on `spell`-
+ * type items entirely — confirmed by embedding a hand-built spell with a rule and seeing it come
+ * back empty even with no compendium involved).
+ */
 async function grantSpell(maestro, entry, slug) {
   const pack = game.packs.get(SPELLS_PACK);
   const index = await pack?.getIndex({ fields: ["system.slug"] });
@@ -69,7 +97,4 @@ async function grantSpell(maestro, entry, slug) {
   const spellSource = source.toObject();
   foundry.utils.setProperty(spellSource, "system.location.value", entry.id);
   await maestro.createEmbeddedDocuments("Item", [spellSource]);
-
-  const currentMax = maestro.system.resources?.focus?.max ?? 0;
-  await maestro.update({ "system.resources.focus.max": currentMax + 1 });
 }
