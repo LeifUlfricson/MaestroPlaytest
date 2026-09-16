@@ -1,0 +1,42 @@
+{
+  "_id": "3I7Cqb7UdCJAEODs",
+  "_key": "!items!3I7Cqb7UdCJAEODs",
+  "name": "Flanking Strike",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 1
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You coordinate your pawns to surround a foe, then strike. Each target moves up to its Speed using any of its available movement types. Both pawns must end their movement within reach of the same enemy. Then, one of the pawns can make a melee Strike against that enemy.</p><p><strong>Targets</strong> 2 Controlled pawns</p>"
+    },
+    "level": {
+      "value": 2
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "flanking-strike",
+    "traits": {
+      "value": [
+        "formation",
+        "magical",
+        "maestro",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

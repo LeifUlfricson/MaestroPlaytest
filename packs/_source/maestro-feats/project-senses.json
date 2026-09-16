@@ -1,0 +1,39 @@
+{
+  "_id": "VUgDMGH1yISlVKNQ",
+  "_key": "!items!VUgDMGH1yISlVKNQ",
+  "name": "Project Senses",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Innovative devices and refinements to your magical techniques let you perceive the world through your creations. You gain the project senses command spell. Increase the number of Focus Points in your focus pool by 1.</p><p><em>src/spells/grant-spells.js grants project senses once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 8
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "project-senses",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

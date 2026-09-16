@@ -1,0 +1,40 @@
+{
+  "_id": "UDLFffHmpxuAVHK7",
+  "_key": "!items!UDLFffHmpxuAVHK7",
+  "name": "Injector Spike",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Fighting smart doesn't mean fighting fair. A pawn with this Schematic installed can make hidden spike unarmed attacks (1 piercing damage; knife group; agile, finesse, unarmed) and carries a reservoir that can hold one dose of injury poison or a beneficial substance to inject into a willing creature.</p>"
+    },
+    "level": {
+      "value": 10
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "injector-spike",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

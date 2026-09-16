@@ -1,0 +1,42 @@
+{
+  "_id": "vqAnJ5RgCvQtF59E",
+  "_key": "!items!vqAnJ5RgCvQtF59E",
+  "name": "Spring-Loaded Compartment",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Adding a spring-powered launcher to your pawn's internal compartment lets it fire the contents like projectiles. This Schematic can be installed only in a pawn that already has the Extra Space Schematic installed, and it counts as its own installation in addition to Extra Space. The pawn can forcefully expel one item from its compartment as a single action (the Launch Item action). If the item is an alchemical bomb or a weapon with the thrown trait, the pawn can make a ranged Strike with it using its unarmed attack modifier. Strikes made this way don't benefit from the maestro's invested weapon or handwraps of mighty blows, and thrown weapons that would normally return to their owner's hand instead fall to the ground at the pawn's feet. Any other item can be flung to a space up to 20 feet away, where it lands unless it's caught or otherwise stopped.</p>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.2tyRCh5VmnVa1ilD"
+      }
+    ],
+    "slug": "spring-loaded-compartment",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

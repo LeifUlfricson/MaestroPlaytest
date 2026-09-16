@@ -1,0 +1,39 @@
+{
+  "_id": "reZ4zsKUuB6tom7G",
+  "_key": "!items!reZ4zsKUuB6tom7G",
+  "name": "Wires on the Wind",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've discovered a way to temporarily attach your magic to other objects so you can manipulate them. You can cast telekinetic projectile and telekinetic hand as command focus cantrips. Any visual elements of these spells are replaced by an effect resembling the magical phenomenon that connects you to your pawns.</p><p><strong>(verify)</strong> not yet automated: granting the two core cantrips needs their real UUIDs from the core PF2e compendium, which this environment has no way to look up (DESIGN.md's Q11). Add them to the Command Spells entry by hand for now.</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "wires-on-the-wind",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

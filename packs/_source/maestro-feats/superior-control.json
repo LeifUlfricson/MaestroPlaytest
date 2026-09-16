@@ -1,0 +1,39 @@
+{
+  "_id": "gh2pNKxkiDfUjG2M",
+  "_key": "!items!gh2pNKxkiDfUjG2M",
+  "name": "Superior Control",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Your ability to control your creations has evolved to a new level. Your Range of Control increases by 30 feet. You can target a pawn with Take Control at any distance, as long as it's within your Range of Control.</p><p><em>src/pawns/range.js and src/actions/take-control.js check for this feat by slug.</em></p>"
+    },
+    "level": {
+      "value": 12
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "superior-control",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "_id": "cGmO9xjniXPL6hR2",
+  "_key": "!items!cGmO9xjniXPL6hR2",
+  "name": "Dismantle",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 3
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Your pawns divide and conquer, separating their bodies into a lethal swarm of floating limbs and weaponry. Choose a burst whose origin is anywhere within your Range of Control. The burst is 10 feet if you targeted one pawn, and its size increases by 10 feet for each additional pawn targeted. The targets make one melee Strike against each enemy within the burst; enemies outside your Range of Control are unaffected. Your multiple attack penalty doesn't increase until you've made all of them. A single creature can't be attacked more than once by this action. Afterward, your pawns return to their original forms, reassembling in any available spaces within your Range of Control.</p><p><strong>Targets</strong> any number of Controlled pawns</p>"
+    },
+    "level": {
+      "value": 18
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "dismantle",
+    "traits": {
+      "value": [
+        "formation",
+        "magical",
+        "maestro",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "_id": "nRjRRIqAHSSfDXuJ",
+  "_key": "!items!nRjRRIqAHSSfDXuJ",
+  "name": "Adaptive Design",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>The best tacticians know how to adapt and overcome. Choose one modification when this Schematic is installed:</p><ul><li><strong>Waterproof Fins</strong> The pawn has a swim Speed equal to its land Speed. It isn't off-guard in water, and it doesn't take the usual penalties for using bludgeoning or slashing melee weapons in water.</li><li><strong>Climbing Rig</strong> The pawn has a climb Speed equal to its land Speed. It isn't off-guard while climbing, and it can Grab an Edge as a free action rather than as a reaction.</li><li><strong>Subterranean Toolkit</strong> As a single action, the pawn can shed magical bright light in a 60-foot radius (dim light to the next 60 feet) until dismissed as a free action. The maestro also gains tremorsense as an imprecise sense within 15 feet of the pawn.</li><li><strong>Additional Limbs</strong> The pawn is unaffected by nonmagical difficult terrain and automatically succeeds at Acrobatics checks to Balance on uneven ground. It doesn't trigger reactions when it uses an action with the manipulate trait.</li><li><strong>Voice Box</strong> The pawn can speak and use actions that require speech, such as Demoralize, as the maestro quietly mouths or whispers the words.</li></ul>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "mode",
+        "rollOption": "adaptive-design",
+        "prompt": "Choose a modification",
+        "choices": [
+          {
+            "value": "fins",
+            "label": "Waterproof Fins"
+          },
+          {
+            "value": "climbing-rig",
+            "label": "Climbing Rig"
+          },
+          {
+            "value": "subterranean-toolkit",
+            "label": "Subterranean Toolkit"
+          },
+          {
+            "value": "additional-limbs",
+            "label": "Additional Limbs"
+          },
+          {
+            "value": "voice-box",
+            "label": "Voice Box"
+          }
+        ]
+      },
+      {
+        "key": "BaseSpeed",
+        "selector": "swim",
+        "value": "@actor.attributes.speed.value",
+        "predicate": [
+          "adaptive-design:fins"
+        ]
+      },
+      {
+        "key": "BaseSpeed",
+        "selector": "climb",
+        "value": "@actor.attributes.speed.value",
+        "predicate": [
+          "adaptive-design:climbing-rig"
+        ]
+      }
+    ],
+    "slug": "adaptive-design",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

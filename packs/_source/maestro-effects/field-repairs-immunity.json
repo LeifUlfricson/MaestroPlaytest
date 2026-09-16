@@ -1,0 +1,28 @@
+{
+  "_id": "5S4IxWJUF4saVqww",
+  "_key": "!items!5S4IxWJUF4saVqww",
+  "name": "Field Repairs Immunity",
+  "type": "effect",
+  "img": "icons/svg/regen.svg",
+  "system": {
+    "description": {
+      "value": "<p>This pawn is immune to Field Repairs until it's next Repaired.</p>"
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [],
+    "slug": "field-repairs-immunity",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

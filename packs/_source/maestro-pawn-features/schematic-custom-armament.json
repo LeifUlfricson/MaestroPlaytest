@@ -1,0 +1,116 @@
+{
+  "_id": "n0HyQET0JueTuj3H",
+  "_key": "!items!n0HyQET0JueTuj3H",
+  "name": "Custom Armament",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You give your pawn an additional means of attack. Choose a melee or ranged unarmed Strike and its damage type when this Schematic is installed.</p><p><strong>Melee</strong> 1d6 damage (bludgeoning, piercing, or slashing), brawling group, finesse and unarmed traits.</p><p><strong>Ranged</strong> 1d6 damage (bludgeoning, piercing, or slashing), a 20-foot range increment, sling group, unarmed trait.</p><p><strong>Advanced Armament (maestro feat 8):</strong> the die becomes 1d8, and the maestro chooses one more modification when installing this Schematic. Not yet automated; the GM applies it by hand.</p>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "attackType",
+        "rollOption": "custom-armament",
+        "prompt": "Melee or Ranged?",
+        "choices": [
+          {
+            "value": "melee",
+            "label": "Melee"
+          },
+          {
+            "value": "ranged",
+            "label": "Ranged"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damageType",
+        "rollOption": "custom-armament-damage",
+        "prompt": "Damage Type",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ]
+      },
+      {
+        "key": "Strike",
+        "label": "Custom Armament (Melee)",
+        "slug": "custom-armament-melee",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": {
+          "base": {
+            "damageType": "{item|flags.pf2e.rulesSelections.damageType}",
+            "dice": 1,
+            "die": "d6"
+          }
+        },
+        "traits": [
+          "finesse",
+          "unarmed"
+        ],
+        "predicate": [
+          "custom-armament:melee"
+        ]
+      },
+      {
+        "key": "Strike",
+        "label": "Custom Armament (Ranged)",
+        "slug": "custom-armament-ranged",
+        "category": "unarmed",
+        "group": "sling",
+        "range": 20,
+        "damage": {
+          "base": {
+            "damageType": "{item|flags.pf2e.rulesSelections.damageType}",
+            "dice": 1,
+            "die": "d6"
+          }
+        },
+        "traits": [
+          "unarmed"
+        ],
+        "predicate": [
+          "custom-armament:ranged"
+        ]
+      }
+    ],
+    "slug": "custom-armament",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

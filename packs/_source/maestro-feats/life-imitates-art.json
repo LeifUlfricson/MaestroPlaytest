@@ -1,0 +1,133 @@
+{
+  "_id": "xOZ43GSPcTw8WowI",
+  "_key": "!items!xOZ43GSPcTw8WowI",
+  "name": "Life Imitates Art",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've built a prosthetic device from the same materials as your pawns. It lets you replace or augment a limb, or add a simple new non-prehensile limb, such as a tail. Crafting a new limb is a 1-hour activity that requires a flat work surface and 1 Bulk of the appropriate materials; attaching it later is a 3-action activity with the manipulate trait.</p><p>Your new limb grants you an unarmed attack based on your Craft: Flesh Craft's poisoned barbs (1d8 poison, brawling, agile, deadly d8, finesse, poison, unarmed); Ethereal Craft's morphic weapon (1d6, brawling, agile, finesse, parry, unarmed, versatile B/P/S); Elemental Craft's elemental launcher (ranged 20 ft, 1d8, sling, modular cold/electricity/fire, scatter 10 ft, unarmed); or Sympathetic Craft's ethereal claw (1d8 spirit, brawling, finesse, spirit, unarmed, with the effects of a ghost touch property rune).</p>"
+    },
+    "level": {
+      "value": 12
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "Strike",
+        "label": "Poisoned Barbs",
+        "slug": "poisoned-barbs",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": {
+          "base": {
+            "damageType": "poison",
+            "dice": 1,
+            "die": "d8"
+          }
+        },
+        "traits": [
+          "agile",
+          "deadly-d8",
+          "finesse",
+          "poison",
+          "unarmed"
+        ],
+        "predicate": [
+          "maestro:craft:flesh"
+        ]
+      },
+      {
+        "key": "Strike",
+        "label": "Morphic Weapon",
+        "slug": "morphic-weapon",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": {
+          "base": {
+            "damageType": "bludgeoning",
+            "dice": 1,
+            "die": "d6"
+          }
+        },
+        "traits": [
+          "agile",
+          "finesse",
+          "parry",
+          "unarmed",
+          "versatile-p",
+          "versatile-s"
+        ],
+        "predicate": [
+          "maestro:craft:ethereal"
+        ]
+      },
+      {
+        "key": "Strike",
+        "label": "Elemental Launcher",
+        "slug": "elemental-launcher",
+        "category": "unarmed",
+        "group": "sling",
+        "range": 20,
+        "damage": {
+          "base": {
+            "damageType": "fire",
+            "dice": 1,
+            "die": "d8"
+          }
+        },
+        "traits": [
+          "scatter-10",
+          "unarmed"
+        ],
+        "predicate": [
+          "maestro:craft:elemental"
+        ]
+      },
+      {
+        "key": "Strike",
+        "label": "Ethereal Claw",
+        "slug": "ethereal-claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": {
+          "base": {
+            "damageType": "spirit",
+            "dice": 1,
+            "die": "d8"
+          }
+        },
+        "traits": [
+          "finesse",
+          "spirit",
+          "unarmed"
+        ],
+        "predicate": [
+          "maestro:craft:sympathetic"
+        ]
+      }
+    ],
+    "slug": "life-imitates-art",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

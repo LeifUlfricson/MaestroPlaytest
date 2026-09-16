@@ -1,0 +1,43 @@
+{
+  "_id": "gSIl7tAsGv8KuI8N",
+  "_key": "!items!gSIl7tAsGv8KuI8N",
+  "name": "Supersized",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Anything worth doing is worth overdoing, as far as you're concerned. Whenever you create a pawn, you can use six times the normal Bulk of materials to make it Large. If you do, its Constitution modifier is equal to your full Intelligence modifier rather than half, it has 10 Hit Points plus a number of Hit Points equal to 6 + its Constitution modifier for each level you have, and its reach increases by 5 feet. When you Take Control of a Large pawn, it counts as two pawns toward the maximum number you can control.</p><p><em>The creation wizard offers Large once this feat is present; the HP formula, reach, and control weight are already handled by src/rules/pawn-stats.js and src/rules/progression.js.</em></p>"
+    },
+    "level": {
+      "value": 12
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Bigger Figures"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "supersized",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

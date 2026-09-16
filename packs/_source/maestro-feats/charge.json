@@ -1,0 +1,43 @@
+{
+  "_id": "cohd6EnNzHnxrBML",
+  "_key": "!items!cohd6EnNzHnxrBML",
+  "name": "Charge!",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 3
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You rally your pawns into an all-out attack, assaulting any foe caught in their path. Each target Strides up to its Speed in a straight line (or Burrows, Climbs, Flies, or Swims), and the targets' paths can't meet or cross. If a target's movement would enter an enemy's space, the target stops before entering that space and makes a melee Strike of its choice against that enemy. A single creature can't be attacked more than once by this action. Apply your multiple attack penalty normally, though you can choose the order in which your pawns attack.</p><p><strong>Targets</strong> any number of Controlled pawns</p>"
+    },
+    "level": {
+      "value": 12
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "charge",
+    "traits": {
+      "value": [
+        "formation",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

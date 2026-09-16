@@ -1,0 +1,28 @@
+{
+  "_id": "OFCJat7Bgzm4sjuu",
+  "_key": "!items!OFCJat7Bgzm4sjuu",
+  "name": "Cover (Pawn: Castle)",
+  "type": "effect",
+  "img": "icons/svg/castle.svg",
+  "system": {
+    "description": {
+      "value": "<p>This creature has cover from a Castle-schematic pawn's Aura. Applied by hand for now; see the Castle Schematic.</p>"
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [],
+    "slug": "cover-pawn-castle",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

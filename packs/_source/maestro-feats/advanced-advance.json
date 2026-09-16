@@ -1,0 +1,39 @@
+{
+  "_id": "PoG5oILMS1ymDiPK",
+  "_key": "!items!PoG5oILMS1ymDiPK",
+  "name": "Advanced Advance!",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've improved your ability to multitask, allowing you to coordinate a wider variety of movements. When you use Advance!, each target can use any action with the move trait that it qualifies for instead of Striding, including Burrow, Climb, Fly, or Swim if it has the corresponding Speed. In addition, when you use Advance!, you can also use a single move action available to you, using any of your Speeds.</p><p><em>src/actions/advance.js checks for this feat and adjusts its card text.</em></p>"
+    },
+    "level": {
+      "value": 2
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "advanced-advance",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

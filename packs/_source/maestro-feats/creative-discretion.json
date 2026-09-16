@@ -1,0 +1,39 @@
+{
+  "_id": "BlMiuCX1BmY2ngDA",
+  "_key": "!items!BlMiuCX1BmY2ngDA",
+  "name": "Creative Discretion",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>A carefully planned design lets you collapse your pawns into compact, innocuous forms. While a pawn is Inactive, you can fold it into a discreet, easily carried bundle with a single Interact action. In this form, the pawn's Bulk is reduced to half its normal value, rounded down to the nearest light Bulk, and onlookers must succeed at a Perception check against your class DC to recognize it for what it is. You can Take Control of a folded pawn without first returning it to its original form; it unfolds automatically and assumes a ready posture as normal.</p><p><em>Folding/unfolding isn't automated yet; toggle the Packed Pawn item's folded state by hand.</em></p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "creative-discretion",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

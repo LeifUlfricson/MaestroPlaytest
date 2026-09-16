@@ -1,0 +1,44 @@
+{
+  "_id": "aqUxr13xuOPUvcwc",
+  "_key": "!items!aqUxr13xuOPUvcwc",
+  "name": "Spring-Loaded Compartment",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Adding a spring-powered launcher to your pawn's internal compartment lets it fire the contents like projectiles. This Schematic can be installed only in a pawn that already has the Extra Space Schematic installed, and it counts as its own installation in addition to Extra Space.</p>"
+    },
+    "level": {
+      "value": 6
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Extra Space"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "spring-loaded-compartment",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "_id": "7IT5M6O9JF9wQCu3",
+  "_key": "!items!7IT5M6O9JF9wQCu3",
+  "name": "Checkmate",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>With a well-organized attack, your pawns strike with unfathomable precision, toppling even the mightiest foes. When you use Coordinated Strike to have three pawns attack a single target and all three attacks deal damage, double the total damage (after combining it for resistances and weaknesses).</p><p><em>src/actions/coordinated-strike.js already checks for this feat by slug and adds the reminder to its card.</em></p>"
+    },
+    "level": {
+      "value": 20
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "checkmate",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

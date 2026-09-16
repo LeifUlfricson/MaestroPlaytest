@@ -1,0 +1,39 @@
+{
+  "_id": "tBan9B9gHbuhoIuU",
+  "_key": "!items!tBan9B9gHbuhoIuU",
+  "name": "Beyond the Pale",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've stepped into a realm of artistic expression that many would consider unnatural, or even taboo. Through careful application of your Craft, you can perform a 3-hour operation that requires a stable work surface. At the end of the operation, your heart is replaced with a unique magical device. You no longer need to sleep, and falling unconscious no longer causes your pawns to become Inactive (src/pawns/lifecycle.js already checks for this feat's slug). Although you don't need to sleep, you still need 3 hours of downtime in each 24-hour period to maintain your heart's delicate mechanisms; skipping this maintenance has the same effects that going without sleep has for other creatures. You gain the Vital Surge reaction.</p><blockquote><p><strong>Vital Surge</strong> ⟳</p><p><strong>Trigger</strong> You would be reduced to 0 Hit Points.</p><p><strong>Requirements</strong> Your prosthetic heart doesn't have the broken condition.</p><p>Your heart surges against the oncoming doom, keeping you in the fight. You remain at 1 Hit Point, and your heart gains the broken condition.</p></blockquote><p>Your heart still performs its organic functions while it's broken, but removing its broken condition is a 1-hour activity that requires your full attention.</p><p><em>Vital Surge itself isn't auto-triggered; the GM and player apply it by hand and add the Prosthetic Heart (Broken) effect.</em></p>"
+    },
+    "level": {
+      "value": 16
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "beyond-the-pale",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

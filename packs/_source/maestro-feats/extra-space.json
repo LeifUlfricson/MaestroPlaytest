@@ -1,0 +1,40 @@
+{
+  "_id": "R5y81ExVWZRv1LYJ",
+  "_key": "!items!R5y81ExVWZRv1LYJ",
+  "name": "Extra Space",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>A few changes to their design leave your pawns with some room to spare. A pawn with this Schematic installed can store up to 2 light Bulk of items in an empty compartment inside its body, though none of these items can be longer than 1 foot in any dimension. Anyone can place an item in the compartment or retrieve one from it with a single Interact action. Opening or closing the compartment's door is part of that Interact action.</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "extra-space",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

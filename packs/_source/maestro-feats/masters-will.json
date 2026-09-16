@@ -1,0 +1,39 @@
+{
+  "_id": "7mrMJ2jiqMoDeB49",
+  "_key": "!items!7mrMJ2jiqMoDeB49",
+  "name": "Master's Will",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You can stoke the magic within your pawns to push them beyond their normal physical limits. You gain the hold together command spell. Increase the number of Focus Points in your focus pool by 1.</p><p><em>src/spells/grant-spells.js grants hold together once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 10
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "masters-will",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

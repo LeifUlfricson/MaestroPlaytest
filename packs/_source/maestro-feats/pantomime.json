@@ -1,0 +1,43 @@
+{
+  "_id": "NVKqvFbLbTJWiWLs",
+  "_key": "!items!NVKqvFbLbTJWiWLs",
+  "name": "Pantomime",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 1
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Further study of your techniques has yielded a new way to control your pawns. You use any single action that the target can also use, and the target uses the same action. If the action requires a target, such as a Strike, the pawn can choose any target within its range, not just yours, and it can use any of its available Strikes to match your Strike. If both Strikes hit the same creature, combine their damage for the purpose of resistances and weaknesses. Apply your multiple attack penalty normally, though you can choose which Strike happens first for the purposes of reactions and other triggers.</p><p><strong>Targets</strong> 1 Controlled pawn</p>"
+    },
+    "level": {
+      "value": 6
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "pantomime",
+    "traits": {
+      "value": [
+        "flourish",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "_id": "sGhiLDAXmd3CKBVG",
+  "_key": "!items!sGhiLDAXmd3CKBVG",
+  "name": "Giant Maneuver",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Through teamwork, your pawns can overcome foes of any size. When you use Tandem Maneuver, for each additional pawn adjacent to the creature (beyond the two you targeted), your pawns can attempt their Athletics checks against a creature one size larger than normal, and they gain a +1 circumstance bonus to those checks.</p>"
+    },
+    "level": {
+      "value": 14
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Tandem Maneuver"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "giant-maneuver",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "_id": "8lVzIw5VRKN1y5Ea",
+  "_key": "!items!8lVzIw5VRKN1y5Ea",
+  "name": "Tandem Maneuver",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 2
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Your pawns work in unison to impose on a single foe. Both targets attempt the same action (Trip, Grapple, or Shove) against the same creature; pawns can't Shove a creature from opposite sides. Use the higher result to determine the outcome. If both checks are at least successes, treat the result as a critical success. Both checks count toward your multiple attack penalty, but the penalty doesn't increase until after you've made both of them. If the creature becomes grabbed or restrained, it's freed if either pawn releases its hold.</p><p><strong>Targets</strong> 2 Controlled pawns within reach of the same creature</p>"
+    },
+    "level": {
+      "value": 6
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "tandem-maneuver",
+    "traits": {
+      "value": [
+        "formation",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "LASa7vr61jBGAzJG",
+  "_key": "!items!LASa7vr61jBGAzJG",
+  "name": "Backup Plan",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "reaction"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You count your fellow adventurers among the pieces on the battlefield and have considered ways to cover their shortcomings. At the moment of their failure, you move to a space adjacent to the triggering ally. The ally can reroll the triggering check and use the new result. You can Aid that attack roll or skill check as part of this reaction.</p><p>Regardless of the outcome, the ally then becomes temporarily immune to your Backup Plan until your next daily preparations.</p><p><strong>Trigger</strong> An ally within 15 feet fails an attack roll or skill check.</p><p><strong>Requirements</strong> You can reach a space adjacent to the triggering ally with a single move action.</p>"
+    },
+    "level": {
+      "value": 10
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "backup-plan",
+    "traits": {
+      "value": [
+        "fortune",
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

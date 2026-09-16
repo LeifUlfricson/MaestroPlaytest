@@ -1,0 +1,44 @@
+{
+  "_id": "aqlf2mqAdH5LJdli",
+  "_key": "!items!aqlf2mqAdH5LJdli",
+  "name": "Incredible Space",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Magical arrays added to your pawns' internal compartments have made them larger on the inside than on the outside. The compartment granted by Extra Space gains the properties of a spacious pouch, except that it can hold only up to 5 Bulk of items. Stored items have no size limits. If a pawn with Extra Space installed becomes overloaded or is destroyed, its internal space is ruined, and the items inside are lost forever.</p>"
+    },
+    "level": {
+      "value": 14
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Extra Space"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "incredible-space",
+    "traits": {
+      "value": [
+        "extradimensional",
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

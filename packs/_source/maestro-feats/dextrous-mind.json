@@ -1,0 +1,39 @@
+{
+  "_id": "XV4lJC98WWNixQFp",
+  "_key": "!items!XV4lJC98WWNixQFp",
+  "name": "Dextrous Mind",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>For a brief moment, you exceed the physical limits of concentration, allowing you to precisely control all your pawns at once. You gain the blitz command spell. Increase the number of Focus Points in your focus pool by 1.</p><p><em>src/spells/grant-spells.js grants blitz once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 18
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "dextrous-mind",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "8V9E9EL1AfDVC50B",
+  "_key": "!items!8V9E9EL1AfDVC50B",
+  "name": "Field Repairs",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 1
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You know your creations well enough to get them back into working order on short notice. You make quick repairs to a pawn within your reach, restoring 2d6 Hit Points and removing its broken condition. The pawn is then immune to Field Repairs until you Repair it. The number of Hit Points restored increases by 2d6 at 7th, 10th, 13th, 16th, and 19th levels.</p><p><strong>Requirements</strong> You're holding an appropriate set of tools, or you're wearing them and have a free hand.</p><p><em>Not yet automated: pick a pawn, roll the healing, remove Broken, and apply Field Repairs Immunity by hand.</em></p>"
+    },
+    "level": {
+      "value": 4
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "field-repairs",
+    "traits": {
+      "value": [
+        "maestro",
+        "manipulate"
+      ],
+      "rarity": "common"
+    }
+  }
+}

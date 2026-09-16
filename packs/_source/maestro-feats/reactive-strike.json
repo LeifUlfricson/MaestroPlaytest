@@ -1,0 +1,39 @@
+{
+  "_id": "KwTTJYBcUrhQvWJy",
+  "_key": "!items!KwTTJYBcUrhQvWJy",
+  "name": "Reactive Strike",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>A good tactician never lets an opportunity go to waste. You gain the Reactive Strike reaction, which your pawns can also use.</p><p><strong>(verify)</strong> not yet automated: granting the core Reactive Strike reaction needs its real UUID from the core PF2e compendium, which this environment has no way to look up (DESIGN.md's Q11). Add it to the maestro and, via the Maestro Link effect, to Controlled pawns by hand for now.</p>"
+    },
+    "level": {
+      "value": 8
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "reactive-strike",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

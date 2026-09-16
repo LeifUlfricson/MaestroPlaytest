@@ -1,0 +1,41 @@
+{
+  "_id": "J4gSUV2mT3YIFOPJ",
+  "_key": "!items!J4gSUV2mT3YIFOPJ",
+  "name": "En Passant",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "reaction"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've learned to pull your pawns away from danger in the nick of time. The pawn gains a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the pawn can Step as part of this reaction.</p><p><strong>Trigger</strong> A creature you can see targets one of your Controlled pawns with an attack.</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "en-passant",
+    "traits": {
+      "value": [
+        "magical",
+        "maestro",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

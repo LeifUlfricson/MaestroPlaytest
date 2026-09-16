@@ -1,0 +1,40 @@
+{
+  "_id": "T3nHFZCYT5wcPrjO",
+  "_key": "!items!T3nHFZCYT5wcPrjO",
+  "name": "Adaptive Design",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>The best tacticians know how to adapt and overcome. When you install this Schematic, the pawn gains one of five modifications: Waterproof Fins, Climbing Rig, Subterranean Toolkit, Additional Limbs, or Voice Box.</p>"
+    },
+    "level": {
+      "value": 4
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "adaptive-design",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

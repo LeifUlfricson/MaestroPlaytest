@@ -1,0 +1,39 @@
+{
+  "_id": "IQzI4b7nrMDdII3d",
+  "_key": "!items!IQzI4b7nrMDdII3d",
+  "name": "Canary",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "reaction"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Your pawns are more expendable than adventurers and can serve as a first line of defense while you explore dangerous areas. While you're using Take Control as an exploration activity, you get a check to find traps that normally require you to be Searching. You still need to meet any other requirements to find the trap. You gain a circumstance bonus to Perception checks to find traps equal to the number of pawns you're controlling.</p><p>If you would trigger a device or set off a trap (whether because you failed to disarm it or triggered it normally), you can use your reaction to have a Controlled pawn trigger it in your place.</p><p><em>Not yet automated: apply the Perception bonus by hand (it equals the maestro's number of Controlled pawns).</em></p>"
+    },
+    "level": {
+      "value": 2
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "canary",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

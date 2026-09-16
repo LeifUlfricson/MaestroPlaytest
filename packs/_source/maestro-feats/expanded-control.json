@@ -1,0 +1,39 @@
+{
+  "_id": "x8kl8Lmd35GMVPAi",
+  "_key": "!items!x8kl8Lmd35GMVPAi",
+  "name": "Expanded Control",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've learned to stretch your magical connection even further. Your Range of Control increases by 30 feet.</p><p><em>src/pawns/range.js and src/actions/take-control.js check for this feat by slug.</em></p>"
+    },
+    "level": {
+      "value": 4
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "expanded-control",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

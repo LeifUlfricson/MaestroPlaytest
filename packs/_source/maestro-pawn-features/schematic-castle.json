@@ -1,0 +1,37 @@
+{
+  "_id": "9lEWfk2w6HFMCJyf",
+  "_key": "!items!9lEWfk2w6HFMCJyf",
+  "name": "Castle",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Modified panels and a tighter body plan let this pawn shelter allies on the battlefield. It provides cover to adjacent allies based on its size: Small provides lesser cover, Medium provides standard cover, Large or larger provides greater cover. These values assume a Medium ally; the GM can adjust as circumstances warrant.</p><p><em>Not yet automated: apply the Cover (Pawn: Castle) effect to adjacent allies by hand.</em></p>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "castle",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

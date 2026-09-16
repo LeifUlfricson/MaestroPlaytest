@@ -1,0 +1,39 @@
+{
+  "_id": "IwP8HDz9lTY3pNp2",
+  "_key": "!items!IwP8HDz9lTY3pNp2",
+  "name": "Bigger Figures",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Sometimes bigger is better. Whenever you create a pawn, you can double the Bulk of materials used to make it Medium instead of Small. If you do, its Constitution modifier is equal to your full Intelligence modifier rather than half.</p><p><em>The creation wizard (src/pawns/create-pawn.js) offers Medium once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 8
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "bigger-figures",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

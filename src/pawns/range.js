@@ -37,7 +37,13 @@ async function checkOnePawn(maestro, pawn) {
   const pawnToken = pawn.getActiveTokens()[0];
   if (!maestroToken || !pawnToken) return;
 
-  // Expanded Control (feat 4) and Superior Control (feat 12) aren't implemented yet (M7).
-  const range = rangeOfControl({});
-  if (maestroToken.distanceTo(pawnToken) > range) await setInactive(pawn);
+  if (maestroToken.distanceTo(pawnToken) > maestroRange(maestro)) await setInactive(pawn);
+}
+
+/** The maestro's current Range of Control, per Expanded Control (4) and Superior Control (12). */
+export function maestroRange(maestro) {
+  return rangeOfControl({
+    expandedControl: maestro.items.some((i) => i.slug === "expanded-control"),
+    superiorControl: maestro.items.some((i) => i.slug === "superior-control"),
+  });
 }

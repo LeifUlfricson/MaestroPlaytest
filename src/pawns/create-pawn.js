@@ -13,11 +13,12 @@ const PAWN_FEATURES_PACK = `${MODULE_ID}.maestro-pawn-features`;
  * @param {object} options
  * @param {string} options.name
  * @param {string|null} options.craft
+ * @param {"sm"|"med"|"lg"} [options.size]
  * @param {{physical: string, magical: string}|null} [options.elements]
  * @param {object} [options.extraFlags] Merged into flags.pf2e-maestro.pawn (e.g. `temporary`).
  * @returns {Promise<object|null>}
  */
-export async function buildPawnActorSource(maestro, { name, craft, elements = null, extraFlags = {} }) {
+export async function buildPawnActorSource(maestro, { name, craft, size = "sm", elements = null, extraFlags = {} }) {
   const pack = game.packs.get(PAWN_PACK);
   const [template] = (await pack?.getDocuments({ name: "Pawn" })) ?? [];
   if (!template) {
@@ -33,7 +34,7 @@ export async function buildPawnActorSource(maestro, { name, craft, elements = nu
   foundry.utils.setProperty(pawnSource, `flags.${MODULE_ID}.pawn`, {
     maestroUuid: maestro.uuid,
     craft,
-    size: "sm",
+    size,
     elements,
     form: craft === "ethereal" ? "attack" : null,
     state: "inactive",
@@ -52,18 +53,19 @@ export async function buildPawnActorSource(maestro, { name, craft, elements = nu
 }
 
 /**
- * The downtime pawn-creation wizard (DESIGN.md §5.1). Scoped to what's built so far: a Small
- * pawn (Bigger Figures/Supersized are M7 feats) with the maestro's Craft chassis embedded, and
- * no Packed Pawn item yet (that's created the first time the pawn is packed, src/pawns/packing.js).
+ * The downtime pawn-creation wizard (DESIGN.md §5.1). Small by default; Medium is offered with
+ * Bigger Figures and Large with Supersized. No Packed Pawn item yet (that's created the first
+ * time the pawn is packed, src/pawns/packing.js).
  * @param {Actor} maestro
  * @returns {Promise<Actor|null>}
  */
 export async function createPawn(maestro) {
   const craft = getMaestroCraft(maestro);
-  const answers = await promptForDetails(maestro, craft);
+  const sizeChoices = availableSizes(maestro);
+  const answers = await promptForDetails(maestro, craft, sizeChoices);
   if (!answers) return null;
 
-  const pawnSource = await buildPawnActorSource(maestro, { name: answers.name, craft, elements: answers.elements });
+  const pawnSource = await buildPawnActorSource(maestro, { name: answers.name, craft, size: answers.size, elements: answers.elements });
   if (!pawnSource) return null;
 
   const pawn = await Actor.create(pawnSource);
@@ -82,6 +84,14 @@ export async function createPawn(maestro) {
   return pawn;
 }
 
+/** Bigger Figures (8) unlocks Medium; Supersized (12) also unlocks Large. */
+function availableSizes(maestro) {
+  const sizes = ["sm"];
+  if (maestro.items.some((i) => i.slug === "bigger-figures")) sizes.push("med");
+  if (maestro.items.some((i) => i.slug === "supersized")) sizes.push("lg");
+  return sizes;
+}
+
 async function findChassisItem(craft) {
   const slug = chassisSlugFor(craft);
   if (!slug) return null;
@@ -93,12 +103,15 @@ async function findChassisItem(craft) {
   return source.toObject();
 }
 
+const SIZE_LABELS = { sm: "Small", med: "Medium", lg: "Large" };
+
 /**
  * @param {Actor} maestro
  * @param {string|null} craft
- * @returns {Promise<{name: string, elements: {physical: string, magical: string}|null}|null>}
+ * @param {("sm"|"med"|"lg")[]} sizeChoices
+ * @returns {Promise<{name: string, size: string, elements: {physical: string, magical: string}|null}|null>}
  */
-async function promptForDetails(maestro, craft) {
+async function promptForDetails(maestro, craft, sizeChoices) {
   const elementFields =
     craft === "elemental"
       ? `
@@ -121,6 +134,18 @@ async function promptForDetails(maestro, craft) {
       `
       : "";
 
+  const sizeField =
+    sizeChoices.length > 1
+      ? `
+        <div class="form-group">
+          <label>Size</label>
+          <select name="size">
+            ${sizeChoices.map((s) => `<option value="${s}">${SIZE_LABELS[s]}</option>`).join("")}
+          </select>
+        </div>
+      `
+      : "";
+
   return foundry.applications.api.DialogV2.prompt({
     window: { title: "Create Pawn" },
     content: `
@@ -129,6 +154,7 @@ async function promptForDetails(maestro, craft) {
           <label>Name</label>
           <input type="text" name="name" value="${maestro.name}'s Pawn" autofocus>
         </div>
+        ${sizeField}
         ${elementFields}
       </form>
     `,
@@ -137,11 +163,12 @@ async function promptForDetails(maestro, craft) {
       callback: (_event, button) => {
         const name = button.form.elements.name.value.trim();
         if (!name) return null;
+        const size = sizeChoices.length > 1 ? button.form.elements.size.value : sizeChoices[0];
         const elements =
           craft === "elemental"
             ? { physical: button.form.elements.physical.value, magical: button.form.elements.magical.value }
             : null;
-        return { name, elements };
+        return { name, size, elements };
       },
     },
     rejectClose: false,

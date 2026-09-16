@@ -1,0 +1,43 @@
+{
+  "_id": "EeOhECniU23YJmL7",
+  "_key": "!items!EeOhECniU23YJmL7",
+  "name": "Advanced Armament",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've improved your pawns' additional weapons. The Strike granted by Custom Armament now deals 1d8 damage of the selected type instead of 1d6. When you install Custom Armament, you can also apply one of the following modifications, depending on whether the Strike is melee or ranged.</p><p><strong>Melee</strong> Add one of the following traits: agile, backswing, forceful, reach, or sweep.</p><p><strong>Ranged</strong> Choose one of the following: a range increment of 100 feet and the volley 30 feet trait; a range increment of 50 feet and the propulsive trait; or a range increment of 20 feet and the thrown trait.</p><p><em>Not yet automated: apply the die/trait/range upgrade to the installed Custom Armament pawn item by hand.</em></p>"
+    },
+    "level": {
+      "value": 8
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Custom Armament"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "advanced-armament",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "Bad7bJ8f5UZxD2FY",
+  "_key": "!items!Bad7bJ8f5UZxD2FY",
+  "name": "Castle",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Modified panels and a tighter body plan let your pawns shelter allies on the battlefield. A pawn with this Schematic installed provides cover to adjacent allies based on its size: a Small pawn provides lesser cover, a Medium pawn provides standard cover, and a Large or larger pawn provides greater cover.</p>"
+    },
+    "level": {
+      "value": 14
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "castle",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

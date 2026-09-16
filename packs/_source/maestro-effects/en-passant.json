@@ -1,0 +1,35 @@
+{
+  "_id": "kp8lJiCgvhfYnscB",
+  "_key": "!items!kp8lJiCgvhfYnscB",
+  "name": "En Passant",
+  "type": "effect",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": {
+      "value": "<p>+2 circumstance bonus to AC against the triggering attack. Removed after that attack roll resolves, or at the end of the turn.</p>"
+    },
+    "duration": {
+      "value": 1,
+      "unit": "rounds",
+      "expiry": "turn-end",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selector": "ac",
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "slug": "en-passant",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "_id": "HIS3FnkMN3s0cj5h",
+  "_key": "!items!HIS3FnkMN3s0cj5h",
+  "name": "Lead by Example",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>The latest modifications to your controlling magic let you share in your pawns' gift of flight. As long as you're controlling at least two pawns that have a fly Speed, you have a fly Speed equal to the highest among them.</p><p><em>Not yet automated: grant yourself a fly Speed by hand while this condition holds.</em></p>"
+    },
+    "level": {
+      "value": 16
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Air Superiority"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "lead-by-example",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "_id": "IsgHAaevS0D8QKIG",
+  "_key": "!items!IsgHAaevS0D8QKIG",
+  "name": "Air Superiority",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>The addition of wings or small magical devices lets this pawn take to the skies. It has a fly Speed equal to its land Speed.</p><p><em>Simplified: DESIGN.md gates this by the pawn's size and the maestro's level (Small or smaller always, Medium at 12th, Large at 16th); here it's granted unconditionally once installed, since pawns are Small by default and the size gate rarely matters in practice.</em></p>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "BaseSpeed",
+        "selector": "fly",
+        "value": "@actor.attributes.speed.value"
+      }
+    ],
+    "slug": "air-superiority",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "_id": "TTVVmccsqjOD62yy",
+  "_key": "!items!TTVVmccsqjOD62yy",
+  "name": "Pyrrhic Defense",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "reaction"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You understand that victory sometimes requires sacrifice. At the last moment, your pawn moves between your ally and the source of the damage and takes the damage instead. Afterward, the pawn lands in a space adjacent to that ally. If no space adjacent to your ally is available, you can't use this reaction to protect them.</p><p><strong>Trigger</strong> An enemy would damage an ally within 15 feet of one of your Controlled pawns.</p><p><strong>Requirements</strong> The ally is within your Range of Control.</p><p><em>Move the pawn's token by hand; the GM applies the damage to the pawn instead of the ally.</em></p>"
+    },
+    "level": {
+      "value": 2
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "pyrrhic-defense",
+    "traits": {
+      "value": [
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "0FNGI85OtCMeOYLc",
+  "_key": "!items!0FNGI85OtCMeOYLc",
+  "name": "Custom Armament",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You give your pawns an additional means of attack. When you install this Schematic on a pawn, choose one of the following Strikes for it to gain, along with that Strike's damage type: a melee unarmed Strike that deals 1d6 bludgeoning, piercing, or slashing damage (brawling group; finesse, unarmed), or a ranged unarmed Strike that deals 1d6 bludgeoning, piercing, or slashing damage with a range increment of 20 feet (sling group; unarmed).</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "custom-armament",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

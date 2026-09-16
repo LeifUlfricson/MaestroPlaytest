@@ -1,0 +1,39 @@
+{
+  "_id": "ZGV0vd0UVuO1ZZLn",
+  "_key": "!items!ZGV0vd0UVuO1ZZLn",
+  "name": "Sacrifice Pawn",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You gain the sacrifice pawn command spell. Increase the number of Focus Points in your focus pool by 1.</p><p><em>src/spells/grant-spells.js grants sacrifice pawn once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 6
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "sacrifice-pawn",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

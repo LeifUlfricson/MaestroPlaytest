@@ -1,0 +1,58 @@
+{
+  "_id": "fhJjdfwH5r2t6AUp",
+  "_key": "!items!fhJjdfwH5r2t6AUp",
+  "name": "Injector Spike",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Fighting smart doesn't mean fighting fair. This pawn can make hidden spike unarmed attacks. These deal 1 piercing damage, are in the knife group, and have the agile, finesse, and unarmed traits. A small, hollow reservoir inside the pawn can store one dose of injury poison, applied when this Strike hits. Inserting or removing a poison takes 3 Interact actions.</p><p>Alternatively, a beneficial substance (such as an elixir of life) can be placed in the reservoir and injected into a willing creature within reach as a single action.</p><p><em>The poison/elixir reservoir isn't tracked automatically; the GM and players track it by hand.</em></p>"
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "Strike",
+        "label": "Hidden Spike",
+        "slug": "hidden-spike",
+        "category": "unarmed",
+        "group": "knife",
+        "damage": {
+          "base": {
+            "damageType": "piercing",
+            "dice": 0,
+            "die": null,
+            "modifier": 1
+          }
+        },
+        "traits": [
+          "agile",
+          "finesse",
+          "unarmed"
+        ]
+      }
+    ],
+    "slug": "injector-spike",
+    "traits": {
+      "value": [
+        "pawn",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

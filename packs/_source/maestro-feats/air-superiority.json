@@ -1,0 +1,40 @@
+{
+  "_id": "J1L5yApATIsHVvYF",
+  "_key": "!items!J1L5yApATIsHVvYF",
+  "name": "Air Superiority",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>The addition of wings or small magical devices lets lighter pawns reach new heights. A pawn with this Schematic installed has a fly Speed equal to its land Speed as long as it's Small or smaller. This Schematic improves as you gain levels: at 12th level, the pawn has this fly Speed as long as it's Medium or smaller, and at 16th level, as long as it's Large or smaller.</p><p><em>Simplified: the pawn item below grants fly = land Speed unconditionally once installed, without the size gate.</em></p>"
+    },
+    "level": {
+      "value": 8
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "air-superiority",
+    "traits": {
+      "value": [
+        "maestro",
+        "schematic"
+      ],
+      "rarity": "common"
+    }
+  }
+}

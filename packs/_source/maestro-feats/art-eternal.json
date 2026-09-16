@@ -1,0 +1,80 @@
+{
+  "_id": "ZIbGZF15cqkjHRJm",
+  "_key": "!items!ZIbGZF15cqkjHRJm",
+  "name": "Art Eternal",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>You've taken the final steps away from your mortal shell to become the ultimate work of art. You can perform an 8-hour operation that requires a stable work surface and an appropriate set of tools. At the end of the operation, your entire mortal form is replaced with an immaculate artificial body resembling the pawns of your Craft. You no longer age, and you don't need to eat or breathe. You're immune to bleed damage, death effects, disease, nonlethal attacks, poison, and the drained, fatigued, paralyzed, and sickened conditions.</p><p>Your soul now resides entirely within your prosthetic heart, which controls the rest of your body like a puppet. If you would die, your artificial body falls apart instead; you don't fall unconscious or gain the dying condition. Instead, you immediately become a Tiny creature, with your prosthetic heart as its primary component, which lands prone among the remains of your body. You keep all your abilities and statistics except your size, and you immediately regain Hit Points equal to half your maximum Hit Points. You can't use any of the items you were carrying until you retrieve them from your remains, and any magic items you had invested immediately become uninvested. If you're reduced to 0 Hit Points in this form, your heart and body are destroyed, and you die.</p><p>You can rebuild yourself in a new artificial body as an 8-hour activity that requires 3 Bulk of the appropriate materials.</p><p><em>The immunities are granted below; the \"fall apart\" transformation on 0 HP is a GM-adjudicated event, not automated.</em></p>"
+    },
+    "level": {
+      "value": 20
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Beyond the Pale"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": "bleed"
+      },
+      {
+        "key": "Immunity",
+        "type": "death-effects"
+      },
+      {
+        "key": "Immunity",
+        "type": "disease"
+      },
+      {
+        "key": "Immunity",
+        "type": "nonlethal-attacks"
+      },
+      {
+        "key": "Immunity",
+        "type": "poison"
+      },
+      {
+        "key": "Immunity",
+        "type": "drained"
+      },
+      {
+        "key": "Immunity",
+        "type": "fatigued"
+      },
+      {
+        "key": "Immunity",
+        "type": "paralyzed"
+      },
+      {
+        "key": "Immunity",
+        "type": "sickened"
+      }
+    ],
+    "slug": "art-eternal",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

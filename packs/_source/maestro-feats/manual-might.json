@@ -1,0 +1,47 @@
+{
+  "_id": "sBUPEy69eTHGmdBp",
+  "_key": "!items!sBUPEy69eTHGmdBp",
+  "name": "Manual Might",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>By manipulating the connection with your hands, you can control your pawns with greater strength and speed. While both your hands are free, your pawns' Strength and Dexterity modifiers are equal to your full Intelligence modifier rather than half. While you benefit from this feat, whenever a Controlled pawn moves or acts, you trigger reactions in your space as though you had used an action with the manipulate trait.</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "manual-might",
+        "toggleable": true,
+        "label": "Manual Might (both hands free)"
+      }
+    ],
+    "slug": "manual-might",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

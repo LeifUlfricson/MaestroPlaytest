@@ -2,14 +2,15 @@ import { MODULE_ID, SETTINGS } from "../config.js";
 import { controlWeight, pawnCap } from "../rules/progression.js";
 import { setControlled, setInactive } from "../pawns/lifecycle.js";
 import { unpackPawn } from "../pawns/packing.js";
+import { maestroRange } from "../pawns/range.js";
 import { pickPawns } from "../ui/pawn-picker.js";
 
 const REACH_FT = 10;
 
 /**
- * DESIGN.md §5.5 "Take Control". Frequency (once/round), Blood of the Master and Rapid
- * Assembly bypasses, and the level-19 free-action swap (Instinctive Control) aren't
- * implemented yet — those need the Crafts (M4) and command spells (M6).
+ * DESIGN.md §5.5 "Take Control". Frequency, Blood of the Master and Rapid Assembly's
+ * frequency/reach bypasses, and the level-19 free-action swap (Instinctive Control) still
+ * aren't enforced/wired here — those spells and that swap don't call through this function.
  * @param {Actor} maestro
  */
 export async function takeControl(maestro) {
@@ -66,11 +67,13 @@ function isEligible(pawn, maestro) {
   return isWithinReach(pawn, maestro);
 }
 
+/** Superior Control (12) lets Take Control reach anywhere within Range of Control. */
 function isWithinReach(pawn, maestro) {
   const maestroToken = maestro.getActiveTokens()[0];
   const pawnToken = pawn.getActiveTokens()[0];
   if (!maestroToken || !pawnToken) return false;
-  return maestroToken.distanceTo(pawnToken) <= REACH_FT;
+  const reach = maestro.items.some((i) => i.slug === "superior-control") ? maestroRange(maestro) : REACH_FT;
+  return maestroToken.distanceTo(pawnToken) <= reach;
 }
 
 async function pawnsOf(maestro) {

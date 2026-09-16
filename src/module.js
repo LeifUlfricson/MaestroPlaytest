@@ -4,6 +4,7 @@ import { registerLinkService } from "./link/link-service.js";
 import { registerLifecycleHooks } from "./pawns/lifecycle.js";
 import { registerRangeWatcher } from "./pawns/range.js";
 import { registerGroupTactics } from "./pawns/group-tactics.js";
+import { registerSchematics } from "./pawns/schematics.js";
 import { registerTethers } from "./integrations/tethers.js";
 import { registerFocusEntry } from "./spells/focus-entry.js";
 import { registerSpellGrants } from "./spells/grant-spells.js";
@@ -20,6 +21,7 @@ Hooks.once("init", () => {
   registerLifecycleHooks();
   registerRangeWatcher();
   registerGroupTactics();
+  registerSchematics();
   registerTethers();
   registerFocusEntry();
   registerSpellGrants();

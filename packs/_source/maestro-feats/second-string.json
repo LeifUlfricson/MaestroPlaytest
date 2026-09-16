@@ -1,0 +1,39 @@
+{
+  "_id": "3xCEmLlORZNwQMey",
+  "_key": "!items!3xCEmLlORZNwQMey",
+  "name": "Second String",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Even when your pawns are down, you always have another piece to play. You gain the rapid assembly command spell. Increase the number of Focus Points in your focus pool by 1.</p><p><em>src/spells/grant-spells.js grants rapid assembly once this feat is present.</em></p>"
+    },
+    "level": {
+      "value": 4
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "second-string",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

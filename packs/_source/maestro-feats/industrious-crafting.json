@@ -1,0 +1,43 @@
+{
+  "_id": "XAB6MnnexHVZS8Fi",
+  "_key": "!items!XAB6MnnexHVZS8Fi",
+  "name": "Industrious Crafting",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "class",
+    "description": {
+      "value": "<p>Creating new and interesting things is more than a passion for you; it's a way of life. Choose one category of consumables for which you have the corresponding skill feat: Magical Crafting (potions, oils, talismans), Snare Crafting (snares), Gadget Specialist (gadgets), or Alchemical Crafting (alchemical elixirs, bombs, poisons, mutagens). You create a standard formula book with formulas for four common items of your level or lower from the chosen category, and learn one new formula each level. During your daily preparations, you can create two temporary items from the chosen category for which you have formulas, at no cost, with no sale value.</p><p><strong>Special</strong> You can select this feat more than once, choosing an additional category or increasing the number of consumables from your original category by four.</p><p><em>Not yet automated: this needs the system's formula-book/daily-crafting machinery, which is out of scope for now.</em></p>"
+    },
+    "level": {
+      "value": 10
+    },
+    "prerequisites": {
+      "value": [
+        {
+          "value": "Extracurricular Crafting"
+        }
+      ]
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "industrious-crafting",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}
