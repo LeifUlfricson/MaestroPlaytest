@@ -1,0 +1,24 @@
+{
+  "_id": "ZINdPDpNCrn6k8PZ",
+  "_key": "!items!ZINdPDpNCrn6k8PZ",
+  "name": "Release Control",
+  "type": "action",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": { "value": "free" },
+    "actions": { "value": null },
+    "category": "offensive",
+    "description": {
+      "value": "<p>A maestro can release control of a pawn at any time as a free action. When a Controlled pawn becomes Inactive, it collapses to the ground in its space.</p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "release-control",
+    "traits": { "value": ["maestro"], "rarity": "common" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "csGshI6mdpQkfXYD",
+  "_key": "!items!csGshI6mdpQkfXYD",
+  "name": "Inactive (Pawn)",
+  "type": "effect",
+  "img": "icons/svg/unconscious.svg",
+  "system": {
+    "description": {
+      "value": "<p>This pawn is Inactive: an inanimate object that can't move or act. It automatically fails (but doesn't critically fail) all saving throws. Applied and removed by the Maestro module; see DESIGN.md §5.2.</p>"
+    },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "unidentified": false,
+    "rules": [
+      { "key": "RollOption", "domain": "all", "option": "pawn:inactive" },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selector": "saving-throw",
+        "adjustment": {
+          "criticalSuccess": "to-failure",
+          "success": "to-failure",
+          "failure": "to-failure"
+        }
+      }
+    ],
+    "slug": "inactive-pawn",
+    "traits": { "value": [], "rarity": "common" }
+  }
+}

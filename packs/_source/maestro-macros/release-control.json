@@ -1,0 +1,11 @@
+{
+  "_id": "CyVRGMaHMhjyLkOS",
+  "_key": "!macros!CyVRGMaHMhjyLkOS",
+  "name": "Maestro: Release Control",
+  "type": "script",
+  "scope": "global",
+  "img": "icons/svg/mystery-man.svg",
+  "command": "const actor = canvas.tokens.controlled[0]?.actor ?? game.user.character;\nif (!actor) return ui.notifications.warn(\"Select your maestro's token first.\");\ngame.modules.get(\"pf2e-maestro\").api.actions.releaseControl(actor);",
+  "author": null,
+  "folder": null
+}

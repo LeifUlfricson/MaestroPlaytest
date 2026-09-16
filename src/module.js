@@ -1,12 +1,22 @@
 import { MODULE_ID } from "./config.js";
 import { registerSettings } from "./settings.js";
 import { registerLinkService } from "./link/link-service.js";
+import { registerLifecycleHooks } from "./pawns/lifecycle.js";
+import { registerRangeWatcher } from "./pawns/range.js";
+import { registerTethers } from "./integrations/tethers.js";
 import { createPawn } from "./pawns/create-pawn.js";
+import { registerExecuteButton } from "./ui/execute-button.js";
+import { registerTokenHud } from "./ui/token-hud.js";
 import { buildApi } from "./api.js";
 
 Hooks.once("init", () => {
   registerSettings();
   registerLinkService();
+  registerLifecycleHooks();
+  registerRangeWatcher();
+  registerTethers();
+  registerExecuteButton();
+  registerTokenHud();
   game.modules.get(MODULE_ID).api = buildApi();
 });
 

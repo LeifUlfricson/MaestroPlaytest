@@ -27,7 +27,11 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [],
+    "rules": [
+      { "key": "Aura", "slug": "range-of-control", "radius": 30, "effects": [] },
+      { "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.Y97hLYZeL1r5n2o0" },
+      { "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.ZINdPDpNCrn6k8PZ" }
+    ],
     "slug": "pawns",
     "traits": {
       "value": [
