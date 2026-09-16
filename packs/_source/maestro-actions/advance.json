@@ -1,0 +1,24 @@
+{
+  "_id": "0cNI7P5nweyBCFia",
+  "_key": "!items!0cNI7P5nweyBCFia",
+  "name": "Advance!",
+  "type": "action",
+  "img": "icons/svg/wingfoot.svg",
+  "system": {
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": "offensive",
+    "description": {
+      "value": "<p>The targets Stride.</p><p><strong>Targets</strong> any number of Controlled pawns</p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "advance",
+    "traits": { "value": ["formation", "magical", "maestro", "pawn"], "rarity": "common" }
+  }
+}

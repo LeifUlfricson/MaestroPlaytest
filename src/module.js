@@ -3,11 +3,13 @@ import { registerSettings } from "./settings.js";
 import { registerLinkService } from "./link/link-service.js";
 import { registerLifecycleHooks } from "./pawns/lifecycle.js";
 import { registerRangeWatcher } from "./pawns/range.js";
+import { registerGroupTactics } from "./pawns/group-tactics.js";
 import { registerTethers } from "./integrations/tethers.js";
 import { registerFocusEntry } from "./spells/focus-entry.js";
 import { createPawn } from "./pawns/create-pawn.js";
 import { registerExecuteButton } from "./ui/execute-button.js";
 import { registerTokenHud } from "./ui/token-hud.js";
+import { registerActionTracker } from "./ui/action-tracker.js";
 import { buildApi } from "./api.js";
 
 Hooks.once("init", () => {
@@ -15,10 +17,12 @@ Hooks.once("init", () => {
   registerLinkService();
   registerLifecycleHooks();
   registerRangeWatcher();
+  registerGroupTactics();
   registerTethers();
   registerFocusEntry();
   registerExecuteButton();
   registerTokenHud();
+  registerActionTracker();
   game.modules.get(MODULE_ID).api = buildApi();
 });
 

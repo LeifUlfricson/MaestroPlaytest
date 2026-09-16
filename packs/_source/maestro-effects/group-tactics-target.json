@@ -1,0 +1,18 @@
+{
+  "_id": "k3a5vuvrT0pdm30r",
+  "_key": "!items!k3a5vuvrT0pdm30r",
+  "name": "Group Tactics (Target)",
+  "type": "effect",
+  "img": "icons/svg/target.svg",
+  "system": {
+    "description": {
+      "value": "<p>Two or more of a maestro's pawns (or the maestro and at least one pawn) are within melee reach of this creature, so it's off-guard to that maestro and their pawns. Applied and removed automatically by the Maestro module as tokens move; see DESIGN.md §5.6.</p><p><strong>(verify)</strong> the module doesn't yet apply the off-guard condition itself &mdash; that needs the core PF2e off-guard condition's UUID, which isn't available in this environment. The GM should apply off-guard by hand until that's filled in.</p>"
+    },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "unidentified": false,
+    "rules": [],
+    "slug": "group-tactics-target",
+    "traits": { "value": [], "rarity": "common" }
+  }
+}

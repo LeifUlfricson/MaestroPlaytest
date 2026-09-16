@@ -2,6 +2,7 @@ import { MODULE_ID, SETTINGS } from "../config.js";
 import { sealedFateDice } from "../rules/progression.js";
 import { maestroClassDC } from "../rules/pawn-stats.js";
 import { drawTether, removeTether } from "../integrations/tethers.js";
+import { createModuleEffect, removeModuleEffect } from "../util/module-effects.js";
 import { replacePackedPawnWithRemains } from "./packing.js";
 
 const BROKEN_WINDOW_SECONDS = 600;
@@ -174,19 +175,4 @@ async function ensureDestroyedFolder() {
 async function rotateToken(pawn, rotation) {
   const token = pawn.getActiveTokens()[0];
   if (token) await token.document.update({ rotation });
-}
-
-async function createModuleEffect(actor, slug) {
-  const pack = game.packs.get(`${MODULE_ID}.maestro-effects`);
-  const index = await pack.getIndex({ fields: ["system.slug"] });
-  const entry = index.find((e) => e.system?.slug === slug);
-  if (!entry) return null;
-  const source = await pack.getDocument(entry._id);
-  const [created] = await actor.createEmbeddedDocuments("Item", [source.toObject()]);
-  return created;
-}
-
-async function removeModuleEffect(actor, slug) {
-  const effect = actor.itemTypes.effect?.find((e) => e.slug === slug);
-  if (effect) await effect.delete();
 }

@@ -1,0 +1,24 @@
+{
+  "_id": "r6xhODMlHU447Kjy",
+  "_key": "!items!r6xhODMlHU447Kjy",
+  "name": "Coordinated Strike",
+  "type": "action",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": "offensive",
+    "description": {
+      "value": "<p>You coordinate multiple pawns to strike at the same time. Each target makes a melee or ranged Strike against a valid target, with a –2 penalty. If both Strikes hit the same creature, combine their damage for the purpose of resistances and weaknesses. Both attacks count toward your multiple attack penalty, but the penalty doesn't increase until after you've made both of them.</p><p><strong>Targets</strong> 2 Controlled pawns</p><p><em>With Coordinated Assault (15th), you can spend 1 additional action to target a third pawn instead, at a –4 penalty.</em></p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "coordinated-strike",
+    "traits": { "value": ["formation", "magical", "maestro", "pawn"], "rarity": "common" }
+  }
+}

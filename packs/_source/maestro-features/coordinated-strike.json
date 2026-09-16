@@ -27,7 +27,7 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [],
+    "rules": [{ "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.r6xhODMlHU447Kjy" }],
     "slug": "coordinated-strike",
     "traits": {
       "value": [

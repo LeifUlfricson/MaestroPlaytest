@@ -27,7 +27,7 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [],
+    "rules": [{ "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.0cNI7P5nweyBCFia" }],
     "slug": "formations",
     "traits": {
       "value": [

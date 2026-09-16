@@ -5,6 +5,8 @@ import { projectMaestro } from "./link/link-service.js";
 import { takeControl } from "./actions/take-control.js";
 import { releaseControl } from "./actions/release-control.js";
 import { switchForm } from "./actions/switch-form.js";
+import { advance } from "./actions/advance.js";
+import { coordinatedStrike } from "./actions/coordinated-strike.js";
 
 export function buildApi() {
   return {
@@ -13,6 +15,6 @@ export function buildApi() {
     packPawn,
     unpackPawn,
     applyFatebound,
-    actions: { takeControl, releaseControl, switchForm },
+    actions: { takeControl, releaseControl, switchForm, advance, coordinatedStrike },
   };
 }

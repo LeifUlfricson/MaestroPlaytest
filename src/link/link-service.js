@@ -1,6 +1,7 @@
 import { MODULE_ID } from "../config.js";
 import { pawnAbilityMods } from "../rules/pawn-stats.js";
 import { buildCraftLinkRules, buildLinkItemRules, buildPawnUpdate, rulesEqual } from "./projection.js";
+import { buildFeatureLinkRules } from "./feature-map.js";
 
 const LINK_EFFECT_NAME = "Maestro Link";
 const DEBOUNCE_MS = 100;
@@ -67,6 +68,7 @@ function buildMaestroSnapshot(maestro) {
   const { armorPotency, resilientRank } = readArmorRunes(maestro);
   const { weaponPotency, strikingRank, propertyRunes } = readInvestedWeaponRunes(maestro);
   const skills = readSkills(maestro);
+  const featureSlugs = maestro.itemTypes.feat?.map((i) => i.slug) ?? [];
   return {
     level,
     intMod,
@@ -79,6 +81,7 @@ function buildMaestroSnapshot(maestro) {
     strikingRank,
     propertyRunes,
     skills,
+    featureSlugs,
   };
 }
 
@@ -153,6 +156,7 @@ async function projectPawn(pawn, maestroSnapshot) {
       form: pawnFlags.form ?? null,
       level: maestroSnapshot.level,
     }),
+    ...buildFeatureLinkRules({ featureSlugs: maestroSnapshot.featureSlugs }),
   ];
 
   const existing = pawn.itemTypes.effect?.find((e) => e.name === LINK_EFFECT_NAME);

@@ -1,11 +1,15 @@
 import { takeControl } from "../actions/take-control.js";
 import { releaseControl } from "../actions/release-control.js";
 import { switchForm } from "../actions/switch-form.js";
+import { advance } from "../actions/advance.js";
+import { coordinatedStrike } from "../actions/coordinated-strike.js";
 
 const HANDLERS = {
   "take-control": takeControl,
   "release-control": releaseControl,
   "switch-form": switchForm,
+  advance,
+  "coordinated-strike": coordinatedStrike,
 };
 
 /**
