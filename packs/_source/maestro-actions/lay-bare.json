@@ -1,0 +1,24 @@
+{
+  "_id": "3ILztAC0HInBHalC",
+  "_key": "!items!3ILztAC0HInBHalC",
+  "name": "Lay Bare",
+  "type": "action",
+  "img": "icons/svg/downgrade.svg",
+  "system": {
+    "actionType": { "value": "reaction" },
+    "actions": { "value": null },
+    "category": "defensive",
+    "description": {
+      "value": "<p>You quickly command your pawn to relax its defenses and embrace harm. If the triggering effect uses an attack roll, you can choose to have the attack hit the pawn as though the attacker had rolled a success, instead of rolling. If the pawn must attempt a saving throw, you can choose to have it fail (but not critically fail) instead of rolling.</p><p><strong>Trigger</strong> The pawn is targeted by an attack, spell, or hostile effect.</p><p>This uses the maestro's shared reaction; the GM applies the chosen outcome.</p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "lay-bare",
+    "traits": { "value": ["magical", "maestro", "manipulate", "pawn"], "rarity": "common" }
+  }
+}

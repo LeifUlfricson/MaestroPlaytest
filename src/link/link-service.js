@@ -1,6 +1,6 @@
 import { MODULE_ID } from "../config.js";
 import { pawnAbilityMods } from "../rules/pawn-stats.js";
-import { buildLinkItemRules, buildPawnUpdate, rulesEqual } from "./projection.js";
+import { buildCraftLinkRules, buildLinkItemRules, buildPawnUpdate, rulesEqual } from "./projection.js";
 
 const LINK_EFFECT_NAME = "Maestro Link";
 const DEBOUNCE_MS = 100;
@@ -135,17 +135,25 @@ async function projectPawn(pawn, maestroSnapshot) {
 
   await pawn.update(buildPawnUpdate({ level: maestroSnapshot.level, abilities }));
 
-  const rules = buildLinkItemRules({
-    intMod: abilities.int,
-    armorPotency: maestroSnapshot.armorPotency,
-    metal,
-    resilientRank: maestroSnapshot.resilientRank,
-    skills: maestroSnapshot.skills,
-    weaponPotency: maestroSnapshot.weaponPotency,
-    strikingRank: maestroSnapshot.strikingRank,
-    propertyRunes: maestroSnapshot.propertyRunes,
-    size,
-  });
+  const rules = [
+    ...buildLinkItemRules({
+      intMod: abilities.int,
+      armorPotency: maestroSnapshot.armorPotency,
+      metal,
+      resilientRank: maestroSnapshot.resilientRank,
+      skills: maestroSnapshot.skills,
+      weaponPotency: maestroSnapshot.weaponPotency,
+      strikingRank: maestroSnapshot.strikingRank,
+      propertyRunes: maestroSnapshot.propertyRunes,
+      size,
+    }),
+    ...buildCraftLinkRules({
+      craft: pawnFlags.craft ?? null,
+      elements: pawnFlags.elements ?? null,
+      form: pawnFlags.form ?? null,
+      level: maestroSnapshot.level,
+    }),
+  ];
 
   const existing = pawn.itemTypes.effect?.find((e) => e.name === LINK_EFFECT_NAME);
   if (existing) {

@@ -1,0 +1,18 @@
+{
+  "_id": "KlTzFFSXJrFgyrvu",
+  "_key": "!items!KlTzFFSXJrFgyrvu",
+  "name": "Resonant Form",
+  "type": "effect",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": {
+      "value": "<p>Unlike ordinary matter, the magical substance that makes up your pawns can flow freely across short distances, letting them enhance one another's power. This Ethereal Pawn gains a circumstance bonus to damage with its Strikes equal to the number of attack-form Ethereal Pawns adjacent to it, and a circumstance bonus to AC equal to the number of defense-form Ethereal Pawns adjacent to it.</p><p>Counting adjacent pawns by form isn't automated yet (a DESIGN.md §5 M8 stretch goal); the GM and players track and apply these bonuses by hand for now.</p>"
+    },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": false },
+    "unidentified": false,
+    "rules": [],
+    "slug": "resonant-form",
+    "traits": { "value": [], "rarity": "common" }
+  }
+}

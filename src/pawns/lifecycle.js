@@ -1,4 +1,6 @@
-import { MODULE_ID } from "../config.js";
+import { MODULE_ID, SETTINGS } from "../config.js";
+import { sealedFateDice } from "../rules/progression.js";
+import { maestroClassDC } from "../rules/pawn-stats.js";
 import { drawTether, removeTether } from "../integrations/tethers.js";
 import { replacePackedPawnWithRemains } from "./packing.js";
 
@@ -16,7 +18,9 @@ export function registerLifecycleHooks() {
     if (!isPawn(actor)) return;
     const newHP = foundry.utils.getProperty(changed, "system.attributes.hp.value");
     if (newHP === undefined) return;
-    handleHPChange(actor, options.maestroPawnOldHP, newHP).catch((err) => console.error(`${MODULE_ID} |`, err));
+    const oldHP = options.maestroPawnOldHP;
+    handleHPChange(actor, oldHP, newHP).catch((err) => console.error(`${MODULE_ID} |`, err));
+    checkSealedFate(actor, oldHP, newHP).catch((err) => console.error(`${MODULE_ID} |`, err));
   });
 
   Hooks.on("createItem", (item) => handleConditionChange(item));
@@ -38,6 +42,61 @@ async function handleHPChange(pawn, oldHP, newHP) {
     await setInactive(pawn, { reason: "hp-zero" });
     await addBroken(pawn);
   }
+}
+
+/**
+ * Sympathetic Craft's Sealed Fate (DESIGN.md §6.1): any HP loss on a Sympathetic pawn (Q13:
+ * including self-inflicted loss) damages whichever creature is currently fatebound to it.
+ * (verify) the @Check/@Damage inline-roll syntax against the installed system.
+ */
+async function checkSealedFate(pawn, oldHP, newHP) {
+  if (oldHP === undefined || newHP >= oldHP) return;
+  if (!game.settings.get(MODULE_ID, SETTINGS.SEALED_FATE_CARDS)) return;
+  const pawnFlags = pawn.getFlag(MODULE_ID, "pawn") ?? {};
+  if (pawnFlags.craft !== "sympathetic") return;
+
+  const target = findFateboundBearer(pawn);
+  const maestro = pawnFlags.maestroUuid ? await fromUuid(pawnFlags.maestroUuid) : null;
+  if (!target || !maestro) return;
+
+  const level = maestro.system.details.level.value;
+  const dice = sealedFateDice(level);
+  const classDC = maestroClassDC({ level, intMod: maestro.system.abilities.int.mod });
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: pawn }),
+    content: `<p><strong>Sealed Fate:</strong> ${target.name} is fatebound to ${pawn.name}.</p><p>@Check[will|dc:${classDC}|basic] against @Damage[${dice}d6[spirit]]</p>`,
+  });
+}
+
+/** Finds the actor (anywhere on the current scene) carrying a Fatebound effect from this pawn. */
+function findFateboundBearer(pawn) {
+  for (const token of canvas?.scene?.tokens ?? []) {
+    const actor = token.actor;
+    if (actor?.itemTypes.effect?.some((e) => e.slug === "fatebound" && e.getFlag(MODULE_ID, "pawnUuid") === pawn.uuid)) {
+      return actor;
+    }
+  }
+  return null;
+}
+
+/**
+ * Applies Fatebound to a target, removing any other Fatebound effect from the same maestro
+ * first (DESIGN.md §6.1: "Only one creature ... can be fatebound at a time").
+ * @param {Actor} target
+ * @param {Actor} pawn
+ */
+export async function applyFatebound(target, pawn) {
+  const maestroUuid = pawn.getFlag(MODULE_ID, "pawn")?.maestroUuid;
+  for (const token of canvas?.scene?.tokens ?? []) {
+    const existing = token.actor?.itemTypes.effect?.find(
+      (e) => e.slug === "fatebound" && e.getFlag(MODULE_ID, "maestroUuid") === maestroUuid,
+    );
+    if (existing) await existing.delete();
+  }
+
+  const created = await createModuleEffect(target, "fatebound");
+  if (created) await created.setFlag(MODULE_ID, "pawnUuid", pawn.uuid).then(() => created.setFlag(MODULE_ID, "maestroUuid", maestroUuid));
 }
 
 /** DESIGN.md §5.2 "Maestro unconscious": all Controlled pawns go Inactive, unless Beyond the Pale. */
@@ -66,6 +125,17 @@ export async function setInactive(pawn) {
   await pawn.setFlag(MODULE_ID, "pawn.state", "inactive");
   await rotateToken(pawn, 90);
   removeTether(pawn);
+  await removeFateboundCausedBy(pawn);
+}
+
+/** Fatebound "ends automatically ... when the linked pawn becomes Inactive" (DESIGN.md §6.1). */
+async function removeFateboundCausedBy(pawn) {
+  for (const token of canvas?.scene?.tokens ?? []) {
+    const effect = token.actor?.itemTypes.effect?.find(
+      (e) => e.slug === "fatebound" && e.getFlag(MODULE_ID, "pawnUuid") === pawn.uuid,
+    );
+    if (effect) await effect.delete();
+  }
 }
 
 async function addBroken(pawn) {

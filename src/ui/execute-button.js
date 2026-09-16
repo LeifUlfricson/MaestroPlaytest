@@ -1,9 +1,11 @@
 import { takeControl } from "../actions/take-control.js";
 import { releaseControl } from "../actions/release-control.js";
+import { switchForm } from "../actions/switch-form.js";
 
 const HANDLERS = {
   "take-control": takeControl,
   "release-control": releaseControl,
+  "switch-form": switchForm,
 };
 
 /**

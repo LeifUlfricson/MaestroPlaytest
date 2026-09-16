@@ -1,0 +1,24 @@
+{
+  "_id": "J8cpqmoEyvDgku62",
+  "_key": "!items!J8cpqmoEyvDgku62",
+  "name": "Switch Form",
+  "type": "action",
+  "img": "icons/svg/clockwork.svg",
+  "system": {
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": "utility",
+    "description": {
+      "value": "<p>You can switch any number of Controlled Ethereal Pawns from attack form to defense form, or vice versa. Whenever one of your Inactive Ethereal Pawns becomes Controlled, you choose which form it takes.</p><p><em>Traits and action cost per DESIGN.md Q4 (the rules text doesn't give this action a stat block).</em></p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "switch-form",
+    "traits": { "value": ["magical", "maestro", "manipulate"], "rarity": "common" }
+  }
+}

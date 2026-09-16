@@ -38,7 +38,7 @@
         "sizes": ["sm"],
         "speed": 25,
         "description": {
-          "value": "<p>A pawn's ancestry stub. Its actual size, Speed, and Hit Points are layered on top by the pawn's Craft and the maestro's Craft chassis; see DESIGN.md §4.1 and §2.2.</p>"
+          "value": "<p>A pawn's ancestry stub. Its actual size, Speed, and Hit Points are layered on top by the pawn's Craft and the maestro's Craft chassis; see DESIGN.md §4.1 and §2.2. The healing immunity lives on the Craft chassis instead of here, because Flesh pawns omit it (Stitched Together, §6.1).</p>"
         },
         "publication": {
           "title": "Maestro (Beta v2.1 / Playtest v1.0)",
@@ -50,7 +50,6 @@
           { "key": "Immunity", "type": "bleed" },
           { "key": "Immunity", "type": "death-effects" },
           { "key": "Immunity", "type": "disease" },
-          { "key": "Immunity", "type": "healing" },
           { "key": "Immunity", "type": "nonlethal-attacks" },
           { "key": "Immunity", "type": "poison" },
           { "key": "Immunity", "type": "vitality" },

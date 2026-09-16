@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildLinkItemRules, buildPawnUpdate, rulesEqual } from "./projection.js";
+import { buildCraftLinkRules, buildLinkItemRules, buildPawnUpdate, rulesEqual } from "./projection.js";
 
 describe("buildPawnUpdate", () => {
   it("writes the level and all six ability modifiers", () => {
@@ -100,5 +100,49 @@ describe("rulesEqual (idempotency)", () => {
     const a = buildLinkItemRules({ intMod: 4 });
     const b = buildLinkItemRules({ intMod: 5 });
     expect(rulesEqual(a, b)).toBe(false);
+  });
+});
+
+describe("buildCraftLinkRules", () => {
+  it("non-Ethereal, non-Elemental crafts add nothing", () => {
+    expect(buildCraftLinkRules({ craft: "flesh", level: 5 })).toEqual([]);
+    expect(buildCraftLinkRules({ craft: "sympathetic", level: 5 })).toEqual([]);
+    expect(buildCraftLinkRules({})).toEqual([]);
+  });
+
+  it("Ethereal pawns expose their current form as a roll option", () => {
+    expect(buildCraftLinkRules({ craft: "ethereal", form: "attack" })).toContainEqual({
+      key: "RollOption",
+      domain: "all",
+      option: "ethereal-form:attack",
+    });
+    expect(buildCraftLinkRules({ craft: "ethereal", form: "defense" })).toContainEqual({
+      key: "RollOption",
+      domain: "all",
+      option: "ethereal-form:defense",
+    });
+  });
+
+  it("Elemental metal/fire gets both roll options and both element traits, but no speed or resistance", () => {
+    const rules = buildCraftLinkRules({ craft: "elemental", elements: { physical: "metal", magical: "fire" }, level: 5 });
+    expect(rules).toContainEqual({ key: "RollOption", domain: "all", option: "physical-element:metal" });
+    expect(rules).toContainEqual({ key: "RollOption", domain: "all", option: "magical-element:fire" });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "metal" });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "fire" });
+    expect(rules.some((r) => r.key === "FlatModifier" || r.key === "Resistance")).toBe(false);
+  });
+
+  it("Elemental wood/electricity gets the air trait (not electricity) and +5 Speed", () => {
+    const rules = buildCraftLinkRules({ craft: "elemental", elements: { physical: "wood", magical: "electricity" }, level: 5 });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "wood" });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "air" });
+    expect(rules).toContainEqual({ key: "FlatModifier", selector: "speed", type: "untyped", value: 5 });
+  });
+
+  it("Elemental stone/cold gets the water trait (not cold) and physical resistance", () => {
+    const rules = buildCraftLinkRules({ craft: "elemental", elements: { physical: "stone", magical: "cold" }, level: 10 });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "earth" });
+    expect(rules).toContainEqual({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: "water" });
+    expect(rules).toContainEqual({ key: "Resistance", type: "physical", value: 6 });
   });
 });

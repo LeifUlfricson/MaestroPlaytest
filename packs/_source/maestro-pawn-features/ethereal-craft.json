@@ -1,0 +1,63 @@
+{
+  "_id": "uYwMjKp6BLL2Sfdg",
+  "_key": "!items!uYwMjKp6BLL2Sfdg",
+  "name": "Ethereal Pawn",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": { "value": "passive" },
+    "actions": { "value": null },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>While in attack form, your Ethereal Pawns can make force bolt ranged unarmed attacks, which have a maximum range of 40 feet. These deal 1d6 force damage, are in the sling group, and have the agile, magical, and unarmed traits. While in defense form, your Ethereal Pawns can make force bash unarmed attacks. These deal 1d6 force damage, are in the shield group, and have the finesse, forceful, parry, and unarmed traits.</p><p>The maestro module tracks the pawn's current form as <code>flags.pf2e-maestro.pawn.form</code> and switches it with the Switch Form action; the generated Maestro Link effect exposes it as the <code>ethereal-form:attack</code> / <code>ethereal-form:defense</code> roll option these Strikes predicate on.</p><p><strong>Greater Form (5th):</strong> your Ethereal Pawns gain the Warp Strike action (attack form) and the Shield Barrier action (defense form).</p><p><strong>Resonant Form (11th):</strong> each of your Ethereal Pawns gains a circumstance bonus to damage with its Strikes equal to the number of attack-form Ethereal Pawns adjacent to it, and a circumstance bonus to AC equal to the number of defense-form Ethereal Pawns adjacent to it.</p>"
+    },
+    "prerequisites": { "value": [] },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      { "key": "Immunity", "type": "healing" },
+      {
+        "key": "Strike",
+        "label": "Force Bolt",
+        "slug": "force-bolt",
+        "category": "unarmed",
+        "group": "sling",
+        "range": 40,
+        "damage": { "base": { "damageType": "force", "dice": 1, "die": "d6" } },
+        "traits": ["agile", "magical", "unarmed"],
+        "predicate": ["ethereal-form:attack"]
+      },
+      {
+        "key": "Strike",
+        "label": "Force Bash",
+        "slug": "force-bash",
+        "category": "unarmed",
+        "group": "shield",
+        "damage": { "base": { "damageType": "force", "dice": 1, "die": "d6" } },
+        "traits": ["finesse", "forceful", "parry", "unarmed"],
+        "predicate": ["ethereal-form:defense"]
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.utDxcoxjF2kHMbsa",
+        "predicate": [{ "gte": ["self:level", 5] }]
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.XMJsWNWTCYzhXZ2I",
+        "predicate": [{ "gte": ["self:level", 5] }]
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-effects.Item.KlTzFFSXJrFgyrvu",
+        "predicate": [{ "gte": ["self:level", 11] }]
+      }
+    ],
+    "slug": "ethereal-pawn",
+    "traits": { "value": ["pawn"], "rarity": "common" }
+  }
+}

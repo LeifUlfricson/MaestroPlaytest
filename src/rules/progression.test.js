@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { controlWeight, pawnBulk, pawnCap, rangeOfControl } from "./progression.js";
+import { controlWeight, pawnBulk, pawnCap, rangeOfControl, sealedFateDice } from "./progression.js";
 
 describe("pawnCap (DESIGN.md §8.1)", () => {
   it.each([
@@ -46,5 +46,17 @@ describe("pawnBulk", () => {
     expect(pawnBulk({ size: "sm" })).toBe(1);
     expect(pawnBulk({ size: "med" })).toBe(2);
     expect(pawnBulk({ size: "lg" })).toBe(6);
+  });
+});
+
+describe("sealedFateDice (DESIGN.md §8.1)", () => {
+  it.each([
+    [1, 1],
+    [5, 2],
+    [9, 3],
+    [13, 4],
+    [17, 5],
+  ])("at level %i it's %id6", (level, expected) => {
+    expect(sealedFateDice(level)).toBe(expected);
   });
 });

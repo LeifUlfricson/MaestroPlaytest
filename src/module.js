@@ -4,6 +4,7 @@ import { registerLinkService } from "./link/link-service.js";
 import { registerLifecycleHooks } from "./pawns/lifecycle.js";
 import { registerRangeWatcher } from "./pawns/range.js";
 import { registerTethers } from "./integrations/tethers.js";
+import { registerFocusEntry } from "./spells/focus-entry.js";
 import { createPawn } from "./pawns/create-pawn.js";
 import { registerExecuteButton } from "./ui/execute-button.js";
 import { registerTokenHud } from "./ui/token-hud.js";
@@ -15,6 +16,7 @@ Hooks.once("init", () => {
   registerLifecycleHooks();
   registerRangeWatcher();
   registerTethers();
+  registerFocusEntry();
   registerExecuteButton();
   registerTokenHud();
   game.modules.get(MODULE_ID).api = buildApi();

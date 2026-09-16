@@ -28,3 +28,12 @@ export function pawnBulk({ size = "sm" } = {}) {
   if (size === "med") return 2;
   return 1;
 }
+
+/** Sympathetic Craft's Sealed Fate damage dice by maestro level (DESIGN.md §6.1, §8.1). */
+export function sealedFateDice(level) {
+  let dice = 1;
+  for (const threshold of [5, 9, 13, 17]) {
+    if (level >= threshold) dice++;
+  }
+  return dice;
+}

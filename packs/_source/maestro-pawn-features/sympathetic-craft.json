@@ -1,0 +1,44 @@
+{
+  "_id": "ZHEEXW25qgsHdX3X",
+  "_key": "!items!ZHEEXW25qgsHdX3X",
+  "name": "Sympathetic Pawn",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": { "value": "passive" },
+    "actions": { "value": null },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your Sympathetic Pawns can make steal essence unarmed attacks. These deal 1d8 spirit damage, are in the brawling group, and have the agile, finesse, spirit, and unarmed traits. A creature damaged by this attack becomes fatebound, linked to the pawn that damaged it.</p><p>Whenever one of your Sympathetic Pawns loses Hit Points, the creature linked to it by the fatebound condition takes spirit damage with a basic Will save against your class DC (Sealed Fate; automated by the module, §6.1).</p><p>Your Sympathetic Pawns gain the Lay Bare reaction.</p>"
+    },
+    "prerequisites": { "value": [] },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      { "key": "Immunity", "type": "healing" },
+      {
+        "key": "Strike",
+        "label": "Steal Essence",
+        "slug": "steal-essence",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": { "base": { "damageType": "spirit", "dice": 1, "die": "d8" } },
+        "traits": ["agile", "finesse", "spirit", "unarmed"]
+      },
+      {
+        "key": "Note",
+        "selector": "steal-essence-damage",
+        "title": "{item|name}",
+        "text": "PF2E_MAESTRO.Item.StealEssence.Note",
+        "outcome": ["success", "criticalSuccess"]
+      },
+      { "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.3ILztAC0HInBHalC" }
+    ],
+    "slug": "sympathetic-pawn",
+    "traits": { "value": ["pawn"], "rarity": "common" }
+  }
+}

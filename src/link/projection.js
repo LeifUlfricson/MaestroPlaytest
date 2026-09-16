@@ -4,6 +4,13 @@
  * elements for the generated "Maestro Link" effect (DESIGN.md §4.3). No Foundry globals.
  */
 
+import { stoneResistance } from "../rules/pawn-stats.js";
+
+/** Elemental Craft's magical-element trait remapping: cold -> water, electricity -> air (DESIGN.md §2.4). */
+const MAGICAL_ELEMENT_TRAIT = { fire: "fire", cold: "water", electricity: "air" };
+/** Elemental Craft's physical-element trait: wood -> wood, stone -> earth, metal -> metal (DESIGN.md §2.4). */
+const PHYSICAL_ELEMENT_TRAIT = { wood: "wood", stone: "earth", metal: "metal" };
+
 /**
  * The pawn actor source patch: level and the six ability modifiers (DESIGN.md §2.2, §4.3).
  * @param {object} input
@@ -97,4 +104,45 @@ export function buildLinkItemRules({
 /** Deep-equality check used to skip writing when projection would be a no-op (DESIGN.md §4.3, item 3). */
 export function rulesEqual(a, b) {
   return JSON.stringify(a) === JSON.stringify(b);
+}
+
+/**
+ * The Craft-dependent rule elements for the generated "Maestro Link" effect (DESIGN.md §6.1):
+ * the Ethereal form roll option the chassis Strikes predicate on, and the Elemental traits,
+ * Solid Body Speed/Resistance, and the physical/magical-element roll options the chassis Strike's
+ * conditional traits (parry, the magical-element trait) predicate on. Elemental Warding and
+ * Elemental Avatar are level-gated rule elements on the static chassis item instead, since they
+ * don't depend on which element was chosen.
+ * @param {object} input
+ * @param {"flesh"|"ethereal"|"elemental"|"sympathetic"|null} [input.craft]
+ * @param {{physical: string, magical: string}|null} [input.elements]
+ * @param {"attack"|"defense"|null} [input.form]
+ * @param {number} [input.level]
+ */
+export function buildCraftLinkRules({ craft, elements, form, level } = {}) {
+  const rules = [];
+
+  if (craft === "ethereal" && form) {
+    rules.push({ key: "RollOption", domain: "all", option: `ethereal-form:${form}` });
+  }
+
+  if (craft === "elemental" && elements) {
+    rules.push({ key: "RollOption", domain: "all", option: `physical-element:${elements.physical}` });
+    rules.push({ key: "RollOption", domain: "all", option: `magical-element:${elements.magical}` });
+
+    const physicalTrait = PHYSICAL_ELEMENT_TRAIT[elements.physical];
+    if (physicalTrait) rules.push({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: physicalTrait });
+
+    const magicalTrait = MAGICAL_ELEMENT_TRAIT[elements.magical];
+    if (magicalTrait) rules.push({ key: "ActiveEffectLike", mode: "add", path: "system.traits.value", value: magicalTrait });
+
+    if (elements.physical === "wood") {
+      rules.push({ key: "FlatModifier", selector: "speed", type: "untyped", value: 5 });
+    }
+    if (elements.physical === "stone") {
+      rules.push({ key: "Resistance", type: "physical", value: stoneResistance(level) });
+    }
+  }
+
+  return rules;
 }

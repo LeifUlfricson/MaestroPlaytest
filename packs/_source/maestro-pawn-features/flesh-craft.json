@@ -1,0 +1,57 @@
+{
+  "_id": "nHPIKqg1p2MYIlpS",
+  "_key": "!items!nHPIKqg1p2MYIlpS",
+  "name": "Flesh Pawn",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": { "value": "passive" },
+    "actions": { "value": null },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your Flesh Pawns can make rancid bite unarmed attacks. These deal 1d8 poison damage, are in the brawling group, and have the deadly d8, finesse, grapple, poison, and unarmed traits. On a critical hit, the target also takes 1d4 persistent poison damage per weapon damage die.</p><p><strong>Connective Tissue (5th):</strong> your Flesh Pawns gain an additional 3 Hit Points per level.</p><p><strong>Putrid Pins (11th):</strong> your Flesh Pawns gain the Putrid Pins action.</p>"
+    },
+    "prerequisites": { "value": [] },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      { "key": "Immunity", "type": "healing" },
+      {
+        "key": "Strike",
+        "label": "Rancid Bite",
+        "slug": "rancid-bite",
+        "category": "unarmed",
+        "group": "brawling",
+        "damage": { "base": { "damageType": "poison", "dice": 1, "die": "d8" } },
+        "traits": ["deadly-d8", "finesse", "grapple", "poison", "unarmed"]
+      },
+      {
+        "key": "DamageDice",
+        "selector": "rancid-bite-damage",
+        "diceNumber": "@weapon.system.damage.dice",
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent",
+        "critical": true
+      },
+      {
+        "key": "FlatModifier",
+        "selector": "hp-per-level",
+        "type": "untyped",
+        "value": 3,
+        "predicate": [{ "gte": ["self:level", 5] }]
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.ewFmpl99EPbNCWqV",
+        "predicate": [{ "gte": ["self:level", 11] }]
+      }
+    ],
+    "slug": "flesh-pawn",
+    "traits": { "value": ["pawn"], "rarity": "common" }
+  }
+}

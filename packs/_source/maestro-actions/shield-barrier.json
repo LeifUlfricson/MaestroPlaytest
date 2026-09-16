@@ -1,0 +1,24 @@
+{
+  "_id": "XMJsWNWTCYzhXZ2I",
+  "_key": "!items!XMJsWNWTCYzhXZ2I",
+  "name": "Shield Barrier",
+  "type": "action",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": "defensive",
+    "description": {
+      "value": "<p>The pawn stretches its magical form wide, ready to defend both itself and your allies. As long as it continues parrying, all allies adjacent to it gain a +1 circumstance bonus to AC until the start of your next turn.</p><p><strong>Requirements</strong> The pawn is parrying.</p><p><em>Requires an Ethereal Pawn in defense form.</em></p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "shield-barrier",
+    "traits": { "value": ["magical", "maestro", "pawn"], "rarity": "common" }
+  }
+}

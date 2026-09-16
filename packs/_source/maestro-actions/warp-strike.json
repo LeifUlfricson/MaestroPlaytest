@@ -1,0 +1,25 @@
+{
+  "_id": "utDxcoxjF2kHMbsa",
+  "_key": "!items!utDxcoxjF2kHMbsa",
+  "name": "Warp Strike",
+  "type": "action",
+  "img": "icons/svg/explosion.svg",
+  "system": {
+    "actionType": { "value": "action" },
+    "actions": { "value": 2 },
+    "category": "offensive",
+    "description": {
+      "value": "<p>The pawn makes a force bolt Strike that deals one extra weapon damage die. This Strike counts as two attacks when calculating your multiple attack penalty. If the target has any circumstance bonuses to AC (such as from a shield or cover), reduce those bonuses by 2 for this attack. The Strike deals two extra dice if you're 10th level or higher, and three extra dice if you're 18th level or higher.</p><p><strong>Frequency</strong> once per round</p><p><em>Requires an Ethereal Pawn in attack form.</em></p>"
+    },
+    "frequency": { "max": 1, "per": "round" },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "warp-strike",
+    "traits": { "value": ["attack", "magical", "maestro", "pawn"], "rarity": "common" }
+  }
+}

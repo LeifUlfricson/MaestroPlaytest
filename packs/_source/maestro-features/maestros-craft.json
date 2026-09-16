@@ -27,7 +27,46 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "craft",
+        "rollOption": "maestro:craft",
+        "prompt": "Choose your Craft",
+        "choices": [
+          { "value": "flesh", "label": "Flesh Craft" },
+          { "value": "ethereal", "label": "Ethereal Craft" },
+          { "value": "elemental", "label": "Elemental Craft" },
+          { "value": "sympathetic", "label": "Sympathetic Craft" }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "sympatheticSkill",
+        "rollOption": "maestro:craft-skill",
+        "prompt": "Choose Religion or Occultism",
+        "predicate": ["maestro:craft:sympathetic"],
+        "choices": [
+          { "value": "religion", "label": "Religion" },
+          { "value": "occultism", "label": "Occultism" }
+        ]
+      },
+      { "key": "ActiveEffectLike", "mode": "upgrade", "path": "system.skills.medicine.rank", "value": 1, "predicate": ["maestro:craft:flesh"] },
+      { "key": "ActiveEffectLike", "mode": "upgrade", "path": "system.skills.arcana.rank", "value": 1, "predicate": ["maestro:craft:ethereal"] },
+      { "key": "ActiveEffectLike", "mode": "upgrade", "path": "system.skills.nature.rank", "value": 1, "predicate": ["maestro:craft:elemental"] },
+      { "key": "ActiveEffectLike", "mode": "upgrade", "path": "system.skills.religion.rank", "value": 1, "predicate": ["maestro:craft-skill:religion"] },
+      { "key": "ActiveEffectLike", "mode": "upgrade", "path": "system.skills.occultism.rank", "value": 1, "predicate": ["maestro:craft-skill:occultism"] },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.zD1Eot2XE5y2JG7I",
+        "predicate": ["maestro:craft:sympathetic", { "gte": ["self:level", 11] }]
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.J8cpqmoEyvDgku62",
+        "predicate": ["maestro:craft:ethereal"]
+      }
+    ],
     "slug": "maestros-craft",
     "traits": {
       "value": [

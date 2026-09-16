@@ -1,0 +1,24 @@
+{
+  "_id": "zD1Eot2XE5y2JG7I",
+  "_key": "!items!zD1Eot2XE5y2JG7I",
+  "name": "Fate's Embrace",
+  "type": "action",
+  "img": "icons/svg/wing.svg",
+  "system": {
+    "actionType": { "value": "reaction" },
+    "actions": { "value": null },
+    "category": "defensive",
+    "description": {
+      "value": "<p>You subtly manipulate your foe's fate, drawing it into harm's way. The target attempts a Will save against your class DC. Regardless of the result, the target is then temporarily immune to Fate's Embrace until your next daily preparations.</p><p><strong>Critical Success</strong> The target is unaffected.</p><p><strong>Success</strong> The target takes a –2 status penalty to AC and saving throws against the triggering effect.</p><p><strong>Failure</strong> The target lets the triggering effect hit it, as though it were the target of Lay Bare.</p><p><strong>Critical Failure</strong> As failure, except an attack against the target's AC is a critical hit, and the target critically fails any saving throw the triggering effect forces it to attempt.</p><p><strong>Trigger</strong> A fatebound creature is targeted by an attack, spell, or harmful effect.</p>"
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "fates-embrace",
+    "traits": { "value": ["magical", "maestro", "manipulate", "spirit"], "rarity": "common" }
+  }
+}
