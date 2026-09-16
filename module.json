@@ -2,7 +2,7 @@
   "id": "pf2e-maestro",
   "title": "Maestro (PF2e Homebrew Class)",
   "description": "Maestro, a homebrew Pathfinder 2e class that commands a team of magical puppets called pawns. Playtest v1.0 / Document Beta v2.1, by Erik (Lucky Thirteen).",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "authors": [{ "name": "Erik (Lucky Thirteen)" }],
   "compatibility": { "minimum": "14.361", "verified": "14.367" },
   "relationships": {

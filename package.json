@@ -1,6 +1,6 @@
 {
   "name": "pf2e-maestro",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "Maestro, a homebrew Pathfinder 2e class, as a Foundry VTT module.",
