@@ -13,11 +13,14 @@ export async function castBlitz(maestro) {
   const controlled = pawns.filter((p) => p.getFlag(MODULE_ID, "pawn")?.state === "controlled");
 
   if (!controlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled pawns.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.Blitz.NoneControlled", { name: maestro.name }));
     return;
   }
 
-  const chosen = await pickPawns(controlled, { title: "Blitz", hint: "Choose Controlled pawns to act." });
+  const chosen = await pickPawns(controlled, {
+    title: game.i18n.localize("PF2E_MAESTRO.UI.Blitz.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.Blitz.Hint"),
+  });
   if (!chosen?.length) return;
 
   await ChatMessage.create({

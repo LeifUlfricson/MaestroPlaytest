@@ -17,11 +17,14 @@ export async function takeControl(maestro) {
   const pawns = await pawnsOf(maestro);
   const eligible = pawns.filter((p) => isEligible(p, maestro));
   if (!eligible.length) {
-    ui.notifications.info(`${maestro.name} has no Inactive pawns within reach to Control.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.TakeControl.NoneEligible", { name: maestro.name }));
     return;
   }
 
-  const chosen = await pickPawns(eligible, { title: "Take Control", hint: "Choose Inactive pawns to Control." });
+  const chosen = await pickPawns(eligible, {
+    title: game.i18n.localize("PF2E_MAESTRO.UI.TakeControl.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.TakeControl.Hint"),
+  });
   if (!chosen?.length) return;
 
   if (game.settings.get(MODULE_ID, SETTINGS.ENFORCE_CONTROL_CAP)) {
@@ -45,14 +48,14 @@ async function enforceControlCap(maestro, allPawns, chosen) {
   if (overBy <= 0) return [];
 
   const toRelease = await pickPawns(controlled, {
-    title: "Release Control",
-    hint: `Controlling ${chosen.length} more pawn(s) exceeds your cap of ${cap}. Choose Controlled pawns to release.`,
+    title: game.i18n.localize("PF2E_MAESTRO.UI.TakeControl.ReleaseTitle"),
+    hint: game.i18n.format("PF2E_MAESTRO.UI.TakeControl.ReleaseHint", { count: chosen.length, cap }),
   });
   if (toRelease === null) return null;
 
   for (const pawn of toRelease) await setInactive(pawn);
   if (weight(controlled.filter((p) => !toRelease.includes(p))) + weight(chosen) > cap) {
-    ui.notifications.warn(`${maestro.name} is still over the control cap of ${cap}.`);
+    ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.TakeControl.StillOverCap", { name: maestro.name, cap }));
   }
   return toRelease;
 }

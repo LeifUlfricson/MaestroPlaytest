@@ -18,11 +18,14 @@ export async function switchForm(maestro) {
   );
 
   if (!etherealControlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled Ethereal pawns to switch.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.SwitchForm.NoneEligible", { name: maestro.name }));
     return;
   }
 
-  const chosen = await pickPawns(etherealControlled, { title: "Switch Form", hint: "Choose pawns to switch form." });
+  const chosen = await pickPawns(etherealControlled, {
+    title: game.i18n.localize("PF2E_MAESTRO.UI.SwitchForm.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.SwitchForm.Hint"),
+  });
   if (!chosen?.length) return;
 
   for (const pawn of chosen) {

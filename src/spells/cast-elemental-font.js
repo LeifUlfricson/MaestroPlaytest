@@ -12,11 +12,15 @@ export async function castElementalFont(maestro) {
   );
 
   if (!elementalControlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled Elemental pawns.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.ElementalFont.NoneEligible", { name: maestro.name }));
     return;
   }
 
-  const [target] = (await pickPawns(elementalControlled, { title: "Elemental Font", hint: "Choose a Controlled Elemental Pawn." })) ?? [];
+  const [target] =
+    (await pickPawns(elementalControlled, {
+      title: game.i18n.localize("PF2E_MAESTRO.UI.ElementalFont.Title"),
+      hint: game.i18n.localize("PF2E_MAESTRO.UI.ElementalFont.Hint"),
+    })) ?? [];
   if (!target) return;
 
   await removeModuleEffect(target, "elemental-font-aura");

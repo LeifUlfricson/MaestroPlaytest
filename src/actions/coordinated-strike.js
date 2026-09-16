@@ -10,7 +10,7 @@ import { pickPawns } from "../ui/pawn-picker.js";
  */
 export async function coordinatedStrike(maestro) {
   if (isFormationLocked(maestro)) {
-    ui.notifications.warn("You've already used a formation action this round.");
+    ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.TakeControl.AlreadyUsed"));
     return;
   }
 
@@ -20,17 +20,17 @@ export async function coordinatedStrike(maestro) {
   const controlled = pawns.filter((p) => p.getFlag(MODULE_ID, "pawn")?.state === "controlled");
 
   if (controlled.length < 2) {
-    ui.notifications.info(`${maestro.name} needs at least 2 Controlled pawns for Coordinated Strike.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.CoordinatedStrike.NotEnough", { name: maestro.name }));
     return;
   }
 
   const chosen = await pickPawns(controlled, {
-    title: "Coordinated Strike",
-    hint: `Choose 2 pawns${hasAssault ? ", or 3 with Coordinated Assault (+1 action)," : ""} to Strike together.`,
+    title: game.i18n.localize("PF2E_MAESTRO.UI.CoordinatedStrike.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.CoordinatedStrike.Hint"),
   });
   if (!chosen) return;
   if (chosen.length !== 2 && !(hasAssault && chosen.length === 3)) {
-    ui.notifications.warn(`Choose exactly 2 pawns${hasAssault ? " (or 3, with Coordinated Assault)" : ""}.`);
+    ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.CoordinatedStrike.WrongCount"));
     return;
   }
 

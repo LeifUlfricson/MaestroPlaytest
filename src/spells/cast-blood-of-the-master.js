@@ -16,7 +16,7 @@ export async function castBloodOfTheMaster(maestro) {
   );
 
   if (!pawns.length) {
-    ui.notifications.info(`${maestro.name} has no Flesh pawns.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.BloodOfTheMaster.NoneEligible", { name: maestro.name }));
     return;
   }
 
@@ -55,18 +55,18 @@ async function promptForSpend(maestro, pawns, currentHP) {
     .join("");
 
   return foundry.applications.api.DialogV2.prompt({
-    window: { title: "Blood of the Master" },
+    window: { title: game.i18n.localize("PF2E_MAESTRO.UI.BloodOfTheMaster.Title") },
     content: `
       <form>
         <div class="form-group">
-          <label>Hit Points to spend (max ${currentHP - 1})</label>
+          <label>${game.i18n.format("PF2E_MAESTRO.UI.BloodOfTheMaster.SpendLabel", { max: currentHP - 1 })}</label>
           <input type="number" name="spend" value="1" min="1" max="${currentHP - 1}">
         </div>
         ${options}
       </form>
     `,
     ok: {
-      label: "Cast",
+      label: game.i18n.localize("PF2E_MAESTRO.UI.BloodOfTheMaster.Confirm"),
       callback: (_event, button) => {
         const spend = Number(button.form.elements.spend.value);
         const targets = pawns.filter((p) => button.form.elements[p.id]?.checked);

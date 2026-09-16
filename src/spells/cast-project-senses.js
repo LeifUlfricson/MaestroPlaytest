@@ -14,11 +14,15 @@ export async function castProjectSenses(maestro) {
   );
 
   if (!pawns.length) {
-    ui.notifications.info(`${maestro.name} has no pawns to project senses through.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.ProjectSenses.NonePawns", { name: maestro.name }));
     return;
   }
 
-  const [target] = (await pickPawns(pawns, { title: "Project Senses", hint: "Choose a pawn to perceive through." })) ?? [];
+  const [target] =
+    (await pickPawns(pawns, {
+      title: game.i18n.localize("PF2E_MAESTRO.UI.ProjectSenses.Title"),
+      hint: game.i18n.localize("PF2E_MAESTRO.UI.ProjectSenses.Hint"),
+    })) ?? [];
   if (!target) return;
 
   for (const pawn of pawns) await removeModuleEffect(pawn, "project-senses");

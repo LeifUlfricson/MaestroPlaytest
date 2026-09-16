@@ -12,10 +12,13 @@ export async function releaseControl(maestro) {
   const controlled = pawns.filter((p) => p.getFlag(MODULE_ID, "pawn")?.state === "controlled");
 
   if (!controlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled pawns to release.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.ReleaseControl.NoneControlled", { name: maestro.name }));
     return;
   }
 
-  const chosen = await pickPawns(controlled, { title: "Release Control", hint: "Choose Controlled pawns to release." });
+  const chosen = await pickPawns(controlled, {
+    title: game.i18n.localize("PF2E_MAESTRO.UI.ReleaseControl.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.ReleaseControl.Hint"),
+  });
   for (const pawn of chosen ?? []) await setInactive(pawn);
 }

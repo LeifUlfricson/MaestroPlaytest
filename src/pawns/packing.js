@@ -5,7 +5,7 @@ import { pawnBulk } from "../rules/progression.js";
 export async function packPawn(pawn) {
   const state = pawn.getFlag(MODULE_ID, "pawn")?.state;
   if (state !== "inactive") {
-    ui.notifications.warn(`${pawn.name} must be Inactive before it can be packed.`);
+    ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.Pack.MustBeInactive", { name: pawn.name }));
     return;
   }
   const token = pawn.getActiveTokens()[0];

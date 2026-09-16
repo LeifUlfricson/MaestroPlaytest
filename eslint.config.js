@@ -15,6 +15,8 @@ export default [
         Actor: "readonly",
         Folder: "readonly",
         PIXI: "readonly",
+        Sequence: "readonly",
+        Sequencer: "readonly",
         fromUuid: "readonly",
         setTimeout: "readonly",
         clearTimeout: "readonly",

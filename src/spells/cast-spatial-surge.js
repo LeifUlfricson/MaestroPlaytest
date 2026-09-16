@@ -19,11 +19,15 @@ export async function castSpatialSurge(maestro) {
   );
 
   if (etherealControlled.length < 3) {
-    ui.notifications.warn("Spatial Surge needs the target plus 2 other Controlled Ethereal pawns nearby.");
+    ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.SpatialSurge.NotEnough"));
     return;
   }
 
-  const [target] = (await pickPawns(etherealControlled, { title: "Spatial Surge", hint: "Choose the origin pawn." })) ?? [];
+  const [target] =
+    (await pickPawns(etherealControlled, {
+      title: game.i18n.localize("PF2E_MAESTRO.UI.SpatialSurge.Title"),
+      hint: game.i18n.localize("PF2E_MAESTRO.UI.SpatialSurge.Hint"),
+    })) ?? [];
   if (!target) return;
 
   const targetToken = target.getActiveTokens()[0];
@@ -31,7 +35,7 @@ export async function castSpatialSurge(maestro) {
   const nearby = targetToken ? others.filter((p) => p.getActiveTokens()[0]?.distanceTo(targetToken) <= NEARBY_RANGE_FT) : [];
 
   if (nearby.length < REQUIRED_NEARBY) {
-    ui.notifications.warn(`${target.name} needs ${REQUIRED_NEARBY} other Controlled Ethereal pawns within ${NEARBY_RANGE_FT} ft.`);
+    ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.SpatialSurge.TooFar", { name: target.name }));
     return;
   }
 

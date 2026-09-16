@@ -17,7 +17,7 @@ const DURATION_SECONDS = 600;
 export async function castRapidAssembly(maestro) {
   const craft = getMaestroCraft(maestro);
   if (!craft) {
-    ui.notifications.warn(`${maestro.name} hasn't chosen a Craft yet.`);
+    ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.RapidAssembly.NoCraft", { name: maestro.name }));
     return;
   }
 

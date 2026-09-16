@@ -9,13 +9,13 @@ import { MODULE_ID } from "../config.js";
 export async function castPuppetsCurse(maestro) {
   const target = game.user.targets.first()?.actor;
   if (!target) {
-    ui.notifications.warn("Target the fatebound creature first.");
+    ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.PuppetsCurse.NoTarget"));
     return;
   }
 
   const fatebound = target.itemTypes.effect?.find((e) => e.slug === "fatebound" && e.getFlag(MODULE_ID, "maestroUuid") === maestro.uuid);
   if (!fatebound) {
-    ui.notifications.warn(`${target.name} isn't fatebound to one of ${maestro.name}'s pawns.`);
+    ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.PuppetsCurse.NotFatebound", { target: target.name, name: maestro.name }));
     return;
   }
 

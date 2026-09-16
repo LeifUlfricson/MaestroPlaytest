@@ -14,11 +14,15 @@ export async function castSacrificePawn(maestro) {
   const controlled = pawns.filter((p) => p.getFlag(MODULE_ID, "pawn")?.state === "controlled");
 
   if (!controlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled pawns to sacrifice.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.SacrificePawn.NoneControlled", { name: maestro.name }));
     return;
   }
 
-  const [target] = (await pickPawns(controlled, { title: "Sacrifice Pawn", hint: "Choose the Controlled pawn to sacrifice." })) ?? [];
+  const [target] =
+    (await pickPawns(controlled, {
+      title: game.i18n.localize("PF2E_MAESTRO.UI.SacrificePawn.Title"),
+      hint: game.i18n.localize("PF2E_MAESTRO.UI.SacrificePawn.Hint"),
+    })) ?? [];
   if (!target) return;
 
   const magicalElement = target.getFlag(MODULE_ID, "pawn")?.elements?.magical;

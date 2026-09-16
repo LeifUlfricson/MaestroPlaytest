@@ -9,7 +9,7 @@ import { pickPawns } from "../ui/pawn-picker.js";
  */
 export async function advance(maestro) {
   if (isFormationLocked(maestro)) {
-    ui.notifications.warn("You've already used a formation action this round.");
+    ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.TakeControl.AlreadyUsed"));
     return;
   }
 
@@ -18,11 +18,14 @@ export async function advance(maestro) {
   const controlled = pawns.filter((p) => p.getFlag(MODULE_ID, "pawn")?.state === "controlled");
 
   if (!controlled.length) {
-    ui.notifications.info(`${maestro.name} has no Controlled pawns to Advance.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.Advance.NoneControlled", { name: maestro.name }));
     return;
   }
 
-  const chosen = await pickPawns(controlled, { title: "Advance!", hint: "Choose pawns to Stride." });
+  const chosen = await pickPawns(controlled, {
+    title: game.i18n.localize("PF2E_MAESTRO.UI.Advance.Title"),
+    hint: game.i18n.localize("PF2E_MAESTRO.UI.Advance.Hint"),
+  });
   if (!chosen?.length) return;
 
   await setFormationLock(maestro);

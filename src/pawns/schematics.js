@@ -31,14 +31,14 @@ export function registerSchematics() {
     if (item.system.slug === "spring-loaded-compartment") {
       const hasExtraSpace = pawn.itemTypes.feat?.some((i) => i.slug === "extra-space");
       if (!hasExtraSpace) {
-        ui.notifications.warn("Spring-Loaded Compartment requires Extra Space to already be installed.");
+        ui.notifications.warn(game.i18n.localize("PF2E_MAESTRO.UI.InstallSchematic.NeedsExtraSpace"));
         return false;
       }
     }
 
     const installed = pawn.itemTypes.feat?.filter((i) => i.system.traits?.value?.includes("schematic")) ?? [];
     if (installed.length >= MAX_SCHEMATICS) {
-      ui.notifications.warn(`${pawn.name} already has ${MAX_SCHEMATICS} Schematics installed. Remove one first.`);
+      ui.notifications.warn(game.i18n.format("PF2E_MAESTRO.UI.InstallSchematic.SlotLimit", { name: pawn.name, max: MAX_SCHEMATICS }));
       return false;
     }
     return true;
@@ -59,7 +59,7 @@ function addInstallButton(sheet, html, pawn) {
 
   const button = document.createElement("a");
   button.className = "maestro-install-schematic";
-  button.innerHTML = '<i class="fa-solid fa-gear"></i> Install Schematic';
+  button.innerHTML = `<i class="fa-solid fa-gear"></i> ${game.i18n.localize("PF2E_MAESTRO.UI.InstallSchematic.Title")}`;
   button.addEventListener("click", () => installSchematic(pawn));
   header.appendChild(button);
 }
@@ -71,7 +71,7 @@ async function installSchematic(pawn) {
 
   const unlockedSlugs = Object.keys(SCHEMATIC_ITEM_BY_FEAT_SLUG).filter((slug) => maestro.items.some((i) => i.slug === slug));
   if (!unlockedSlugs.length) {
-    ui.notifications.info(`${maestro.name} hasn't unlocked any Schematics yet.`);
+    ui.notifications.info(game.i18n.format("PF2E_MAESTRO.UI.InstallSchematic.NoneUnlocked", { name: maestro.name }));
     return;
   }
 
@@ -91,9 +91,9 @@ async function installSchematic(pawn) {
 async function promptForSchematic(slugs) {
   const options = slugs.map((slug) => `<option value="${slug}">${slug}</option>`).join("");
   return foundry.applications.api.DialogV2.prompt({
-    window: { title: "Install Schematic" },
-    content: `<form><div class="form-group"><label>Schematic</label><select name="slug">${options}</select></div></form>`,
-    ok: { label: "Install", callback: (_event, button) => button.form.elements.slug.value },
+    window: { title: game.i18n.localize("PF2E_MAESTRO.UI.InstallSchematic.Title") },
+    content: `<form><div class="form-group"><label>${game.i18n.localize("PF2E_MAESTRO.UI.InstallSchematic.Label")}</label><select name="slug">${options}</select></div></form>`,
+    ok: { label: game.i18n.localize("PF2E_MAESTRO.UI.InstallSchematic.Confirm"), callback: (_event, button) => button.form.elements.slug.value },
     rejectClose: false,
   });
 }

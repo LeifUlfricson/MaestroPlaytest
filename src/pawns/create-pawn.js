@@ -22,7 +22,7 @@ export async function buildPawnActorSource(maestro, { name, craft, size = "sm", 
   const pack = game.packs.get(PAWN_PACK);
   const [template] = (await pack?.getDocuments({ name: "Pawn" })) ?? [];
   if (!template) {
-    ui.notifications.error(`${MODULE_ID} | Could not find the "Pawn" template actor in ${PAWN_PACK}.`);
+    ui.notifications.error(game.i18n.format("PF2E_MAESTRO.UI.CreatePawn.MissingTemplate", { pack: PAWN_PACK }));
     return null;
   }
 
@@ -78,7 +78,7 @@ export async function createPawn(maestro) {
 
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: maestro }),
-    content: `<p>Creating a pawn takes 1 hour, a flat surface, tools, and 1 Bulk of materials.</p>`,
+    content: `<p>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.FlavorText")}</p>`,
   });
 
   return pawn;
@@ -116,7 +116,7 @@ async function promptForDetails(maestro, craft, sizeChoices) {
     craft === "elemental"
       ? `
         <div class="form-group">
-          <label>Physical Element</label>
+          <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.PhysicalElementLabel")}</label>
           <select name="physical">
             <option value="wood">Wood</option>
             <option value="stone">Stone</option>
@@ -124,7 +124,7 @@ async function promptForDetails(maestro, craft, sizeChoices) {
           </select>
         </div>
         <div class="form-group">
-          <label>Magical Element</label>
+          <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.MagicalElementLabel")}</label>
           <select name="magical">
             <option value="fire">Fire</option>
             <option value="cold">Cold</option>
@@ -138,7 +138,7 @@ async function promptForDetails(maestro, craft, sizeChoices) {
     sizeChoices.length > 1
       ? `
         <div class="form-group">
-          <label>Size</label>
+          <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.SizeLabel")}</label>
           <select name="size">
             ${sizeChoices.map((s) => `<option value="${s}">${SIZE_LABELS[s]}</option>`).join("")}
           </select>
@@ -147,11 +147,11 @@ async function promptForDetails(maestro, craft, sizeChoices) {
       : "";
 
   return foundry.applications.api.DialogV2.prompt({
-    window: { title: "Create Pawn" },
+    window: { title: game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.Title") },
     content: `
       <form class="form">
         <div class="form-group">
-          <label>Name</label>
+          <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.NameLabel")}</label>
           <input type="text" name="name" value="${maestro.name}'s Pawn" autofocus>
         </div>
         ${sizeField}
@@ -159,7 +159,7 @@ async function promptForDetails(maestro, craft, sizeChoices) {
       </form>
     `,
     ok: {
-      label: "Create",
+      label: game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.Confirm"),
       callback: (_event, button) => {
         const name = button.form.elements.name.value.trim();
         if (!name) return null;

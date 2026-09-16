@@ -13,16 +13,16 @@ export async function pickPawns(pawns, { title, hint } = {}) {
     .join("");
 
   return foundry.applications.api.DialogV2.wait({
-    window: { title: title ?? "Choose Pawns" },
+    window: { title: title ?? game.i18n.localize("PF2E_MAESTRO.UI.PawnPicker.DefaultTitle") },
     content: `<form>${hint ? `<p>${hint}</p>` : ""}${options}</form>`,
     buttons: [
       {
         action: "ok",
-        label: "Confirm",
+        label: game.i18n.localize("PF2E_MAESTRO.UI.PawnPicker.Confirm"),
         default: true,
         callback: (_event, button) => pawns.filter((p) => button.form.elements[p.id]?.checked),
       },
-      { action: "cancel", label: "Cancel", callback: () => null },
+      { action: "cancel", label: game.i18n.localize("PF2E_MAESTRO.UI.PawnPicker.Cancel"), callback: () => null },
     ],
     rejectClose: false,
   });

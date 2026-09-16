@@ -37,6 +37,108 @@
       "StealEssence": {
         "Note": "On a hit, the target becomes fatebound to this pawn. GM: apply it with game.modules.get(\"pf2e-maestro\").api.applyFatebound(target, pawn)."
       }
+    },
+    "UI": {
+      "PawnPicker": {
+        "Confirm": "Confirm",
+        "Cancel": "Cancel",
+        "DefaultTitle": "Choose Pawns"
+      },
+      "CreatePawn": {
+        "Title": "Create Pawn",
+        "NameLabel": "Name",
+        "SizeLabel": "Size",
+        "PhysicalElementLabel": "Physical Element",
+        "MagicalElementLabel": "Magical Element",
+        "Confirm": "Create",
+        "MissingTemplate": "Could not find the \"Pawn\" template actor in {pack}.",
+        "FlavorText": "Creating a pawn takes 1 hour, a flat surface, tools, and 1 Bulk of materials."
+      },
+      "TakeControl": {
+        "Title": "Take Control",
+        "Hint": "Choose Inactive pawns to Control.",
+        "NoneEligible": "{name} has no Inactive pawns within reach to Control.",
+        "ReleaseTitle": "Release Control",
+        "ReleaseHint": "Controlling {count} more pawn(s) exceeds your cap of {cap}. Choose Controlled pawns to release.",
+        "StillOverCap": "{name} is still over the control cap of {cap}.",
+        "AlreadyUsed": "You've already used a formation action this round."
+      },
+      "ReleaseControl": {
+        "Title": "Release Control",
+        "Hint": "Choose Controlled pawns to release.",
+        "NoneControlled": "{name} has no Controlled pawns to release."
+      },
+      "Advance": {
+        "Title": "Advance!",
+        "Hint": "Choose pawns to Stride.",
+        "NoneControlled": "{name} has no Controlled pawns to Advance."
+      },
+      "CoordinatedStrike": {
+        "Title": "Coordinated Strike",
+        "Hint": "Choose 2 pawns, or 3 with Coordinated Assault (+1 action), to Strike together.",
+        "NotEnough": "{name} needs at least 2 Controlled pawns for Coordinated Strike.",
+        "WrongCount": "Choose exactly 2 pawns (or 3, with Coordinated Assault)."
+      },
+      "SwitchForm": {
+        "Title": "Switch Form",
+        "Hint": "Choose pawns to switch form.",
+        "NoneEligible": "{name} has no Controlled Ethereal pawns to switch."
+      },
+      "InstallSchematic": {
+        "Title": "Install Schematic",
+        "Label": "Schematic",
+        "Confirm": "Install",
+        "NoneUnlocked": "{name} hasn't unlocked any Schematics yet.",
+        "SlotLimit": "{name} already has {max} Schematics installed. Remove one first.",
+        "NeedsExtraSpace": "Spring-Loaded Compartment requires Extra Space to already be installed."
+      },
+      "Pack": {
+        "MustBeInactive": "{name} must be Inactive before it can be packed."
+      },
+      "ElementalFont": {
+        "Title": "Elemental Font",
+        "Hint": "Choose a Controlled Elemental Pawn.",
+        "NoneEligible": "{name} has no Controlled Elemental pawns."
+      },
+      "PuppetsCurse": {
+        "NoTarget": "Target the fatebound creature first.",
+        "NotFatebound": "{target} isn't fatebound to one of {name}'s pawns."
+      },
+      "SacrificePawn": {
+        "Title": "Sacrifice Pawn",
+        "Hint": "Choose the Controlled pawn to sacrifice.",
+        "NoneControlled": "{name} has no Controlled pawns to sacrifice."
+      },
+      "ProjectSenses": {
+        "Title": "Project Senses",
+        "Hint": "Choose a pawn to perceive through.",
+        "NonePawns": "{name} has no pawns to project senses through."
+      },
+      "HoldTogether": {
+        "Title": "Hold Together",
+        "Hint": "Choose Controlled pawns to hold together.",
+        "NoneControlled": "{name} has no Controlled pawns to hold together."
+      },
+      "BloodOfTheMaster": {
+        "Title": "Blood of the Master",
+        "SpendLabel": "Hit Points to spend (max {max})",
+        "Confirm": "Cast",
+        "NoneEligible": "{name} has no Flesh pawns."
+      },
+      "SpatialSurge": {
+        "Title": "Spatial Surge",
+        "Hint": "Choose the origin pawn.",
+        "NotEnough": "Spatial Surge needs the target plus 2 other Controlled Ethereal pawns nearby.",
+        "TooFar": "{name} needs 2 other Controlled Ethereal pawns within 10 ft."
+      },
+      "Blitz": {
+        "Title": "Blitz",
+        "Hint": "Choose Controlled pawns to act.",
+        "NoneControlled": "{name} has no Controlled pawns."
+      },
+      "RapidAssembly": {
+        "NoCraft": "{name} hasn't chosen a Craft yet."
+      }
     }
   }
 }
