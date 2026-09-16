@@ -3,7 +3,7 @@
   "_key": "!items!3I7Cqb7UdCJAEODs",
   "name": "Flanking Strike",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "action"

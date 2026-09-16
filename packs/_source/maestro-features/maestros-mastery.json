@@ -3,7 +3,7 @@
   "_key": "!items!GVHdtFgV0Y4G2Tyr",
   "name": "Maestro's Mastery",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/upgrade.svg",
   "system": {
     "actionType": {
       "value": "passive"
@@ -39,7 +39,16 @@
         "mode": "upgrade",
         "path": "system.proficiencies.spellcasting.rank",
         "value": 2,
-        "predicate": [{ "or": ["maestro:craft:flesh", "maestro:craft:ethereal", "maestro:craft:elemental", "maestro:craft:sympathetic"] }]
+        "predicate": [
+          {
+            "or": [
+              "maestro:craft:flesh",
+              "maestro:craft:ethereal",
+              "maestro:craft:elemental",
+              "maestro:craft:sympathetic"
+            ]
+          }
+        ]
       }
     ],
     "slug": "maestros-mastery",

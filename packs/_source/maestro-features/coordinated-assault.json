@@ -3,7 +3,7 @@
   "_key": "!items!T1pZMI1sn3N8Tzla",
   "name": "Coordinated Assault",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "passive"

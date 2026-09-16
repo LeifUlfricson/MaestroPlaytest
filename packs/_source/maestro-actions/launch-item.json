@@ -3,7 +3,7 @@
   "_key": "!items!2tyRCh5VmnVa1ilD",
   "name": "Launch Item",
   "type": "action",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/thrown-dagger.svg",
   "system": {
     "actionType": {
       "value": "action"

@@ -3,7 +3,7 @@
   "_key": "!items!tBan9B9gHbuhoIuU",
   "name": "Beyond the Pale",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/heart.svg",
   "system": {
     "actionType": {
       "value": "passive"

@@ -3,7 +3,7 @@
   "_key": "!items!T3nHFZCYT5wcPrjO",
   "name": "Adaptive Design",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/gear.svg",
   "system": {
     "actionType": {
       "value": "passive"

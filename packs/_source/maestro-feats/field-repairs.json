@@ -3,7 +3,7 @@
   "_key": "!items!8V9E9EL1AfDVC50B",
   "name": "Field Repairs",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/regen.svg",
   "system": {
     "actionType": {
       "value": "action"

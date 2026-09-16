@@ -3,7 +3,7 @@
   "_key": "!items!r6JI5rbzQifmaEwa",
   "name": "Formations",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "passive"
@@ -27,7 +27,12 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [{ "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.0cNI7P5nweyBCFia" }],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.0cNI7P5nweyBCFia"
+      }
+    ],
     "slug": "formations",
     "traits": {
       "value": [

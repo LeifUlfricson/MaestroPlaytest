@@ -3,15 +3,22 @@
   "_key": "!items!Y97hLYZeL1r5n2o0",
   "name": "Take Control",
   "type": "action",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/net.svg",
   "system": {
-    "actionType": { "value": "action" },
-    "actions": { "value": 1 },
+    "actionType": {
+      "value": "action"
+    },
+    "actions": {
+      "value": 1
+    },
     "category": "offensive",
     "description": {
       "value": "<p>You form a magical connection with your pawns, and they become Controlled. Choose any number of Inactive pawns within 10 feet, even if they're held in a bag or container (as long as it can be opened easily). Each pawn stands up in its space, or in an adjacent space if its own isn't available, and assumes a battle-ready posture. This doesn't trigger reactions based on movement. You can't target a pawn with this ability if it has the broken condition, has 0 Hit Points, or is missing any of its original components.</p><p>At 1st level, you can control up to two pawns at a time. This increases to three pawns at 5th level, four at 9th level, and five at 13th level. If you use Take Control while you're already controlling your maximum number of pawns, choose enough of your Controlled pawns to become Inactive that you don't exceed your maximum.</p>"
     },
-    "frequency": { "max": 1, "per": "round" },
+    "frequency": {
+      "max": 1,
+      "per": "round"
+    },
     "publication": {
       "title": "Maestro (Beta v2.1 / Playtest v1.0)",
       "authors": "Erik (Lucky Thirteen)",
@@ -20,6 +27,13 @@
     },
     "rules": [],
     "slug": "take-control",
-    "traits": { "value": ["magical", "maestro", "manipulate"], "rarity": "common" }
+    "traits": {
+      "value": [
+        "magical",
+        "maestro",
+        "manipulate"
+      ],
+      "rarity": "common"
+    }
   }
 }

@@ -3,7 +3,7 @@
   "_key": "!items!RlfTZXDlEe0fjhpt",
   "name": "Extra Space",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/item-bag.svg",
   "system": {
     "actionType": {
       "value": "passive"

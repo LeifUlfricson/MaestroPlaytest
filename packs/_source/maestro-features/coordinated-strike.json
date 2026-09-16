@@ -3,7 +3,7 @@
   "_key": "!items!mZwE1nrVc1pVhBnF",
   "name": "Coordinated Strike",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "passive"
@@ -27,7 +27,12 @@
       "license": "OGL",
       "remaster": true
     },
-    "rules": [{ "key": "GrantItem", "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.r6xhODMlHU447Kjy" }],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.r6xhODMlHU447Kjy"
+      }
+    ],
     "slug": "coordinated-strike",
     "traits": {
       "value": [

@@ -3,7 +3,7 @@
   "_key": "!items!sGhiLDAXmd3CKBVG",
   "name": "Giant Maneuver",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "passive"

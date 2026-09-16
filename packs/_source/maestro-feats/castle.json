@@ -3,7 +3,7 @@
   "_key": "!items!Bad7bJ8f5UZxD2FY",
   "name": "Castle",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/castle.svg",
   "system": {
     "actionType": {
       "value": "passive"

@@ -3,15 +3,21 @@
   "_key": "!items!mYsiBlLVSYtxEPiS",
   "name": "Elemental Pawn",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/fire.svg",
   "system": {
-    "actionType": { "value": "passive" },
-    "actions": { "value": null },
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
     "category": "classfeature",
     "description": {
       "value": "<p>Your Elemental Pawns can make elemental blow unarmed attacks. These deal 1d6 damage of the type that corresponds to the pawn's magical element, are in the brawling group, and have the finesse, forceful, unarmed, and versatile B traits. Your Elemental Pawns can also make elemental shot ranged unarmed attacks, which have a maximum range of 20 feet, in the sling group, with the unarmed trait. Both Strikes also have the trait that corresponds to the pawn's magical element.</p><p>The physical and magical elements are chosen when the pawn is created and exposed as roll options (<code>physical-element:*</code>, <code>magical-element:*</code>) by the generated Maestro Link effect, which also adds the pawn's element traits and Solid Body effects.</p><p><strong>Elemental Warding (11th):</strong> your Elemental Pawns gain resistance equal to your level to the damage type of their magical element.</p><p><strong>Elemental Avatar (17th):</strong> their elemental blow and elemental shot Strikes deal d12s instead of d6s, and they deal 1d6 persistent damage of the same type on a hit. Furthermore, an adjacent creature that touches or hits one of your Elemental Pawns with a melee attack takes 6d6 damage of the type that corresponds to that pawn's magical element (this retaliation isn't automated; see the Note on the Strike). Your Elemental Pawns don't take double damage from critical hits.</p>"
     },
-    "prerequisites": { "value": [] },
+    "prerequisites": {
+      "value": []
+    },
     "publication": {
       "title": "Maestro (Beta v2.1 / Playtest v1.0)",
       "authors": "Erik (Lucky Thirteen)",
@@ -19,23 +25,52 @@
       "remaster": true
     },
     "rules": [
-      { "key": "Immunity", "type": "healing" },
+      {
+        "key": "Immunity",
+        "type": "healing"
+      },
       {
         "key": "Strike",
         "label": "Elemental Blow",
         "slug": "elemental-blow",
         "category": "unarmed",
         "group": "brawling",
-        "damage": { "base": { "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}", "dice": 1, "die": "d6" } },
+        "damage": {
+          "base": {
+            "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}",
+            "dice": 1,
+            "die": "d6"
+          }
+        },
         "traits": [
           "finesse",
           "forceful",
           "unarmed",
           "versatile-b",
-          { "value": "fire", "predicate": ["magical-element:fire"] },
-          { "value": "water", "predicate": ["magical-element:cold"] },
-          { "value": "air", "predicate": ["magical-element:electricity"] },
-          { "value": "parry", "predicate": ["physical-element:metal"] }
+          {
+            "value": "fire",
+            "predicate": [
+              "magical-element:fire"
+            ]
+          },
+          {
+            "value": "water",
+            "predicate": [
+              "magical-element:cold"
+            ]
+          },
+          {
+            "value": "air",
+            "predicate": [
+              "magical-element:electricity"
+            ]
+          },
+          {
+            "value": "parry",
+            "predicate": [
+              "physical-element:metal"
+            ]
+          }
         ]
       },
       {
@@ -45,31 +80,77 @@
         "category": "unarmed",
         "group": "sling",
         "range": 20,
-        "damage": { "base": { "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}", "dice": 1, "die": "d6" } },
+        "damage": {
+          "base": {
+            "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}",
+            "dice": 1,
+            "die": "d6"
+          }
+        },
         "traits": [
           "unarmed",
-          { "value": "fire", "predicate": ["magical-element:fire"] },
-          { "value": "water", "predicate": ["magical-element:cold"] },
-          { "value": "air", "predicate": ["magical-element:electricity"] }
+          {
+            "value": "fire",
+            "predicate": [
+              "magical-element:fire"
+            ]
+          },
+          {
+            "value": "water",
+            "predicate": [
+              "magical-element:cold"
+            ]
+          },
+          {
+            "value": "air",
+            "predicate": [
+              "magical-element:electricity"
+            ]
+          }
         ]
       },
       {
         "key": "Resistance",
         "type": "{actor|flags.pf2e-maestro.pawn.elements.magical}",
         "value": "@actor.level",
-        "predicate": [{ "gte": ["self:level", 11] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              11
+            ]
+          }
+        ]
       },
       {
         "key": "DamageDice",
         "selector": "elemental-blow-damage",
-        "override": { "dieSize": "d12" },
-        "predicate": [{ "gte": ["self:level", 17] }]
+        "override": {
+          "dieSize": "d12"
+        },
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       },
       {
         "key": "DamageDice",
         "selector": "elemental-shot-damage",
-        "override": { "dieSize": "d12" },
-        "predicate": [{ "gte": ["self:level", 17] }]
+        "override": {
+          "dieSize": "d12"
+        },
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       },
       {
         "key": "DamageDice",
@@ -78,7 +159,14 @@
         "dieSize": "d6",
         "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}",
         "category": "persistent",
-        "predicate": [{ "gte": ["self:level", 17] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       },
       {
         "key": "DamageDice",
@@ -87,15 +175,34 @@
         "dieSize": "d6",
         "damageType": "{actor|flags.pf2e-maestro.pawn.elements.magical}",
         "category": "persistent",
-        "predicate": [{ "gte": ["self:level", 17] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       },
       {
         "key": "Immunity",
         "type": "critical-hits",
-        "predicate": [{ "gte": ["self:level", 17] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              17
+            ]
+          }
+        ]
       }
     ],
     "slug": "elemental-pawn",
-    "traits": { "value": ["pawn"], "rarity": "common" }
+    "traits": {
+      "value": [
+        "pawn"
+      ],
+      "rarity": "common"
+    }
   }
 }

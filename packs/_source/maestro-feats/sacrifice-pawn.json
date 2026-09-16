@@ -3,7 +3,7 @@
   "_key": "!items!ZGV0vd0UVuO1ZZLn",
   "name": "Sacrifice Pawn",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/upgrade.svg",
   "system": {
     "actionType": {
       "value": "passive"

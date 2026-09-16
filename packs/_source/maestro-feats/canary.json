@@ -3,7 +3,7 @@
   "_key": "!items!IQzI4b7nrMDdII3d",
   "name": "Canary",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/eye.svg",
   "system": {
     "actionType": {
       "value": "reaction"

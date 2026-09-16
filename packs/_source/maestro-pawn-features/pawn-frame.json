@@ -3,19 +3,37 @@
   "_key": "!items!AhG03VO9Z3FIb5cg",
   "name": "Pawn Frame",
   "type": "class",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/robe.svg",
   "system": {
-    "ancestryFeatLevels": { "value": [] },
-    "attacks": { "advanced": 0, "martial": 0, "simple": 0, "unarmed": 1 },
+    "ancestryFeatLevels": {
+      "value": []
+    },
+    "attacks": {
+      "advanced": 0,
+      "martial": 0,
+      "simple": 0,
+      "unarmed": 1
+    },
     "classDC": 0,
-    "defenses": { "heavy": 0, "light": 0, "medium": 0, "unarmored": 1 },
+    "defenses": {
+      "heavy": 0,
+      "light": 0,
+      "medium": 0,
+      "unarmored": 1
+    },
     "description": {
       "value": "<p>The stub class every pawn carries. Its own numbers (HP 4/level, Trained unarmed and unarmored) are the pawn's baseline before the maestro's Craft chassis and the generated Maestro Link effect layer their own rule elements on top; see DESIGN.md §4.1.</p>"
     },
-    "generalFeatLevels": { "value": [] },
+    "generalFeatLevels": {
+      "value": []
+    },
     "hp": 4,
     "items": {},
-    "keyAbility": { "value": ["int"] },
+    "keyAbility": {
+      "value": [
+        "int"
+      ]
+    },
     "perception": 1,
     "publication": {
       "title": "Maestro (Beta v2.1 / Playtest v1.0)",
@@ -29,36 +47,78 @@
         "mode": "upgrade",
         "path": "system.proficiencies.attacks.unarmed.rank",
         "value": 2,
-        "predicate": [{ "gte": ["self:level", 5] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              5
+            ]
+          }
+        ]
       },
       {
         "key": "ActiveEffectLike",
         "mode": "upgrade",
         "path": "system.proficiencies.attacks.unarmed.rank",
         "value": 3,
-        "predicate": [{ "gte": ["self:level", 13] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              13
+            ]
+          }
+        ]
       },
       {
         "key": "ActiveEffectLike",
         "mode": "upgrade",
         "path": "system.proficiencies.defenses.unarmored.rank",
         "value": 2,
-        "predicate": [{ "gte": ["self:level", 11] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              11
+            ]
+          }
+        ]
       },
       {
         "key": "ActiveEffectLike",
         "mode": "upgrade",
         "path": "system.proficiencies.defenses.unarmored.rank",
         "value": 3,
-        "predicate": [{ "gte": ["self:level", 19] }]
+        "predicate": [
+          {
+            "gte": [
+              "self:level",
+              19
+            ]
+          }
+        ]
       }
     ],
-    "savingThrows": { "fortitude": 2, "reflex": 2, "will": 2 },
-    "skillFeatLevels": { "value": [] },
-    "skillIncreaseLevels": { "value": [] },
+    "savingThrows": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 2
+    },
+    "skillFeatLevels": {
+      "value": []
+    },
+    "skillIncreaseLevels": {
+      "value": []
+    },
     "slug": "pawn-frame",
     "spellcasting": 0,
-    "traits": { "value": [], "rarity": "common" },
-    "trainedSkills": { "value": [], "additional": 0 }
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    },
+    "trainedSkills": {
+      "value": [],
+      "additional": 0
+    }
   }
 }

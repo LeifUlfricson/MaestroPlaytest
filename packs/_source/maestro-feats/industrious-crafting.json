@@ -3,7 +3,7 @@
   "_key": "!items!XAB6MnnexHVZS8Fi",
   "name": "Industrious Crafting",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/hammer.svg",
   "system": {
     "actionType": {
       "value": "passive"

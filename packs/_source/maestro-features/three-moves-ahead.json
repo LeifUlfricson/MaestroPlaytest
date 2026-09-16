@@ -3,7 +3,7 @@
   "_key": "!items!0ZlD5tcXp5iMguFu",
   "name": "Three Moves Ahead",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/clockwork.svg",
   "system": {
     "actionType": {
       "value": "passive"

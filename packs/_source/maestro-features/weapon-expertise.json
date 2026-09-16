@@ -3,7 +3,7 @@
   "_key": "!items!ybttvZH7a0KAXKUN",
   "name": "Weapon Expertise",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/sword.svg",
   "system": {
     "actionType": {
       "value": "passive"

@@ -3,7 +3,7 @@
   "_key": "!items!EeOhECniU23YJmL7",
   "name": "Advanced Armament",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/sword.svg",
   "system": {
     "actionType": {
       "value": "passive"

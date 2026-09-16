@@ -3,7 +3,7 @@
   "_key": "!items!cflSAK5HZrxqPokS",
   "name": "Blood of the Master",
   "type": "spell",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/heal.svg",
   "system": {
     "level": {
       "value": 9

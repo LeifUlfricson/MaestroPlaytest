@@ -3,7 +3,7 @@
   "_key": "!items!UWJADsXwQSHngIlL",
   "name": "Extracurricular Crafting",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/hammer.svg",
   "system": {
     "actionType": {
       "value": "passive"

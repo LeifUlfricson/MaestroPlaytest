@@ -3,7 +3,7 @@
   "_key": "!items!aVnbER2Bu1rDRpEy",
   "name": "Vigilant Senses",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/eye.svg",
   "system": {
     "actionType": {
       "value": "passive"

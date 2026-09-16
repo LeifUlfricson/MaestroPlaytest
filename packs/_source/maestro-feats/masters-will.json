@@ -3,7 +3,7 @@
   "_key": "!items!7mrMJ2jiqMoDeB49",
   "name": "Master's Will",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/regen.svg",
   "system": {
     "actionType": {
       "value": "passive"

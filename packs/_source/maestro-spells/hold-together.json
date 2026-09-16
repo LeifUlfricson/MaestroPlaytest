@@ -3,7 +3,7 @@
   "_key": "!items!KrbsDGJN6ZBFT1mx",
   "name": "Hold Together",
   "type": "spell",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/regen.svg",
   "system": {
     "level": {
       "value": 5

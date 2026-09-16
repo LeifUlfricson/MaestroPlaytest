@@ -3,7 +3,7 @@
   "_key": "!items!0FNGI85OtCMeOYLc",
   "name": "Custom Armament",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/sword.svg",
   "system": {
     "actionType": {
       "value": "passive"

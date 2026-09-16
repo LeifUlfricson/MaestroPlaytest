@@ -3,7 +3,7 @@
   "_key": "!items!cGmO9xjniXPL6hR2",
   "name": "Dismantle",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/explosion.svg",
   "system": {
     "actionType": {
       "value": "action"

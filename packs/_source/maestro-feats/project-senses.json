@@ -3,7 +3,7 @@
   "_key": "!items!VUgDMGH1yISlVKNQ",
   "name": "Project Senses",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/eye.svg",
   "system": {
     "actionType": {
       "value": "passive"

@@ -3,7 +3,7 @@
   "_key": "!items!J4gSUV2mT3YIFOPJ",
   "name": "En Passant",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
     "actionType": {
       "value": "reaction"

@@ -3,7 +3,7 @@
   "_key": "!items!fhJjdfwH5r2t6AUp",
   "name": "Injector Spike",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/poison.svg",
   "system": {
     "actionType": {
       "value": "passive"

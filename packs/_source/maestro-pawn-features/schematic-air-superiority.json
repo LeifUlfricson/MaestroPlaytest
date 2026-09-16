@@ -3,7 +3,7 @@
   "_key": "!items!IsgHAaevS0D8QKIG",
   "name": "Air Superiority",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/wing.svg",
   "system": {
     "actionType": {
       "value": "passive"

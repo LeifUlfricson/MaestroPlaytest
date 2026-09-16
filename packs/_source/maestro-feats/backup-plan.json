@@ -3,7 +3,7 @@
   "_key": "!items!LASa7vr61jBGAzJG",
   "name": "Backup Plan",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/dice-target.svg",
   "system": {
     "actionType": {
       "value": "reaction"

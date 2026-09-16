@@ -3,7 +3,7 @@
   "_key": "!items!SNtdQlo8m2AZp4cC",
   "name": "Evasion",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/sprint.svg",
   "system": {
     "actionType": {
       "value": "passive"

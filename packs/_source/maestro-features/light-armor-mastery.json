@@ -3,7 +3,7 @@
   "_key": "!items!vGwgKOuOCU9cnfDB",
   "name": "Light Armor Mastery",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/breastplate.svg",
   "system": {
     "actionType": {
       "value": "passive"

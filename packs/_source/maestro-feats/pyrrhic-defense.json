@@ -3,7 +3,7 @@
   "_key": "!items!TTVVmccsqjOD62yy",
   "name": "Pyrrhic Defense",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
     "actionType": {
       "value": "reaction"

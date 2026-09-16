@@ -3,7 +3,7 @@
   "_key": "!items!IwP8HDz9lTY3pNp2",
   "name": "Bigger Figures",
   "type": "feat",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "icons/svg/upgrade.svg",
   "system": {
     "actionType": {
       "value": "passive"
