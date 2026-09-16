@@ -1,0 +1,46 @@
+{
+  "_id": "nNhOSVcY2fQ5FSHH",
+  "_key": "!items!nNhOSVcY2fQ5FSHH",
+  "name": "Great Fortitude",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your physique is incredibly hardy. Your proficiency rank for Fortitude saves increases to expert.</p>"
+    },
+    "level": {
+      "value": 3
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.saves.fortitude.rank",
+        "value": 2
+      }
+    ],
+    "slug": "great-fortitude",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

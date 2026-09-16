@@ -1,0 +1,39 @@
+{
+  "_id": "oT3QpJWQYTAMX4Sn",
+  "_key": "!items!oT3QpJWQYTAMX4Sn",
+  "name": "Group Tactics",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your ability to coordinate against a single foe increases significantly. If an enemy is within melee reach of at least two of your pawns, or of you and at least one of your pawns, that enemy is off-guard to you and your pawns.</p>"
+    },
+    "level": {
+      "value": 9
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "group-tactics",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

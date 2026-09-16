@@ -1,0 +1,58 @@
+{
+  "_id": "ybttvZH7a0KAXKUN",
+  "_key": "!items!ybttvZH7a0KAXKUN",
+  "name": "Weapon Expertise",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your sharp focus has pushed your martial prowess to new heights. Your proficiency ranks for simple weapons, martial weapons, and unarmed attacks increase to expert. Your pawns’ proficiency rank for unarmed attacks also increases to expert.</p>"
+    },
+    "level": {
+      "value": 5
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.proficiencies.attacks.simple.rank",
+        "value": 2
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.proficiencies.attacks.martial.rank",
+        "value": 2
+      },
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.proficiencies.attacks.unarmed.rank",
+        "value": 2
+      }
+    ],
+    "slug": "weapon-expertise",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

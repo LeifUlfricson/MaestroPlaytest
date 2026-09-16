@@ -1,0 +1,39 @@
+{
+  "_id": "r6JI5rbzQifmaEwa",
+  "_key": "!items!r6JI5rbzQifmaEwa",
+  "name": "Formations",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Formations are actions that let you have multiple pawns act at the same time. You can use only one action with the formation trait per round. You gain the Advance! action.</p><blockquote><p><strong>Advance!</strong> ◆</p><p><strong>Traits</strong> formation, magical, maestro, pawn</p><p><strong>Targets</strong> any number of Controlled pawns</p><p>The targets Stride.</p></blockquote>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "formations",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

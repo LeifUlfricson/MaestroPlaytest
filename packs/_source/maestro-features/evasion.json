@@ -1,0 +1,53 @@
+{
+  "_id": "SNtdQlo8m2AZp4cC",
+  "_key": "!items!SNtdQlo8m2AZp4cC",
+  "name": "Evasion",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You’ve learned to move quickly enough to avoid explosions, dragon breath, and worse. Your proficiency rank for Reflex saves increases to master. When you roll a success on a Reflex save, you get a critical success instead.</p>"
+    },
+    "level": {
+      "value": 7
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.saves.reflex.rank",
+        "value": 3
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selector": "reflex",
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      }
+    ],
+    "slug": "evasion",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

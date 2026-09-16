@@ -1,0 +1,39 @@
+{
+  "_id": "T1pZMI1sn3N8Tzla",
+  "_key": "!items!T1pZMI1sn3N8Tzla",
+  "name": "Coordinated Assault",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You can coordinate attacks on multiple fronts with ease. When you use Coordinated Strike, you can spend 1 additional action to target a third pawn. If you do, all three pawns make a melee or ranged Strike against a valid target in range, and the penalty is –4 instead of –2. All three attacks count toward your multiple attack penalty, but the penalty doesn’t increase until after you’ve made all of them.</p>"
+    },
+    "level": {
+      "value": 15
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "coordinated-assault",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

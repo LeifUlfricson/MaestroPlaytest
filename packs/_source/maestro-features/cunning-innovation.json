@@ -1,0 +1,39 @@
+{
+  "_id": "kQFMAAHEzfAtIVP2",
+  "_key": "!items!kQFMAAHEzfAtIVP2",
+  "name": "Cunning Innovation",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Just like you, your creations are constantly evolving. You make a new improvement to your pawns’ design, granting them access to a new ability described in your Craft.</p>"
+    },
+    "level": {
+      "value": 5
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "cunning-innovation",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

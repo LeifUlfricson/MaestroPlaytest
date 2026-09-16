@@ -1,0 +1,53 @@
+{
+  "_id": "EARY2JPZhhlJxzNn",
+  "_key": "!items!EARY2JPZhhlJxzNn",
+  "name": "Resolve",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You’ve steeled your mind with resolve. Your proficiency rank for Will saves increases to master. When you roll a success on a Will save, you get a critical success instead.</p>"
+    },
+    "level": {
+      "value": 15
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.saves.will.rank",
+        "value": 3
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selector": "will",
+        "adjustment": {
+          "success": "one-degree-better"
+        }
+      }
+    ],
+    "slug": "resolve",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

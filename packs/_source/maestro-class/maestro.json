@@ -1,0 +1,197 @@
+{
+  "_id": "u23OMjlhRoasAEWJ",
+  "_key": "!items!u23OMjlhRoasAEWJ",
+  "name": "Maestro",
+  "type": "class",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "ancestryFeatLevels": {
+      "value": [
+        1,
+        5,
+        9,
+        13,
+        17
+      ]
+    },
+    "attacks": {
+      "advanced": null,
+      "martial": 1,
+      "simple": 1,
+      "unarmed": 1
+    },
+    "classDC": 1,
+    "defenses": {
+      "heavy": null,
+      "light": 1,
+      "medium": null,
+      "unarmored": 1
+    },
+    "description": {
+      "value": "<p>You are a one-adventurer army: a brilliant tactician with a flurry of loyal soldiers at your fingertips. You wield a team of magical puppets called pawns as versatile weapons against your foes. Your creations can spread out across the battlefield at your command, allowing you to strike from anywhere at any time. With your creative mastery and tactical brilliance, you and your creations can lead the charge to victory!</p><h2>Key Attribute</h2><p><strong>Intelligence</strong></p><p>At 1st level, your class gives you an attribute boost to Intelligence.</p><h2>Hit Points</h2><p><strong>8 plus your Constitution modifier</strong></p><p>You increase your maximum number of HP by this number at 1st level and every level thereafter.</p>"
+    },
+    "generalFeatLevels": {
+      "value": [
+        3,
+        7,
+        11,
+        15,
+        19
+      ]
+    },
+    "hp": 8,
+    "items": {
+      "0eBNQIKr5yC46ogY": {
+        "level": 1,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0eBNQIKr5yC46ogY"
+      },
+      "r6JI5rbzQifmaEwa": {
+        "level": 1,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.r6JI5rbzQifmaEwa"
+      },
+      "FfXQhcWOd0Hp7Z7U": {
+        "level": 1,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.FfXQhcWOd0Hp7Z7U"
+      },
+      "nNhOSVcY2fQ5FSHH": {
+        "level": 3,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.nNhOSVcY2fQ5FSHH"
+      },
+      "ybttvZH7a0KAXKUN": {
+        "level": 5,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.ybttvZH7a0KAXKUN"
+      },
+      "kQFMAAHEzfAtIVP2": {
+        "level": 5,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kQFMAAHEzfAtIVP2"
+      },
+      "mZwE1nrVc1pVhBnF": {
+        "level": 7,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.mZwE1nrVc1pVhBnF"
+      },
+      "SNtdQlo8m2AZp4cC": {
+        "level": 7,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.SNtdQlo8m2AZp4cC"
+      },
+      "zyCTEng6W6NPmhc0": {
+        "level": 7,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.zyCTEng6W6NPmhc0"
+      },
+      "oT3QpJWQYTAMX4Sn": {
+        "level": 9,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.oT3QpJWQYTAMX4Sn"
+      },
+      "EpwtLE1mmp7zWv9x": {
+        "level": 9,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EpwtLE1mmp7zWv9x"
+      },
+      "aVnbER2Bu1rDRpEy": {
+        "level": 9,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.aVnbER2Bu1rDRpEy"
+      },
+      "BBvo5sG4B89Z5PVX": {
+        "level": 11,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.BBvo5sG4B89Z5PVX"
+      },
+      "qIEAFzxiMm72rX5A": {
+        "level": 11,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.qIEAFzxiMm72rX5A"
+      },
+      "rubmlYssQHztTR9O": {
+        "level": 13,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.rubmlYssQHztTR9O"
+      },
+      "kch29tRWdBMYTJ92": {
+        "level": 13,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kch29tRWdBMYTJ92"
+      },
+      "0ZlD5tcXp5iMguFu": {
+        "level": 13,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0ZlD5tcXp5iMguFu"
+      },
+      "T1pZMI1sn3N8Tzla": {
+        "level": 15,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.T1pZMI1sn3N8Tzla"
+      },
+      "EARY2JPZhhlJxzNn": {
+        "level": 15,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EARY2JPZhhlJxzNn"
+      },
+      "6kmBjCIx8FT1rg9L": {
+        "level": 17,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.6kmBjCIx8FT1rg9L"
+      },
+      "GVHdtFgV0Y4G2Tyr": {
+        "level": 17,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.GVHdtFgV0Y4G2Tyr"
+      },
+      "vGwgKOuOCU9cnfDB": {
+        "level": 19,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.vGwgKOuOCU9cnfDB"
+      },
+      "EhagNGQSg8zMTePe": {
+        "level": 19,
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EhagNGQSg8zMTePe"
+      }
+    },
+    "keyAbility": {
+      "value": [
+        "int"
+      ]
+    },
+    "perception": 2,
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "savingThrows": {
+      "fortitude": 1,
+      "reflex": 2,
+      "will": 2
+    },
+    "skillFeatLevels": {
+      "value": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "skillIncreaseLevels": {
+      "value": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19
+      ]
+    },
+    "slug": "maestro",
+    "spellcasting": 1,
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    },
+    "trainedSkills": {
+      "value": [
+        "crafting"
+      ],
+      "additional": 2
+    }
+  }
+}

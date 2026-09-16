@@ -1,0 +1,46 @@
+{
+  "_id": "aVnbER2Bu1rDRpEy",
+  "_key": "!items!aVnbER2Bu1rDRpEy",
+  "name": "Vigilant Senses",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Through your adventures, you’ve developed keen awareness and attention to detail. Your proficiency rank for Perception increases to master.</p>"
+    },
+    "level": {
+      "value": 9
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.perception.rank",
+        "value": 3
+      }
+    ],
+    "slug": "vigilant-senses",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

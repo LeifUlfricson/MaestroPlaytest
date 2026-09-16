@@ -1,0 +1,39 @@
+{
+  "_id": "EhagNGQSg8zMTePe",
+  "_key": "!items!EhagNGQSg8zMTePe",
+  "name": "Instinctive Control",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Connecting to your pawns has become so natural that it barely requires a thought. You can use Take Control as a free action.</p>"
+    },
+    "level": {
+      "value": 19
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "instinctive-control",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

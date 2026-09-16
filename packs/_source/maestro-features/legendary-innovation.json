@@ -1,0 +1,39 @@
+{
+  "_id": "6kmBjCIx8FT1rg9L",
+  "_key": "!items!6kmBjCIx8FT1rg9L",
+  "name": "Legendary Innovation",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your creations have become the stuff of legend: worthy avatars of your superior technique. Your pawns gain access to their final ability, as described in your Craft.</p>"
+    },
+    "level": {
+      "value": 17
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "legendary-innovation",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

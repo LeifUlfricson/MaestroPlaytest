@@ -1,0 +1,39 @@
+{
+  "_id": "mZwE1nrVc1pVhBnF",
+  "_key": "!items!mZwE1nrVc1pVhBnF",
+  "name": "Coordinated Strike",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You’ve honed your tactical abilities and learned to split your attention more effectively on the battlefield. You gain the Coordinated Strike action.</p><blockquote><p><strong>Coordinated Strike</strong> ◆</p><p><strong>Traits</strong> formation, magical, maestro, pawn</p><p><strong>Targets</strong> 2 Controlled pawns</p><p>You coordinate multiple pawns to strike at the same time. Each target makes a melee or ranged Strike against a valid target, with a –2 penalty. If both Strikes hit the same creature, combine their damage for the purpose of resistances and weaknesses. Both attacks count toward your multiple attack penalty, but the penalty doesn’t increase until after you’ve made both of them.</p></blockquote>"
+    },
+    "level": {
+      "value": 7
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "coordinated-strike",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

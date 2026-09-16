@@ -1,0 +1,39 @@
+{
+  "_id": "FfXQhcWOd0Hp7Z7U",
+  "_key": "!items!FfXQhcWOd0Hp7Z7U",
+  "name": "Maestro's Craft",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your abilities stem from your Craft, which determines how your pawns are made, what they’re like, and the nature of your magical link to them. You choose a Craft at 1st level. The Crafts are described in Maestro’s Crafts, after the class features below.</p>"
+    },
+    "level": {
+      "value": 1
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "maestros-craft",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

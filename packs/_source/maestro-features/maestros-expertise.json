@@ -1,0 +1,46 @@
+{
+  "_id": "EpwtLE1mmp7zWv9x",
+  "_key": "!items!EpwtLE1mmp7zWv9x",
+  "name": "Maestro's Expertise",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>Your foresight and sense of control over the flow of battle are unrivaled, and your techniques have become harder to evade. Your proficiency rank for your maestro class DC increases to expert.</p>"
+    },
+    "level": {
+      "value": 9
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.proficiencies.classDCs.maestro.rank",
+        "value": 2
+      }
+    ],
+    "slug": "maestros-expertise",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

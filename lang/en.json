@@ -29,6 +29,11 @@
         "Name": "Show Action Tracker HUD",
         "Hint": "Show a HUD counter for shared actions and the multiple attack penalty."
       }
+    },
+    "Item": {
+      "PrescientEvasion": {
+        "Note": "On a failure against a damaging effect, you take half damage."
+      }
     }
   }
 }

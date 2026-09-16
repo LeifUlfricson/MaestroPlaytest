@@ -1,0 +1,46 @@
+{
+  "_id": "GVHdtFgV0Y4G2Tyr",
+  "_key": "!items!GVHdtFgV0Y4G2Tyr",
+  "name": "Maestro's Mastery",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You’re a true master of the battlefield, and your tactical brilliance is beyond reproach. Your proficiency rank for your maestro class DC increases to master.</p>"
+    },
+    "level": {
+      "value": 17
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "upgrade",
+        "path": "system.proficiencies.classDCs.maestro.rank",
+        "value": 3
+      }
+    ],
+    "slug": "maestros-mastery",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}

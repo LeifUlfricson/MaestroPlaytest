@@ -1,0 +1,46 @@
+{
+  "_id": "0ZlD5tcXp5iMguFu",
+  "_key": "!items!0ZlD5tcXp5iMguFu",
+  "name": "Three Moves Ahead",
+  "type": "feat",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "classfeature",
+    "description": {
+      "value": "<p>You’re always planning ahead, which makes it very difficult to catch you unprepared. You gain a +2 status bonus to initiative rolls.</p>"
+    },
+    "level": {
+      "value": 13
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selector": "initiative",
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "slug": "three-moves-ahead",
+    "traits": {
+      "value": [
+        "maestro"
+      ],
+      "rarity": "common"
+    }
+  }
+}
