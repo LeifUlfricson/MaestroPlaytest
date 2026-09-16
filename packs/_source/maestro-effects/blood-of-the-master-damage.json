@@ -1,0 +1,35 @@
+{
+  "_id": "r2leWVozx7G6fDBb",
+  "_key": "!items!r2leWVozx7G6fDBb",
+  "name": "Blood of the Master (+4 damage)",
+  "type": "effect",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "description": {
+      "value": "<p>This pawn regained at least 10 Hit Points from Blood of the Master. Its next Strike before the end of the maestro's next turn deals +4 circumstance damage.</p>"
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selector": "strike-damage",
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
+    "slug": "blood-of-the-master-damage",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

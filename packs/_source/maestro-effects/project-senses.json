@@ -1,0 +1,28 @@
+{
+  "_id": "5StQEg9iAY6C0JAG",
+  "_key": "!items!5StQEg9iAY6C0JAG",
+  "name": "Project Senses",
+  "type": "effect",
+  "img": "icons/svg/eye.svg",
+  "system": {
+    "description": {
+      "value": "<p>The maestro perceives through this pawn with any of their senses, as though standing in its space, even while it's Inactive. Applied and removed by the Maestro module; see DESIGN.md §5.9.</p>"
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [],
+    "slug": "project-senses",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

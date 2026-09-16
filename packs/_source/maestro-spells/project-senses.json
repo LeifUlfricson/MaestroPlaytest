@@ -1,0 +1,50 @@
+{
+  "_id": "kuKnf8WHrKAxhDD9",
+  "_key": "!items!kuKnf8WHrKAxhDD9",
+  "name": "Project Senses",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 4
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "magical",
+        "maestro",
+        "manipulate"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": "1 mile"
+    },
+    "area": null,
+    "target": {
+      "value": "1 of your pawns"
+    },
+    "duration": {
+      "value": "sustained up to 10 minutes"
+    },
+    "defense": null,
+    "description": {
+      "value": "<p>You extend your senses through special magical devices installed within your pawn. For the duration, you can perceive through the target with any of your senses as though you were standing in its space, even if it's currently Inactive. This doesn't impede your normal perception, so you perceive from both locations at once. Each time you Sustain this spell, you can move its effects to another of your pawns, ending them on the previous target.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "project-senses"
+  }
+}

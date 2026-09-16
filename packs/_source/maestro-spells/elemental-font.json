@@ -1,0 +1,56 @@
+{
+  "_id": "yfSi6OERHwaUbh0P",
+  "_key": "!items!yfSi6OERHwaUbh0P",
+  "name": "Elemental Font",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 3
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": null,
+    "target": {
+      "value": "1 Controlled Elemental Pawn"
+    },
+    "duration": {
+      "value": "sustained up to 1 minute"
+    },
+    "defense": {
+      "save": {
+        "statistic": "fortitude",
+        "basic": true
+      }
+    },
+    "description": {
+      "value": "<p>Elemental energy radiates from the target, damaging nearby foes. The target deals 2d6 damage of its magical element's type to all adjacent creatures. It deals this damage when you cast the spell and again the first time you Sustain the spell each round. When you cast this spell, it gains the trait that corresponds to the target's magical element in addition to its other traits.</p><p><strong>Heightened (+2)</strong> The damage increases by 1d6.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "elemental-font"
+  }
+}

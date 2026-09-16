@@ -6,6 +6,8 @@ import { registerRangeWatcher } from "./pawns/range.js";
 import { registerGroupTactics } from "./pawns/group-tactics.js";
 import { registerTethers } from "./integrations/tethers.js";
 import { registerFocusEntry } from "./spells/focus-entry.js";
+import { registerSpellGrants } from "./spells/grant-spells.js";
+import { registerRapidAssemblyExpiry } from "./spells/cast-rapid-assembly.js";
 import { createPawn } from "./pawns/create-pawn.js";
 import { registerExecuteButton } from "./ui/execute-button.js";
 import { registerTokenHud } from "./ui/token-hud.js";
@@ -20,6 +22,8 @@ Hooks.once("init", () => {
   registerGroupTactics();
   registerTethers();
   registerFocusEntry();
+  registerSpellGrants();
+  registerRapidAssemblyExpiry();
   registerExecuteButton();
   registerTokenHud();
   registerActionTracker();

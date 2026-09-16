@@ -1,0 +1,52 @@
+{
+  "_id": "dIg39XeddFx9FN15",
+  "_key": "!items!dIg39XeddFx9FN15",
+  "name": "Blitz",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 9
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "formation",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": null,
+    "target": {
+      "value": "any number of Controlled pawns"
+    },
+    "duration": {
+      "value": ""
+    },
+    "defense": null,
+    "description": {
+      "value": "<p>Each target uses a single action available to it. If multiple targets Strike the same creature, combine their damage for the purpose of resistances and weaknesses. Apply your multiple attack penalty normally, though you can choose which Strike happens first for the purposes of reactions and other triggers.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "blitz"
+  }
+}

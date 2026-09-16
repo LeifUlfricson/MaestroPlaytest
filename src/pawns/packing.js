@@ -76,7 +76,7 @@ function findPackedPawnItem(maestro, pawn) {
 }
 
 /** Places the pawn's token adjacent to the maestro. (verify) against Portal's pick() and v14's grid API. */
-async function placeToken(pawn, maestro, position) {
+export async function placeToken(pawn, maestro, position) {
   const maestroToken = maestro.getActiveTokens()[0];
   if (!maestroToken) return;
   const spot = position ?? findAdjacentSpace(maestroToken);

@@ -1,0 +1,60 @@
+{
+  "_id": "8HFBxmjSONNraT9u",
+  "_key": "!items!8HFBxmjSONNraT9u",
+  "name": "Sacrifice Pawn",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 3
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "fire",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": {
+      "value": 10,
+      "type": "emanation"
+    },
+    "target": {
+      "value": "1 Controlled pawn"
+    },
+    "duration": {
+      "value": ""
+    },
+    "defense": {
+      "save": {
+        "statistic": "reflex",
+        "basic": true
+      }
+    },
+    "description": {
+      "value": "<p>You channel destructive energy through the bond between you and your pawn, causing it to explode violently. The target is immediately reduced to 0 Hit Points, and the explosion deals 6d6 fire damage to creatures in a 10-foot emanation around it.</p><p><strong>Special</strong> If the target is an Elemental Pawn, you can instead have the damage match its magical element's damage type. If you do, replace the fire trait with the trait that corresponds to that damage type.</p><p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "sacrifice-pawn"
+  }
+}

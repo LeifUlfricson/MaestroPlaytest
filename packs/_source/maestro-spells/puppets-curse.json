@@ -1,0 +1,58 @@
+{
+  "_id": "Uy0YED4ABPnq0AmE",
+  "_key": "!items!Uy0YED4ABPnq0AmE",
+  "name": "Puppet's Curse",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 3
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "incapacitation",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn",
+        "spirit"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": null,
+    "target": {
+      "value": "1 fatebound creature"
+    },
+    "duration": {
+      "value": "until the end of the target's next turn"
+    },
+    "defense": {
+      "save": {
+        "statistic": "will",
+        "basic": false
+      }
+    },
+    "description": {
+      "value": "<p>You manipulate the connection between your pawn and its victim, compelling the target to take the actions you choose on its turn as though it were a puppet itself. The target can't Delay or use reactions until it has obeyed your commands; afterward, it can use its remaining actions as normal. You can compel the target to take only actions you know it's capable of, and you can't compel it to cast a spell that isn't on a spell list from which you can Cast a Spell. Compelling the target to harm itself disrupts your connection, immediately ending this spell and the target's fatebound condition. The effects of this spell depend on the target's Will save.</p><p><strong>Success</strong> The target is unaffected.</p><p><strong>Failure</strong> The target takes one action of your choice.</p><p><strong>Critical Failure</strong> The target takes two actions of your choice. These can be a single two-action activity.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "puppets-curse"
+  }
+}

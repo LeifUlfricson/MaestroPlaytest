@@ -6,6 +6,52 @@ const PAWN_PACK = `${MODULE_ID}.maestro-pawns`;
 const PAWN_FEATURES_PACK = `${MODULE_ID}.maestro-pawn-features`;
 
 /**
+ * Builds a new pawn actor's source data: the template actor (ancestry + Frame), the maestro's
+ * Craft chassis embedded, ownership matching the maestro, and the pf2e-maestro.pawn flags.
+ * Shared by the creation wizard and Rapid Assembly (src/spells/rapid-assembly.js).
+ * @param {Actor} maestro
+ * @param {object} options
+ * @param {string} options.name
+ * @param {string|null} options.craft
+ * @param {{physical: string, magical: string}|null} [options.elements]
+ * @param {object} [options.extraFlags] Merged into flags.pf2e-maestro.pawn (e.g. `temporary`).
+ * @returns {Promise<object|null>}
+ */
+export async function buildPawnActorSource(maestro, { name, craft, elements = null, extraFlags = {} }) {
+  const pack = game.packs.get(PAWN_PACK);
+  const [template] = (await pack?.getDocuments({ name: "Pawn" })) ?? [];
+  if (!template) {
+    ui.notifications.error(`${MODULE_ID} | Could not find the "Pawn" template actor in ${PAWN_PACK}.`);
+    return null;
+  }
+
+  const pawnSource = template.toObject();
+  delete pawnSource._id;
+  pawnSource.name = name;
+  pawnSource.ownership = foundry.utils.deepClone(maestro.ownership);
+  foundry.utils.setProperty(pawnSource, "system.build.attributes.manual", true);
+  foundry.utils.setProperty(pawnSource, `flags.${MODULE_ID}.pawn`, {
+    maestroUuid: maestro.uuid,
+    craft,
+    size: "sm",
+    elements,
+    form: craft === "ethereal" ? "attack" : null,
+    state: "inactive",
+    packed: false,
+    folded: false,
+    brokenHistory: [],
+    temporary: null,
+    vessel: false,
+    ...extraFlags,
+  });
+
+  const chassis = await findChassisItem(craft);
+  if (chassis) pawnSource.items.push(chassis);
+
+  return pawnSource;
+}
+
+/**
  * The downtime pawn-creation wizard (DESIGN.md §5.1). Scoped to what's built so far: a Small
  * pawn (Bigger Figures/Supersized are M7 feats) with the maestro's Craft chassis embedded, and
  * no Packed Pawn item yet (that's created the first time the pawn is packed, src/pawns/packing.js).
@@ -17,34 +63,8 @@ export async function createPawn(maestro) {
   const answers = await promptForDetails(maestro, craft);
   if (!answers) return null;
 
-  const pack = game.packs.get(PAWN_PACK);
-  const [template] = (await pack?.getDocuments({ name: "Pawn" })) ?? [];
-  if (!template) {
-    ui.notifications.error(`${MODULE_ID} | Could not find the "Pawn" template actor in ${PAWN_PACK}.`);
-    return null;
-  }
-
-  const pawnSource = template.toObject();
-  delete pawnSource._id;
-  pawnSource.name = answers.name;
-  pawnSource.ownership = foundry.utils.deepClone(maestro.ownership);
-  foundry.utils.setProperty(pawnSource, "system.build.attributes.manual", true);
-  foundry.utils.setProperty(pawnSource, `flags.${MODULE_ID}.pawn`, {
-    maestroUuid: maestro.uuid,
-    craft,
-    size: "sm",
-    elements: answers.elements,
-    form: craft === "ethereal" ? "attack" : null,
-    state: "inactive",
-    packed: false,
-    folded: false,
-    brokenHistory: [],
-    temporary: null,
-    vessel: false,
-  });
-
-  const chassis = await findChassisItem(craft);
-  if (chassis) pawnSource.items.push(chassis);
+  const pawnSource = await buildPawnActorSource(maestro, { name: answers.name, craft, elements: answers.elements });
+  if (!pawnSource) return null;
 
   const pawn = await Actor.create(pawnSource);
   if (!pawn) return null;

@@ -1,0 +1,28 @@
+{
+  "_id": "g9j9tjRFKaNf0VDM",
+  "_key": "!items!g9j9tjRFKaNf0VDM",
+  "name": "Hold Together",
+  "type": "effect",
+  "img": "icons/svg/regen.svg",
+  "system": {
+    "description": {
+      "value": "<p>The first time this pawn would be reduced to 0 Hit Points while this effect is present, it instead remains at 1 Hit Point and doesn't gain the broken condition (then this effect ends). Applied and removed by the Maestro module; see DESIGN.md §7.</p>"
+    },
+    "duration": {
+      "value": 10,
+      "unit": "minutes",
+      "expiry": "turn-start",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [],
+    "slug": "hold-together",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

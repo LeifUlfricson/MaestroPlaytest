@@ -1,0 +1,50 @@
+{
+  "_id": "cflSAK5HZrxqPokS",
+  "_key": "!items!cflSAK5HZrxqPokS",
+  "name": "Blood of the Master",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 9
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "magical",
+        "maestro",
+        "manipulate"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "1"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": null,
+    "target": {
+      "value": "any number of Flesh Pawns within your Range of Control"
+    },
+    "duration": {
+      "value": ""
+    },
+    "defense": null,
+    "description": {
+      "value": "<p>You convert your own flesh and blood into raw magical energy and feed it to your creations. You lose any number of your current Hit Points, as long as you have at least 1 Hit Point remaining. Distribute those Hit Points among the targets however you wish, whether they're Controlled or Inactive; each target regains the Hit Points you assign to it and loses the broken condition, if it has it. Inactive targets immediately become Controlled if eligible, following the same rules as Take Control. You can do this even if you've already used Take Control this round.</p><p>Any pawn that regains at least 10 Hit Points from this spell gains a +4 circumstance bonus to damage on its next Strike before the end of your next turn.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "blood-of-the-master"
+  }
+}

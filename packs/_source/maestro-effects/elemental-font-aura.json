@@ -1,0 +1,28 @@
+{
+  "_id": "yHfK6U6JzAd1nz9i",
+  "_key": "!items!yHfK6U6JzAd1nz9i",
+  "name": "Elemental Font (Aura)",
+  "type": "effect",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "description": {
+      "value": "<p>This Elemental Pawn is radiating elemental energy. It deals its magical element's damage (2d6, or more if the spell was heightened) to all adjacent creatures each time its maestro Sustains Elemental Font. Applied and removed by the Maestro module.</p>"
+    },
+    "duration": {
+      "value": -1,
+      "unit": "encounter",
+      "expiry": "turn-end",
+      "sustained": true
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "rules": [],
+    "slug": "elemental-font-aura",
+    "traits": {
+      "value": [],
+      "rarity": "common"
+    }
+  }
+}

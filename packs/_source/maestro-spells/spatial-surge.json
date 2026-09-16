@@ -1,0 +1,59 @@
+{
+  "_id": "GzJZhODHbwuHwiDX",
+  "_key": "!items!GzJZhODHbwuHwiDX",
+  "name": "Spatial Surge",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 9
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "magical",
+        "maestro",
+        "manipulate",
+        "pawn"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": {
+      "value": 60,
+      "type": "line"
+    },
+    "target": {
+      "value": "1 Controlled Ethereal Pawn"
+    },
+    "duration": {
+      "value": ""
+    },
+    "defense": {
+      "save": {
+        "statistic": "reflex",
+        "basic": true
+      }
+    },
+    "description": {
+      "value": "<p><strong>Requirements</strong> The target is within 10 feet of at least two other Controlled Ethereal Pawns.</p><p>Your pawns channel their energy into the target, combining their magic to create a single, lethal weapon. A spatial anomaly erupts in a line originating from the target. Creatures in the area take 10d10 force damage. The anomaly is unaffected by solid objects, such as walls, and passes through them unhindered.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "spatial-surge"
+  }
+}

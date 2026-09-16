@@ -1,0 +1,50 @@
+{
+  "_id": "iITUTD1zmbjSnV12",
+  "_key": "!items!iITUTD1zmbjSnV12",
+  "name": "Rapid Assembly",
+  "type": "spell",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "level": {
+      "value": 2
+    },
+    "traits": {
+      "value": [
+        "concentrate",
+        "magical",
+        "maestro",
+        "manipulate"
+      ],
+      "rarity": "common"
+    },
+    "time": {
+      "value": "2"
+    },
+    "range": {
+      "value": ""
+    },
+    "area": null,
+    "target": {
+      "value": "enough materials appropriate to your Craft to make a pawn, within your Range of Control"
+    },
+    "duration": {
+      "value": "10 minutes"
+    },
+    "defense": null,
+    "description": {
+      "value": "<p>You force your magic into the materials needed to make a pawn, which can include the remains of a previously destroyed pawn. You create a new Small pawn of the type described in your Craft from those materials, magically assembling it in a space within your Range of Control. You immediately Take Control of the new pawn as a free action, even if you’ve already used Take Control this round and even if the pawn isn’t within 10 feet of you. This doesn’t increase the number of pawns you can control. When the duration ends, the new pawn crumbles back into a pile of inert materials.</p><p><strong>Heightened (+4)</strong> You can target an additional set of materials, if available, and create one additional pawn.</p>"
+    },
+    "traditions": {
+      "value": []
+    },
+    "category": "spell",
+    "publication": {
+      "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+      "authors": "Erik (Lucky Thirteen)",
+      "license": "OGL",
+      "remaster": true
+    },
+    "rules": [],
+    "slug": "rapid-assembly"
+  }
+}

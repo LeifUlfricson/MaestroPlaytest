@@ -13,10 +13,21 @@ export function registerLifecycleHooks() {
     const newHP = foundry.utils.getProperty(changed, "system.attributes.hp.value");
     if (newHP === undefined) return;
     options.maestroPawnOldHP = actor.system.attributes.hp.value;
+
+    // Hold Together (DESIGN.md §7): intercept before the 0 is ever persisted, so the normal
+    // HP-zero transition below never sees it.
+    const holdTogether = actor.itemTypes.effect?.find((e) => e.slug === "hold-together");
+    if (holdTogether && newHP <= 0) {
+      foundry.utils.setProperty(changed, "system.attributes.hp.value", 1);
+      options.maestroHoldTogetherConsumed = holdTogether.id;
+    }
   });
 
   Hooks.on("updateActor", (actor, changed, options) => {
     if (!isPawn(actor)) return;
+    if (options.maestroHoldTogetherConsumed) {
+      actor.items.get(options.maestroHoldTogetherConsumed)?.delete();
+    }
     const newHP = foundry.utils.getProperty(changed, "system.attributes.hp.value");
     if (newHP === undefined) return;
     const oldHP = options.maestroPawnOldHP;
