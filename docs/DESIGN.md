@@ -62,7 +62,7 @@ Integrations with optional packages must check `game.modules.get(id)?.active` an
 | Attacks | Simple, martial, unarmed: Trained → Expert at 5 → Master at 13 |
 | Defenses | Light, unarmored: Trained → Expert at 11 → Master at 19 |
 | Class DC | Trained → Expert at 9 → Master at 17 |
-| Spellcasting (command spells) | Trained. **No progression is listed** (see Q1) |
+| Spellcasting (command spells) | Trained → Expert at 9 (Maestro's Expertise, if you have command spells). Maestro's Mastery (17) doesn't raise it further. Resolved by Q1 |
 | Class feats | 1, 2, 4, 6, …, 20 |
 | Skill feats | 2, 4, …, 20 |
 | General feats | 3, 7, 11, 15, 19 |
@@ -536,7 +536,7 @@ The **Pawn-side** column names what projection adds to pawns when the maestro ha
 | Evasion | 7 | Auto | Reflex rank → 3; `AdjustDegreeOfSuccess` reflex: success → critical success | — |
 | Tactical Opportunist | 7 | Auto | — | `AdjustStrike` add weapon trait `backstabber` to all Strikes |
 | Group Tactics | 9 | Assist | §5.6 | EphemeralEffect (via Link) |
-| Maestro's Expertise | 9 | Auto | Class DC rank → 2 | — |
+| Maestro's Expertise | 9 | Auto | Class DC rank → 2; spellcasting rank → 2 if the maestro has command spells (Q1) | — |
 | Vigilant Senses | 9 | Auto | Perception rank → 3 | — |
 | Light Armor Expertise | 11 | Auto | Light and unarmored rank → 2 | (Frame: unarmored 2 at L11) |
 | Brilliant Innovation | 11 | Auto | As Cunning Innovation, at level 11 | Craft 11th-level item |
@@ -546,7 +546,7 @@ The **Pawn-side** column names what projection adds to pawns when the maestro ha
 | Coordinated Assault | 15 | Assist | Unlocks the third-pawn option in the dialog | — |
 | Resolve | 15 | Auto | Will rank → 3; will success → critical success | — |
 | Legendary Innovation | 17 | Auto | As Cunning Innovation, at level 17 | Craft 17th-level item |
-| Maestro's Mastery | 17 | Auto | Class DC rank → 3 | — |
+| Maestro's Mastery | 17 | Auto | Class DC rank → 3; spellcasting rank → 2 if the maestro has command spells (a no-op after Maestro's Expertise; Q1 stops spellcasting at Expert) | — |
 | Light Armor Mastery | 19 | Auto | Light and unarmored rank → 3 | (Frame: unarmored 3 at L19) |
 | Instinctive Control | 19 | Auto | Replaces Take Control with the free-action variant | — |
 
@@ -808,7 +808,7 @@ Each milestone ends with a tagged commit, passing tests, and an updated CHANGELO
 
 | # | Question | Default used in code |
 |---|---|---|
-| Q1 | The command spell attack/DC proficiency is Trained with **no progression**, so spell DCs fall about 4 points behind class DC by level 17. Should it track class DC (Expert 9, Master 17)? | Trained only, as written. Make it one class item field change if the answer is "track class DC" |
+| Q1 | The command spell attack/DC proficiency is Trained with **no progression**, so spell DCs fall about 4 points behind class DC by level 17. Should it track class DC (Expert 9, Master 17)? | **Resolved by the designer:** Maestro's Expertise (9) and Maestro's Mastery (17) both bump spellcasting to Expert *if the maestro has command spells* — not Master; spellcasting proficiency caps at Expert. Maestro's Mastery's clause is a no-op once Maestro's Expertise has already applied. The rules text and both class features were updated to match (see CHANGELOG) |
 | Q2 | The document footer still reads "Beta v2.0" on every page. | Cosmetic; the module uses "Beta v2.1 / Playtest v1.0" |
 | Q3 | Warp Strike "counts as two attacks when calculating your multiple attack penalty". Does the Strike itself roll at the current MAP (and then add 2 steps), or at the MAP as if one attack had already been made? | Rolls at the current MAP; the counter increases by 2 afterward |
 | Q4 | The Ethereal form switch has no stat block. What are its traits? | 1 action; `magical`, `maestro`, `manipulate` |
