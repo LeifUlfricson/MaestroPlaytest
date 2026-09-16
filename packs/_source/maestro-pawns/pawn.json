@@ -1,0 +1,142 @@
+{
+  "_id": "3WVvMGJxqJ6LeZXz",
+  "_key": "!actors!3WVvMGJxqJ6LeZXz",
+  "name": "Pawn",
+  "type": "character",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": { "mod": 0 },
+      "dex": { "mod": 0 },
+      "con": { "mod": 0 },
+      "int": { "mod": 0 },
+      "wis": { "mod": 0 },
+      "cha": { "mod": 0 }
+    },
+    "build": {
+      "attributes": { "manual": true }
+    },
+    "details": {
+      "level": { "value": 1 }
+    }
+  },
+  "items": [
+    {
+      "_id": "Yu1AYQ6feB4ZfsJr",
+      "_key": "!actors.items!3WVvMGJxqJ6LeZXz.Yu1AYQ6feB4ZfsJr",
+      "name": "Pawn",
+      "type": "ancestry",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "additionalLanguages": { "count": 0, "value": [] },
+        "boosts": {},
+        "flaws": {},
+        "hp": 10,
+        "languages": { "value": [] },
+        "reach": 0,
+        "size": "sm",
+        "sizes": ["sm"],
+        "speed": 25,
+        "description": {
+          "value": "<p>A pawn's ancestry stub. Its actual size, Speed, and Hit Points are layered on top by the pawn's Craft and the maestro's Craft chassis; see DESIGN.md §4.1 and §2.2.</p>"
+        },
+        "publication": {
+          "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+          "authors": "Erik (Lucky Thirteen)",
+          "license": "OGL",
+          "remaster": true
+        },
+        "rules": [
+          { "key": "Immunity", "type": "bleed" },
+          { "key": "Immunity", "type": "death-effects" },
+          { "key": "Immunity", "type": "disease" },
+          { "key": "Immunity", "type": "healing" },
+          { "key": "Immunity", "type": "nonlethal-attacks" },
+          { "key": "Immunity", "type": "poison" },
+          { "key": "Immunity", "type": "vitality" },
+          { "key": "Immunity", "type": "void" },
+          { "key": "Immunity", "type": "doomed" },
+          { "key": "Immunity", "type": "drained" },
+          { "key": "Immunity", "type": "fatigued" },
+          { "key": "Immunity", "type": "paralyzed" },
+          { "key": "Immunity", "type": "sickened" },
+          { "key": "Immunity", "type": "unconscious" },
+          { "key": "Immunity", "type": "mental" }
+        ],
+        "slug": "pawn",
+        "traits": { "value": ["construct", "mindless", "pawn"], "rarity": "common" }
+      }
+    },
+    {
+      "_id": "AhG03VO9Z3FIb5cg",
+      "_key": "!actors.items!3WVvMGJxqJ6LeZXz.AhG03VO9Z3FIb5cg",
+      "name": "Pawn Frame",
+      "type": "class",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "ancestryFeatLevels": { "value": [] },
+        "attacks": { "advanced": 0, "martial": 0, "simple": 0, "unarmed": 1 },
+        "classDC": 0,
+        "defenses": { "heavy": 0, "light": 0, "medium": 0, "unarmored": 1 },
+        "description": {
+          "value": "<p>The stub class every pawn carries. Its own numbers (HP 4/level, Trained unarmed and unarmored) are the pawn's baseline before the maestro's Craft chassis and the generated Maestro Link effect layer their own rule elements on top; see DESIGN.md §4.1.</p>"
+        },
+        "generalFeatLevels": { "value": [] },
+        "hp": 4,
+        "items": {},
+        "keyAbility": { "value": ["int"] },
+        "perception": 1,
+        "publication": {
+          "title": "Maestro (Beta v2.1 / Playtest v1.0)",
+          "authors": "Erik (Lucky Thirteen)",
+          "license": "OGL",
+          "remaster": true
+        },
+        "rules": [
+          {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.unarmed.rank",
+            "value": 2,
+            "predicate": [{ "gte": ["self:level", 5] }]
+          },
+          {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.unarmed.rank",
+            "value": 3,
+            "predicate": [{ "gte": ["self:level", 13] }]
+          },
+          {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.defenses.unarmored.rank",
+            "value": 2,
+            "predicate": [{ "gte": ["self:level", 11] }]
+          },
+          {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.defenses.unarmored.rank",
+            "value": 3,
+            "predicate": [{ "gte": ["self:level", 19] }]
+          }
+        ],
+        "savingThrows": { "fortitude": 2, "reflex": 2, "will": 2 },
+        "skillFeatLevels": { "value": [] },
+        "skillIncreaseLevels": { "value": [] },
+        "slug": "pawn-frame",
+        "spellcasting": 0,
+        "traits": { "value": [], "rarity": "common" },
+        "trainedSkills": { "value": [], "additional": 0 }
+      }
+    }
+  ],
+  "prototypeToken": {
+    "name": "Pawn",
+    "actorLink": true,
+    "sight": { "enabled": false },
+    "detectionModes": []
+  },
+  "ownership": { "default": 0 }
+}
