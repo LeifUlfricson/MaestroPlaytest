@@ -6,6 +6,12 @@ All eight planned milestones (DESIGN.md §9) are done. Nothing in this module ha
 against a live Foundry/PF2e client yet — see `docs/QA.md` for the checklist to run before
 trusting it at a table, and README.md's "Before you trust it at the table" section.
 
+**Update:** a first live session (Foundry v14 Build 367, PF2e 8.4.1) happened shortly after this
+version was tagged. It found and fixed three real bugs — see "Fix bugs found by live testing in
+Foundry v14 / PF2e 8.4.1" — and confirmed the core pawn-stats/projection pipeline (M2-M4) matches
+DESIGN.md's worked examples exactly on a live character sheet. `docs/QA.md` has the details of
+what's been checked so far and what's still outstanding.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

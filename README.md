@@ -37,10 +37,16 @@ running Foundry v14 (minimum 14.361) with the PF2e system (8.5.x).
 
 ## Before you trust it at the table
 
-This module was built without a live Foundry/PF2e install to test against — every rule element,
-hook name, and API call marked `(verify)` in the source and in DESIGN.md is a best-effort guess
-against known PF2e conventions, not a confirmed fact. Run `docs/QA.md`'s script in a real world
-before running a game with it, and expect to fix some field paths along the way.
+This module was originally built without a live Foundry/PF2e install to test against — every
+rule element, hook name, and API call marked `(verify)` in the source and in DESIGN.md started as
+a best-effort guess against known PF2e conventions, not a confirmed fact. A first live session
+(Foundry v14 Build 367, PF2e 8.4.1) has since confirmed the core pawn-creation/projection pipeline
+(module activation, class item, Craft choice, and Elemental pawn creation at 1st level) and found
+three real bugs, all fixed — see `docs/QA.md` for exactly what's been checked and what's still
+outstanding, and CHANGELOG.md for the bugs. Most of the module (11th/17th level content, the other
+three Crafts, formations, command spells, Schematics) is still unverified. Run the rest of
+`docs/QA.md`'s script in a real world before running a game with it, and expect to fix more field
+paths along the way.
 
 ## Release packaging
 

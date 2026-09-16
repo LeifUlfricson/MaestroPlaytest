@@ -2,9 +2,16 @@
 
 One full combat per Craft, at 1st, 11th, and 17th level, in a live Foundry v14 (14.361+) world
 running PF2e 8.5.x. This is the "QA script complete for all four crafts" bar from DESIGN.md's
-M8. Nothing in this repository has been run against a live client yet — every milestone's
-commit message says so — so treat this as the starting checklist for that first real session,
-not a report of results.
+M8.
+
+**Status:** a first real session happened against Foundry v14 Build 367 / PF2e 8.4.1 (see the
+"Fix bugs found by live testing" commit). It covered module activation, applying the class item,
+choosing a Craft (Elemental), and creating a metal/fire pawn — roughly the "Setup" section below
+plus the Elemental row's 1st-level check. Everything else in this file, and 11th/17th level for
+every Craft, is still unverified. That first session found and fixed three real bugs (a PF2e
+version-compatibility mismatch, 16 broken icon paths, and two functional bugs in the Elemental
+Strike rule elements and the link service's duplicate-effect race) — see the CHANGELOG for
+details. Expect more of the same as the rest of this script gets run for the first time.
 
 Before starting, run the automated checks that don't need Foundry:
 
@@ -61,7 +68,7 @@ followed by the per-craft table below.
 
 | Level | Check |
 |---|---|
-| 1 | Create a metal/fire pawn: elemental blow has the parry trait and deals fire damage, the pawn's AC item bonus is Int+1, and it has the `metal` and `fire` traits (this is smoke test 7). Create a stone/cold pawn: it has `earth` and `water` traits and physical resistance `1 + floor(level/2)`. |
+| 1 | **Confirmed live:** create a metal/fire pawn — elemental blow and elemental shot both show up as real Strikes dealing `1d6 fire`, the pawn's creature traits include `metal` and `fire`, HP/AC/saves/Perception all match `pawn-stats.js`'s predictions exactly. **Known gap, also confirmed live:** elemental blow does *not* have the parry trait, and neither Strike carries the element trait itself (only the creature does) — DESIGN.md's assumed syntax for conditional Strike traits isn't valid PF2e (see the "Fix bugs found by live testing" commit), and a fix needs more investigation against the real AdjustStrike schema. Create a stone/cold pawn: it has `earth` and `water` creature traits and physical resistance `1 + floor(level/2)` (not yet re-confirmed live after the fix, but uses the same mechanism that did work for metal/fire). |
 | 11 | Elemental Warding's resistance (equal to level, to the pawn's magical element) is present on the pawn's Maestro Link. |
 | 17 | Elemental Avatar: elemental blow/shot deal d12s, add 1d6 persistent damage of the element on a hit, and the pawn is immune to critical hits. The retaliation (6d6 to anything that touches/hits the pawn in melee) is **not automated** — confirm the Note is present and apply it by hand. |
 
@@ -88,6 +95,14 @@ call), not things QA should file as regressions:
 - **Resonant Form's adjacency counting** is manual (an explicit M8 stretch goal in DESIGN.md).
 - **The action/MAP HUD** (`src/ui/action-tracker.js`) is a minimal MAP-step counter with no
   reaction marker yet.
+- **Elemental Strikes don't carry the element/parry trait themselves** (confirmed live; see the
+  row above and the "Fix bugs found by live testing" commit). The creature-level traits and the
+  damage type both work correctly.
+- **The "Create Pawn" sheet header button doesn't appear** on a maestro's character sheet
+  (confirmed live: v14's ApplicationV2 sheet doesn't fire the legacy `getActorSheetHeaderButtons`
+  hook, exactly as flagged `(verify)` since M2). Use `game.modules.get("pf2e-maestro").api.
+  createPawn(actor)` instead — the "Install Schematic" button on a *pawn's* sheet does work,
+  since pawns still use `renderActorSheet`-compatible rendering.
 
 ## Reporting results
 
