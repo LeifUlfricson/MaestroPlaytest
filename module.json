@@ -1,0 +1,49 @@
+{
+  "id": "pf2e-maestro",
+  "title": "Maestro (PF2e Homebrew Class)",
+  "description": "Maestro, a homebrew Pathfinder 2e class that commands a team of magical puppets called pawns. Playtest v1.0 / Document Beta v2.1, by Erik (Lucky Thirteen).",
+  "version": "0.0.0",
+  "authors": [{ "name": "Erik (Lucky Thirteen)" }],
+  "compatibility": { "minimum": "14.361", "verified": "14.367" },
+  "relationships": {
+    "systems": [{ "id": "pf2e", "type": "system", "compatibility": { "minimum": "8.5.0" } }],
+    "recommends": [
+      { "id": "sequencer", "type": "module" },
+      { "id": "pf2e-toolbelt", "type": "module" }
+    ]
+  },
+  "esmodules": ["dist/module.js"],
+  "styles": ["styles/maestro.css"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }],
+  "packs": [
+    { "name": "maestro-class", "path": "packs/maestro-class", "label": "Maestro: Class", "type": "Item", "system": "pf2e", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "maestro-features", "path": "packs/maestro-features", "label": "Maestro: Class Features", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-feats", "path": "packs/maestro-feats", "label": "Maestro: Feats", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-actions", "path": "packs/maestro-actions", "label": "Maestro: Actions", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-spells", "path": "packs/maestro-spells", "label": "Maestro: Command Spells", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-effects", "path": "packs/maestro-effects", "label": "Maestro: Effects", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-pawn-features", "path": "packs/maestro-pawn-features", "label": "Maestro: Pawn Features", "type": "Item", "system": "pf2e" },
+    { "name": "maestro-pawns", "path": "packs/maestro-pawns", "label": "Maestro: Pawn Templates", "type": "Actor", "system": "pf2e" },
+    { "name": "maestro-macros", "path": "packs/maestro-macros", "label": "Maestro: Macros", "type": "Macro" }
+  ],
+  "packFolders": [
+    {
+      "name": "Maestro",
+      "sorting": "m",
+      "packs": ["maestro-class", "maestro-features", "maestro-feats", "maestro-actions", "maestro-spells", "maestro-effects", "maestro-pawn-features", "maestro-pawns", "maestro-macros"]
+    }
+  ],
+  "flags": {
+    "pf2e-maestro": {
+      "pf2e-homebrew": {
+        "classTraits": { "maestro": "Maestro" },
+        "featTraits": { "maestro": "Maestro", "pawn": "Pawn", "formation": "Formation", "schematic": "Schematic" },
+        "spellTraits": { "maestro": "Maestro", "pawn": "Pawn", "formation": "Formation" },
+        "creatureTraits": { "pawn": "Pawn" }
+      }
+    }
+  },
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

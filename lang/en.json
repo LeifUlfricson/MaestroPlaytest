@@ -1,0 +1,34 @@
+{
+  "PF2E_MAESTRO": {
+    "Settings": {
+      "autoInactiveOnRange": {
+        "Name": "Auto-Inactive Outside Range",
+        "Hint": "Drop a pawn to Inactive when it leaves its maestro's Range of Control."
+      },
+      "enforceControlCap": {
+        "Name": "Enforce Control Cap",
+        "Hint": "Block Take Control from exceeding a maestro's controlled-pawn cap."
+      },
+      "formationLock": {
+        "Name": "Formation Lock",
+        "Hint": "Allow only one formation action per round."
+      },
+      "sealedFateCards": {
+        "Name": "Automatic Sealed Fate Cards",
+        "Hint": "Post the Sealed Fate damage card automatically."
+      },
+      "tethers": {
+        "Name": "Tether Visuals",
+        "Hint": "How to draw the magical connection between a maestro and its Controlled pawns."
+      },
+      "runeSharing": {
+        "Name": "Rune & Skill Sharing",
+        "Hint": "How pawns inherit their maestro's runes and skills."
+      },
+      "showActionTracker": {
+        "Name": "Show Action Tracker HUD",
+        "Hint": "Show a HUD counter for shared actions and the multiple attack penalty."
+      }
+    }
+  }
+}
