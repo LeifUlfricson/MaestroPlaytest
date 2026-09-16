@@ -374,7 +374,7 @@ Your creations have become the stuff of legend: worthy avatars of your superior 
 
 #### Maestro’s Mastery · 17TH
 
-You’re a true master of the battlefield, and your tactical brilliance is beyond reproach. Your proficiency rank for your maestro class DC increases to master. If you have command spells, your proficiency rank for spell attacks and spell DCs increases to expert.
+You’re a true master of the battlefield, and your tactical brilliance is beyond reproach. Your proficiency rank for your maestro class DC increases to master. If you have command spells, your proficiency rank for spell attacks and spell DCs increases to master.
 
 #### Light Armor Mastery · 19TH
 

@@ -13,7 +13,7 @@
     },
     "category": "classfeature",
     "description": {
-      "value": "<p>You’re a true master of the battlefield, and your tactical brilliance is beyond reproach. Your proficiency rank for your maestro class DC increases to master. If you have command spells, your proficiency rank for spell attacks and spell DCs increases to expert.</p>"
+      "value": "<p>You’re a true master of the battlefield, and your tactical brilliance is beyond reproach. Your proficiency rank for your maestro class DC increases to master. If you have command spells, your proficiency rank for spell attacks and spell DCs increases to master.</p>"
     },
     "level": {
       "value": 17
@@ -38,7 +38,7 @@
         "key": "ActiveEffectLike",
         "mode": "upgrade",
         "path": "system.proficiencies.spellcasting.rank",
-        "value": 2,
+        "value": 3,
         "predicate": [
           {
             "or": [

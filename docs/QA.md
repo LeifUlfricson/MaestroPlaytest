@@ -12,13 +12,14 @@ version-compatibility mismatch, 16 broken icon paths, and two functional bugs in
 Strike rule elements and the link service's duplicate-effect race) — see the CHANGELOG for
 details.
 
-A second session tested command spell proficiency at 17th level (Maestro's Mastery) and found two
-more real bugs, also fixed: the "Command Spells" spellcasting entry could be duplicated by the
-same check-then-create race as the pawn Link effect, and the focus pool never grew when a command
-spell was granted (its `ActiveEffectLike` had to move from the spell item, which PF2e 8.4.1
-ignores rule elements on entirely, to the granting feat/feature). See the CHANGELOG's "Update 2"
-for details, including confirmation that "Mastery doesn't push spell DC to Master" is correct
-per-design (Q1's resolution caps command spell proficiency at Expert), not a bug.
+A second session tested command spell proficiency at 17th level (Maestro's Mastery) and reported
+it wasn't pushing command spell DC to Master. That was a real miss in Q1's original resolution
+(now corrected: Mastery upgrades spellcasting to Master, not Expert — see the amended Q1 entry in
+DESIGN.md and the CHANGELOG's "Update 2"), and chasing it also found two more real bugs, both
+fixed: the "Command Spells" spellcasting entry could be duplicated by the same check-then-create
+race as the pawn Link effect, and the focus pool never grew when a command spell was granted (its
+`ActiveEffectLike` had to move from the spell item, which PF2e 8.4.1 ignores rule elements on
+entirely, to the granting feat/feature).
 
 Everything else in this file — 11th/17th level for every Craft besides the two checks above, and
 Flesh/Ethereal/Sympathetic entirely — is still unverified. Expect more of the same as the rest of
