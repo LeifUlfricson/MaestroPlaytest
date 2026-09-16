@@ -3,7 +3,7 @@
   "_key": "!items!59EtKLlXQ99qY2T9",
   "name": "Broken (Pawn)",
   "type": "effect",
-  "img": "icons/svg/broken-shield.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
     "description": {
       "value": "<p>This pawn gained the broken condition when it was reduced to 0 Hit Points. Take Control rejects a Broken pawn. It's removed by Repair, Field Repairs, or Blood of the Master. If a pawn becomes Broken twice within 10 minutes, it's destroyed. Applied and removed by the Maestro module; see DESIGN.md §5.2.</p>"

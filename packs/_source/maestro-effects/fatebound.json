@@ -3,7 +3,7 @@
   "_key": "!items!nsO50NWhysqBU75C",
   "name": "Fatebound",
   "type": "effect",
-  "img": "icons/svg/link.svg",
+  "img": "icons/svg/circle.svg",
   "system": {
     "description": {
       "value": "<p>Your essence is linked to a Sympathetic Pawn, and you can take damage in tandem with the pawn you're connected to. This condition lasts until the end of your next turn. It also ends if the pawn that inflicted it becomes Inactive or if you leave its maestro's Range of Control. Only one creature (and one pawn) can be fatebound at a time. Applied by the Maestro module, which stamps <code>flags.pf2e-maestro.pawnUuid</code> and <code>maestroUuid</code> on this effect and removes any other Fatebound effect from the same maestro.</p>"

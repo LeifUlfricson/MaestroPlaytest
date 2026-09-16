@@ -3,7 +3,7 @@
   "_key": "!items!sBUPEy69eTHGmdBp",
   "name": "Manual Might",
   "type": "feat",
-  "img": "icons/svg/muscle-fat.svg",
+  "img": "icons/svg/combat.svg",
   "system": {
     "actionType": {
       "value": "passive"

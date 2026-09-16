@@ -3,7 +3,7 @@
   "_key": "!items!aqUxr13xuOPUvcwc",
   "name": "Spring-Loaded Compartment",
   "type": "feat",
-  "img": "icons/svg/thrown-dagger.svg",
+  "img": "icons/svg/up.svg",
   "system": {
     "actionType": {
       "value": "passive"

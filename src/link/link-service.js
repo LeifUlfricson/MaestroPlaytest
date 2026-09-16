@@ -9,6 +9,15 @@ const DEBOUNCE_MS = 100;
 /** @type {Map<string, ReturnType<typeof setTimeout>>} */
 const pending = new Map();
 
+/**
+ * Serializes projectPawn calls per pawn UUID. Without this, an explicit projectMaestro() call
+ * (from create-pawn.js, right after creating the pawn) can race the hook-triggered debounced
+ * one that the same pawn-creation/flag-update also fires — both see no "Maestro Link" effect
+ * yet and both create one, leaving a duplicate. Found via live testing (see CHANGELOG).
+ * @type {Map<string, Promise<void>>}
+ */
+const pawnLocks = new Map();
+
 export function registerLinkService() {
   Hooks.on("updateActor", (actor) => queueProjection(actor));
   Hooks.on("createItem", (item) => queueProjection(item.actor));
@@ -53,8 +62,18 @@ export async function projectMaestro(maestro) {
   for (const uuid of pawnUuids) {
     const pawn = await fromUuid(uuid);
     if (!pawn || !isActiveWriter(pawn)) continue;
-    await projectPawn(pawn, snapshot);
+    await projectPawnSerialized(pawn, snapshot);
   }
+}
+
+function projectPawnSerialized(pawn, snapshot) {
+  const prior = pawnLocks.get(pawn.uuid) ?? Promise.resolve();
+  const next = prior.then(() => projectPawn(pawn, snapshot));
+  pawnLocks.set(
+    pawn.uuid,
+    next.catch(() => {}),
+  );
+  return next;
 }
 
 /** @param {Actor} maestro */

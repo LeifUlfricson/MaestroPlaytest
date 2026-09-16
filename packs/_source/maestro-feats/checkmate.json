@@ -3,7 +3,7 @@
   "_key": "!items!7IT5M6O9JF9wQCu3",
   "name": "Checkmate",
   "type": "feat",
-  "img": "icons/svg/trophy.svg",
+  "img": "icons/svg/upgrade.svg",
   "system": {
     "actionType": {
       "value": "passive"

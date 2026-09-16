@@ -6,7 +6,7 @@
   "authors": [{ "name": "Erik (Lucky Thirteen)" }],
   "compatibility": { "minimum": "14.361", "verified": "14.367" },
   "relationships": {
-    "systems": [{ "id": "pf2e", "type": "system", "compatibility": { "minimum": "8.5.0" } }],
+    "systems": [{ "id": "pf2e", "type": "system", "compatibility": { "minimum": "8.4.1" } }],
     "recommends": [
       { "id": "sequencer", "type": "module" },
       { "id": "pf2e-toolbelt", "type": "module" }

@@ -3,7 +3,7 @@
   "_key": "!items!oT3QpJWQYTAMX4Sn",
   "name": "Group Tactics",
   "type": "feat",
-  "img": "icons/svg/trophy.svg",
+  "img": "icons/svg/upgrade.svg",
   "system": {
     "actionType": {
       "value": "passive"

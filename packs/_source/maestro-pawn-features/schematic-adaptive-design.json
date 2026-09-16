@@ -3,7 +3,7 @@
   "_key": "!items!nRjRRIqAHSSfDXuJ",
   "name": "Adaptive Design",
   "type": "feat",
-  "img": "icons/svg/gear.svg",
+  "img": "icons/svg/levels.svg",
   "system": {
     "actionType": {
       "value": "passive"

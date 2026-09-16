@@ -3,7 +3,7 @@
   "_key": "!items!XV4lJC98WWNixQFp",
   "name": "Dextrous Mind",
   "type": "feat",
-  "img": "icons/svg/light-bulb.svg",
+  "img": "icons/svg/light.svg",
   "system": {
     "actionType": {
       "value": "passive"

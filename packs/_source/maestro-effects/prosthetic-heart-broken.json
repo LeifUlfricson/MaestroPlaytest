@@ -3,7 +3,7 @@
   "_key": "!items!Dl6xPAYfHrTTDEk6",
   "name": "Prosthetic Heart (Broken)",
   "type": "effect",
-  "img": "icons/svg/broken-shield.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
     "description": {
       "value": "<p>This maestro's prosthetic heart (Beyond the Pale) has the broken condition. Vital Surge can't be used again until it's repaired (a 1-hour activity).</p>"
