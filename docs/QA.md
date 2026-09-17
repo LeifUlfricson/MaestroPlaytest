@@ -51,13 +51,20 @@ bugs:
   cards from one hit. Fixed with an in-memory, synchronously-claimed lock instead of a persisted
   flag; confirmed live across two rounds.
 
-Everything else is still unverified: Formations (Advance!, Coordinated Strike, Tandem Maneuver,
-Flanking Strike), Schematics installation, and most of the 42 feats' in-game behavior. One
-methodology note, reconfirmed each session since the second: a character's already-embedded items
-(class features, feats, spells) are copies frozen at grant time — updating a compendium source
-file does *not* retroactively update copies already on a character. Testing a compendium change
-against an existing character requires either deleting and re-granting the specific item, or
-testing on a fresh character instead.
+A fifth session tested Formations and Schematics — both **confirmed live**, no bugs found (see
+the sections below). Schematics needed a genuine non-GM player account to test meaningfully,
+since the module's own enforcement hook intentionally lets every GM action through; this world
+only had a GM user, so a temporary player account was created for the session and removed
+afterward.
+
+Everything else is still unverified: Tandem Maneuver and Flanking Strike specifically (Advance!
+and Coordinated Strike are covered; the other two formation feats have no code path, so
+"verifying" them just means confirming their text is usable in play) and most of the 42 feats'
+in-game behavior generally. One methodology note, reconfirmed each session since the second: a
+character's already-embedded items (class features, feats, spells) are copies frozen at grant
+time — updating a compendium source file does *not* retroactively update copies already on a
+character. Testing a compendium change against an existing character requires either deleting and
+re-granting the specific item, or testing on a fresh character instead.
 
 Before starting, run the automated checks that don't need Foundry:
 
@@ -127,6 +134,23 @@ followed by the per-craft table below.
 | 1 | **Confirmed live:** steal essence Strike exists with the correct traits/damage on a fresh Sympathetic pawn. `api.applyFatebound(target, pawn)` correctly applies Fatebound to the target (applying it on a hit isn't automatic yet — the Note on the Strike explains this). |
 | 11 | **Confirmed live:** damaging a fatebound-linked Sympathetic pawn posts a Sealed Fate card with the right dice count and DC (5d6 at level 17, `1 + [L≥5] + [L≥9] + [L≥13] + [L≥17]`) — smoke test 8 passes. The once-per-round limit (V2.2) is also confirmed: a second HP loss on the same pawn in the same combat round does not post a second card, and the limit correctly resets the next round. Fate's Embrace is granted at this level (its `GrantItem` needed the same fix as Putrid Pins for a normally-leveled-up character — see CHANGELOG); its degree-based outcomes are Assist tier (GM resolves by hand). |
 | 17 | Master of Souls (*wails of the damned*/*seize soul*) is **not implemented** — those are copies of core PF2e spells, and this environment had no way to look up their real compendium UUIDs (DESIGN.md's Q11). Confirm this is the only gap at 17th for this craft. |
+
+## Formations and Schematics
+
+| Check | Result |
+|---|---|
+| Advance! posts the Stride card for the chosen Controlled pawns and sets the formation lock | **Confirmed live** |
+| Coordinated Strike requires exactly 2 pawns, or 3 with Coordinated Assault (at a –4 penalty instead of –2, with the Checkmate reminder when that feat is present) | **Confirmed live**; picking any other count posts no card and doesn't touch the lock |
+| The formation lock is shared between Advance! and Coordinated Strike: setting it via one blocks the other in the same round, and it releases on the next round | **Confirmed live** |
+| Schematics: the "Install Schematic" pawn-sheet button and dialog work | **Confirmed live** |
+| Schematics: the 2-slot limit blocks a 3rd installation | **Confirmed live, tested as a non-GM player** (the module's `preCreateItem` check intentionally lets every GM action through, so this can't be exercised as GM) |
+| Schematics: Spring-Loaded Compartment requires Extra Space already installed | **Confirmed live, tested as a non-GM player**, same caveat |
+
+One UX rough edge in Schematics, not a functional bug: a schematic that gets rejected by the slot
+limit can still show its own creation-time `ChoiceSet` prompt first (e.g. Adaptive Design's
+five-mode choice) — PF2e's own item-preparation runs ahead of the module's veto hook. The item is
+correctly absent afterward no matter what's picked, but a player sees the prompt before the
+rejection lands.
 
 ## Known gaps to expect, not bugs
 

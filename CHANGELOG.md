@@ -112,6 +112,24 @@ heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and S
 (*wails of the damned*/*seize soul*) remains the one confirmed gap at Sympathetic 17th — still
 blocked on real core-compendium UUIDs this environment can't look up (Q11).
 
+**Testing Formations and Schematics (fifth live session):** exercised both systems for the first
+time; found no bugs. Confirmed live:
+- **Advance!** posts the Stride card for the chosen Controlled pawns and sets the formation lock.
+- **Coordinated Strike** correctly requires exactly 2 pawns (or 3 with Coordinated Assault, at a
+  –4 penalty instead of –2, with the Checkmate reminder text when that feat is present too), and
+  rejects other counts without posting a card or touching the lock.
+- **The formation lock** is shared correctly across both actions: setting it via Advance! blocks
+  a same-round Coordinated Strike, and it releases cleanly on the next round.
+- **Schematics**, tested from a genuine non-GM player account (this world only had a GM user, so
+  a temporary player was created for this) rather than the GM, since the module's own
+  `preCreateItem` check intentionally lets every GM action through: the "Install Schematic"
+  sheet button and dialog work, the 2-slot limit correctly blocks a 3rd installation, and Spring-
+  Loaded Compartment correctly requires Extra Space to already be installed. One UX rough edge,
+  not a functional bug: a blocked schematic's own creation-time `ChoiceSet` prompt (e.g. Adaptive
+  Design's five-mode choice) still appears and must be answered before the rejection lands,
+  since PF2e's own item-preparation flow runs ahead of the module's veto hook; the item is
+  correctly absent afterward regardless of what's picked.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).
