@@ -81,6 +81,37 @@ a socket/document-persistence quirk specific to running Foundry under heavy scri
 control. Still unresolved; needs testing on an ordinary human-operated client to know whether it
 reproduces there at all.
 
+**Testing the remaining Crafts (fourth live session):** exercised the Flesh, Sympathetic, and
+Ethereal mechanics that had never been run before — Blood of the Master, Sealed Fate (including
+the once-per-round limit), Fatebound, Fate's Embrace's grant, and Spatial Surge. Found and fixed
+two real bugs:
+- **Level-gated `GrantItem` rules on craft chassis items never fired for a normal fresh pawn.**
+  A pawn is created at level 1 (the template default) with its craft chassis *already embedded*,
+  and only afterward does `projectMaestro` update the pawn to the maestro's real level.
+  `GrantItem`'s predicate is checked once, at the item's first evaluation, unless
+  `reevaluateOnUpdate: true` is set — so a pawn's level-11 Putrid Pins, level-5 Warp
+  Strike/Shield Barrier, and level-11 Resonant Form effect (all pawn-side) silently never
+  granted, no matter how high the maestro's level was. The same gap existed on the maestro's own
+  side for Fate's Embrace (`maestros-craft.json`, level 11 Sympathetic) for the realistic case of
+  a character leveling up normally rather than being created pre-leveled. Fixed by adding
+  `reevaluateOnUpdate: true` to all five affected `GrantItem` rules (three in
+  `ethereal-craft.json`, one in `flesh-craft.json`, one in `maestros-craft.json`); confirmed live
+  for all five.
+- **Sealed Fate's own once-per-round lock (added in the V2.2 pass) had the same race it was
+  built to prevent.** The check-then-set was a persisted-flag read followed by an async
+  `setFlag` write; two `updateActor` calls for one HP change (the same duplicate-firing symptom
+  documented in `grant-spells.js`/`focus-entry.js`) could both read "not used yet" before either
+  wrote it, producing two Sealed Fate cards from a single hit — reproduced live. Fixed by
+  claiming the round synchronously against an in-memory `Map` before the function's first
+  `await`, the same fix shape as the pawn-lock/maestro-lock pattern used elsewhere; confirmed
+  live across two rounds (exactly one card each round, second same-round hit correctly blocked).
+
+Also confirmed working as designed: Connective Tissue's HP scaling, Blood of the Master's spend/
+heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and Spatial Surge's
+3-Controlled-pawn and 10-ft-proximity requirements with the correct DC/damage. Master of Souls
+(*wails of the damned*/*seize soul*) remains the one confirmed gap at Sympathetic 17th — still
+blocked on real core-compendium UUIDs this environment can't look up (Q11).
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

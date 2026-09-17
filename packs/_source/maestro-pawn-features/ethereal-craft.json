@@ -78,6 +78,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.utDxcoxjF2kHMbsa",
+        "reevaluateOnUpdate": true,
         "predicate": [
           {
             "gte": [
@@ -90,6 +91,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.XMJsWNWTCYzhXZ2I",
+        "reevaluateOnUpdate": true,
         "predicate": [
           {
             "gte": [
@@ -102,6 +104,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-effects.Item.KlTzFFSXJrFgyrvu",
+        "reevaluateOnUpdate": true,
         "predicate": [
           {
             "gte": [

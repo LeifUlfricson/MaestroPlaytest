@@ -119,6 +119,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.zD1Eot2XE5y2JG7I",
+        "reevaluateOnUpdate": true,
         "predicate": [
           "maestro:craft:sympathetic",
           {

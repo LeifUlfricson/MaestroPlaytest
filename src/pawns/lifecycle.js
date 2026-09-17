@@ -59,45 +59,50 @@ async function handleHPChange(pawn, oldHP, newHP) {
 /**
  * Sympathetic Craft's Sealed Fate (DESIGN.md §6.1): any HP loss on a Sympathetic pawn (Q13:
  * including self-inflicted loss) damages whichever creature is currently fatebound to it.
- * Limited to once per round (V2.2 balance change): gated the same way as the formation lock
- * (src/actions/formation-lock.js), keyed on the maestro since a maestro's Sealed Fate is one
- * ability shared across all of their Sympathetic pawns, not a separate use per pawn. Ignored
- * outside combat, since "round" isn't otherwise defined.
+ * Limited to once per round (V2.2 balance change), keyed on the maestro since a maestro's
+ * Sealed Fate is one ability shared across all of their Sympathetic pawns, not a separate use
+ * per pawn. Ignored outside combat, since "round" isn't otherwise defined.
+ *
+ * The once-per-round claim happens synchronously, in memory, before this function's first
+ * `await` — not via a persisted flag read-then-write. Two calls for the same maestro can arrive
+ * back-to-back in the same tick (e.g. `updateActor` firing more than once for a single HP
+ * change, the same symptom documented in grant-spells.js/focus-entry.js); a flag-based check
+ * leaves a window where both calls read "not yet used" before either writes it, producing two
+ * Sealed Fate cards from one HP change (found live testing this exact fix). An in-memory Map
+ * claimed synchronously has no such window, since JS runs each call's synchronous prefix to
+ * completion before the next one starts.
  * (verify) the @Check/@Damage inline-roll syntax against the installed system.
+ * @type {Map<string, {combatId: string, round: number}>} maestro UUID -> the round it last fired.
  */
+const sealedFateRoundClaims = new Map();
+
+function claimSealedFateRound(maestroUuid) {
+  if (!game.combat) return true;
+  const claim = sealedFateRoundClaims.get(maestroUuid);
+  if (claim?.combatId === game.combat.id && claim?.round === game.combat.round) return false;
+  sealedFateRoundClaims.set(maestroUuid, { combatId: game.combat.id, round: game.combat.round });
+  return true;
+}
+
 async function checkSealedFate(pawn, oldHP, newHP) {
   if (oldHP === undefined || newHP >= oldHP) return;
   if (!game.settings.get(MODULE_ID, SETTINGS.SEALED_FATE_CARDS)) return;
   const pawnFlags = pawn.getFlag(MODULE_ID, "pawn") ?? {};
   if (pawnFlags.craft !== "sympathetic") return;
+  if (!pawnFlags.maestroUuid) return;
+  if (!claimSealedFateRound(pawnFlags.maestroUuid)) return;
 
   const target = findFateboundBearer(pawn);
-  const maestro = pawnFlags.maestroUuid ? await fromUuid(pawnFlags.maestroUuid) : null;
+  const maestro = await fromUuid(pawnFlags.maestroUuid);
   if (!target || !maestro) return;
-  if (isSealedFateUsedThisRound(maestro)) return;
 
   const level = maestro.system.details.level.value;
   const dice = sealedFateDice(level);
   const classDC = maestroClassDC({ level, intMod: maestro.system.abilities.int.mod });
 
-  await setSealedFateUsedThisRound(maestro);
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: pawn }),
     content: `<p><strong>Sealed Fate:</strong> ${target.name} is fatebound to ${pawn.name}.</p><p>@Check[will|dc:${classDC}|basic] against @Damage[${dice}d6[spirit]]</p>`,
-  });
-}
-
-function isSealedFateUsedThisRound(maestro) {
-  if (!game.combat) return false;
-  const used = maestro.getFlag(MODULE_ID, "maestro")?.sealedFateUsedRound;
-  return used?.combatId === game.combat.id && used?.round === game.combat.round;
-}
-
-async function setSealedFateUsedThisRound(maestro) {
-  if (!game.combat) return;
-  await maestro.setFlag(MODULE_ID, "maestro.sealedFateUsedRound", {
-    combatId: game.combat.id,
-    round: game.combat.round,
   });
 }
 
