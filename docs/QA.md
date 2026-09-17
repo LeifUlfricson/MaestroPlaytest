@@ -21,9 +21,25 @@ race as the pawn Link effect, and the focus pool never grew when a command spell
 `ActiveEffectLike` had to move from the spell item, which PF2e 8.4.1 ignores rule elements on
 entirely, to the granting feat/feature).
 
-Everything else in this file — 11th/17th level for every Craft besides the two checks above, and
-Flesh/Ethereal/Sympathetic entirely — is still unverified. Expect more of the same as the rest of
-this script gets run for the first time. One methodology note from the second session: a
+A third session was a broad check-up rather than chasing one report. Newly confirmed live:
+Elemental's 11th (Elemental Warding resistance) and 17th (Elemental Avatar's d12 dice, persistent
+damage, critical-hit immunity) content; Switch Form (smoke test 6 — Force Bolt/Force Bash
+correctly swap on a Controlled pawn); Take Control and Release Control, including the simple-mode
+tether being drawn and removed; and fresh pawn creation for Flesh and Sympathetic (previously
+untouched). It found one real bug — **Flesh Pawn was granting immunity to healing**, backwards
+from DESIGN.md's explicit "Flesh omits it" — now fixed (see the CHANGELOG). It also reconfirmed,
+with tighter proof, the duplicate-spell/entry symptom from the second session: instrumenting
+`Actor.prototype.createEmbeddedDocuments` shows the module's own code calls it exactly once per
+grant, so the occasional duplicate is happening below the module, most likely a socket/persistence
+quirk of running Foundry under scripted/automated control rather than a bug in `grant-spells.js`
+or `focus-entry.js`'s locking. Unresolved; worth a data point from an ordinary human-operated
+client.
+
+Everything else in this file is still unverified: 11th/17th for Flesh and Sympathetic, all of
+Blood of the Master / Spatial Surge / Putrid Pins / Sealed Fate / Fate's Embrace actually firing
+(their code paths have never been exercised, only confirmed present), Formations (Advance!,
+Coordinated Strike, Tandem Maneuver, Flanking Strike), Schematics installation, and most of the 42
+feats' in-game behavior. One methodology note from the second session, reconfirmed by the third: a
 character's already-embedded items (class features, feats, spells) are copies frozen at grant
 time — updating a compendium source file does *not* retroactively update copies already on a
 character. Testing a compendium change against an existing character requires either deleting and
@@ -58,7 +74,9 @@ followed by the per-craft table below.
    at this level (HP, AC, unarmed Strike, saves, Perception — DESIGN.md §2.3).
 5. Take Control of the pawn (Execute button on the Pawns feature's chat card, or the hotbar
    macro), confirm the Inactive effect clears and a tether is drawn (try both `simple` and, if
-   the Sequencer module is installed, `sequencer` tether settings).
+   the Sequencer module is installed, `sequencer` tether settings). **Confirmed live** for
+   `simple` mode, both directions (tether appears on Take Control, disappears on Release
+   Control) — `sequencer` mode still needs a world with that module installed.
 6. Move the maestro's token more than 30 ft away and confirm the pawn goes Inactive
    automatically (Range of Control watcher).
 7. Reduce the pawn to 0 HP and confirm it goes Inactive + Broken; do it again within 10 minutes
@@ -68,7 +86,7 @@ followed by the per-craft table below.
 
 | Level | Check |
 |---|---|
-| 1 | Rancid bite Strike is available (1d8 poison, deadly d8, finesse, grapple, poison, unarmed) and deals 1d4 persistent poison per weapon die on a crit. |
+| 1 | **Confirmed live:** rancid bite Strike is available (1d8 poison, deadly d8, finesse, grapple, poison, unarmed) with the correct traits; a fresh Flesh pawn is *not* immune to healing (the opposite was a real bug, now fixed — see CHANGELOG). Persistent poison on a crit and Connective Tissue/Putrid Pins are present but not yet exercised in play. |
 | 11 | Connective Tissue's +3 HP/level is baked into the pawn's max HP. Take the Flesh Pawn craft's Putrid Pins pawn action (granted via GrantItem once the maestro is 11th level) and confirm it's on the pawn's sheet; casting/using it is Assist tier (no auto damage roll). |
 | 17 | Cast Blood of the Master: spend HP, confirm the maestro loses it, the chosen Flesh pawns heal and lose Broken, Inactive recipients get Controlled, and a pawn healed 10+ gets the +4 damage effect. |
 
@@ -76,7 +94,7 @@ followed by the per-craft table below.
 
 | Level | Check |
 |---|---|
-| 1 | Force bolt (attack form) and force bash (defense form) Strikes exist, gated by the `ethereal-form:*` roll option from the Maestro Link effect. Use Switch Form (Execute button on its chat card) and confirm the *other* Strike becomes available after the next projection cycle (this is smoke test 6). |
+| 1 | **Confirmed live:** force bolt (attack form) and force bash (defense form) Strikes exist, gated by the `ethereal-form:*` roll option from the Maestro Link effect. Switch Form correctly swaps a Controlled pawn between them (smoke test 6 passes) — `api.actions.switchForm(maestro)` opens a picker limited to that maestro's Controlled Ethereal pawns. |
 | 11 | Warp Strike and Shield Barrier pawn actions are present (granted at level 5, so already there by 11). Resonant Form's effect exists on the pawn but its damage/AC bonus is **manually tracked** — this was left as an explicit stretch goal (DESIGN.md's own M8 note), not automated. |
 | 17 | Cast Spatial Surge with 3+ Controlled Ethereal pawns clustered together; confirm it warns/blocks if fewer than 2 others are within 10 ft of the chosen origin pawn, and posts the damage card otherwise. |
 
@@ -85,14 +103,14 @@ followed by the per-craft table below.
 | Level | Check |
 |---|---|
 | 1 | **Confirmed live:** create a metal/fire pawn — elemental blow and elemental shot both show up as real Strikes dealing `1d6 fire`, the pawn's creature traits include `metal` and `fire`, HP/AC/saves/Perception all match `pawn-stats.js`'s predictions exactly. **Known gap, also confirmed live:** elemental blow does *not* have the parry trait, and neither Strike carries the element trait itself (only the creature does) — DESIGN.md's assumed syntax for conditional Strike traits isn't valid PF2e (see the "Fix bugs found by live testing" commit), and a fix needs more investigation against the real AdjustStrike schema. Create a stone/cold pawn: it has `earth` and `water` creature traits and physical resistance `1 + floor(level/2)` (not yet re-confirmed live after the fix, but uses the same mechanism that did work for metal/fire). |
-| 11 | Elemental Warding's resistance (equal to level, to the pawn's magical element) is present on the pawn's Maestro Link. |
-| 17 | Elemental Avatar: elemental blow/shot deal d12s, add 1d6 persistent damage of the element on a hit, and the pawn is immune to critical hits. The retaliation (6d6 to anything that touches/hits the pawn in melee) is **not automated** — confirm the Note is present and apply it by hand. |
+| 11 | **Confirmed live:** Elemental Warding's resistance (equal to level, to the pawn's magical element — 20 resistance to fire on a level-20 pawn) is present on the pawn's Maestro Link. |
+| 17 | **Confirmed live:** Elemental Avatar's elemental blow/shot deal d12s (`(1d12 + 2) fire`), add 1d6 persistent damage of the element on a hit, and the pawn has the `critical-hits` immunity. The retaliation (6d6 to anything that touches/hits the pawn in melee) is **not automated** — confirm the Note is present and apply it by hand. |
 
 ## Sympathetic Craft
 
 | Level | Check |
 |---|---|
-| 1 | Steal essence Strike exists. Hit a creature with it, then call `api.applyFatebound(target, pawn)` (the Note on the Strike explains this — applying it isn't automatic yet) and confirm the Fatebound effect lands, removing any other Fatebound effect from the same maestro. |
+| 1 | **Confirmed live:** steal essence Strike exists with the correct traits/damage on a fresh Sympathetic pawn. Not yet exercised: hit a creature with it, then call `api.applyFatebound(target, pawn)` (the Note on the Strike explains this — applying it isn't automatic yet) and confirm the Fatebound effect lands, removing any other Fatebound effect from the same maestro. |
 | 11 | Damage the Sympathetic pawn (e.g. via a Strike against it) while a creature is Fatebound to it, and confirm a Sealed Fate chat card appears with the right dice count for the maestro's level (1d6 at 1st, 2d6 at 5th, up to 5d6 at 17th+) — this is smoke test 8. Fate's Embrace is granted on the maestro at this level; its degree-based outcomes are Assist tier (GM resolves by hand). |
 | 17 | Master of Souls (*wails of the damned*/*seize soul*) is **not implemented** — those are copies of core PF2e spells, and this environment had no way to look up their real compendium UUIDs (DESIGN.md's Q11). Confirm this is the only gap at 17th for this craft. |
 
@@ -119,6 +137,12 @@ call), not things QA should file as regressions:
   hook, exactly as flagged `(verify)` since M2). Use `game.modules.get("pf2e-maestro").api.
   createPawn(actor)` instead — the "Install Schematic" button on a *pawn's* sheet does work,
   since pawns still use `renderActorSheet`-compatible rendering.
+- **Occasional duplicate spell/spellcasting-entry grants** (confirmed live, see the third
+  session's CHANGELOG entry): `grant-spells.js` and `focus-entry.js` are proven, via direct
+  instrumentation, to call `createEmbeddedDocuments` exactly once per grant, yet the actor
+  sometimes ends up with two copies anyway. Not reproducible as a module-code bug — if you see a
+  duplicate spell or a second "Command Spells" entry, delete the extra by hand and note whether
+  it happened on an ordinary client or one under scripted/remote control.
 
 ## Reporting results
 

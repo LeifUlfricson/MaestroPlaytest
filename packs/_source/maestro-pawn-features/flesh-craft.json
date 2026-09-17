@@ -13,7 +13,7 @@
     },
     "category": "classfeature",
     "description": {
-      "value": "<p>Your Flesh Pawns can make rancid bite unarmed attacks. These deal 1d8 poison damage, are in the brawling group, and have the deadly d8, finesse, grapple, poison, and unarmed traits. On a critical hit, the target also takes 1d4 persistent poison damage per weapon damage die.</p><p><strong>Connective Tissue (5th):</strong> your Flesh Pawns gain an additional 3 Hit Points per level.</p><p><strong>Putrid Pins (11th):</strong> your Flesh Pawns gain the Putrid Pins action.</p>"
+      "value": "<p>Your Flesh Pawns can make rancid bite unarmed attacks. These deal 1d8 poison damage, are in the brawling group, and have the deadly d8, finesse, grapple, poison, and unarmed traits. On a critical hit, the target also takes 1d4 persistent poison damage per weapon damage die.</p><p>Unlike other pawns, your Flesh Pawns aren't immune to healing. Only your maestro's Battle Medicine can restore a Flesh Pawn's HP this way; it doesn't remove Broken.</p><p><strong>Connective Tissue (5th):</strong> your Flesh Pawns gain an additional 3 Hit Points per level.</p><p><strong>Putrid Pins (11th):</strong> your Flesh Pawns gain the Putrid Pins action.</p>"
     },
     "prerequisites": {
       "value": []
@@ -25,10 +25,6 @@
       "remaster": true
     },
     "rules": [
-      {
-        "key": "Immunity",
-        "type": "healing"
-      },
       {
         "key": "Strike",
         "label": "Rancid Bite",

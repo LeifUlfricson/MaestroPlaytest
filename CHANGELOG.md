@@ -61,6 +61,26 @@ DESIGN.md, and their compendium sources:
 None of these seven had existing code automation beyond Sealed Fate's hook, so this pass is
 mostly compendium/doc text — Sealed Fate's once-per-round lock is the only new logic.
 
+**Full check-up (third live session):** a broad pass across the module rather than one report.
+Confirmed working, several for the first time: Elemental Craft's 11th/17th-level content
+(Elemental Warding resistance, Elemental Avatar's d12 dice/persistent damage/critical-hit
+immunity), Switch Form (smoke test 6 — Force Bolt/Force Bash correctly swap), Take Control and
+Release Control including the simple-mode tether draw/removal, fresh pawn creation for Flesh and
+Sympathetic Crafts, and all seven V2.2 balance-pass edits reading correctly from the live
+compendium. Found one real bug: **Flesh Pawn** (`flesh-craft.json`) was granting immunity to
+healing — exactly backwards from DESIGN.md §6.1, which calls out Flesh as the *one* Craft that
+omits this immunity (Battle Medicine is supposed to be a Flesh Pawn's only way to heal). Fixed:
+the erroneous `Immunity` rule is removed and the pawn's description now states the Battle
+Medicine caveat directly, matching how similar GM-facing guidance is written elsewhere in this
+module. Also reconfirmed, with tighter proof this time, the duplicate-spell/duplicate-entry
+symptom from Update 2: instrumenting `Actor.prototype.createEmbeddedDocuments` directly shows
+`grant-spells.js` and `focus-entry.js` each call it exactly once per grant, yet the actor's raw
+source data sometimes ends up with two distinct item IDs anyway. Since the call site itself is
+proven single, this is not a bug in the module's own locking — it's below that layer, most likely
+a socket/document-persistence quirk specific to running Foundry under heavy scripted/automated
+control. Still unresolved; needs testing on an ordinary human-operated client to know whether it
+reproduces there at all.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).
