@@ -592,7 +592,7 @@ The **Pawn-side** column names what projection adds to pawns when the maestro ha
     - **Flags:** `pawnUuid` and `maestroUuid`.
     - **On create:** remove any other Fatebound effect that has the same `maestroUuid`, across all tokens on the scene.
     - **Ends automatically:** when the linked pawn becomes Inactive, or when the bearer leaves the maestro's range (range watcher).
-  - **Sealed Fate:** a hook on HP loss for Sympathetic pawns, when a creature with a matching Fatebound effect exists. It posts a card with an inline `@Damage[(Nd6)[spirit]]` roll that uses a **basic Will save** against the maestro's class DC (`@Check[will|dc:{classDC}|basic]`). N = 1 + [L≥5] + [L≥9] + [L≥13] + [L≥17]. The GM applies the damage.
+  - **Sealed Fate:** a hook on HP loss for Sympathetic pawns, when a creature with a matching Fatebound effect exists. Limited to once per round per maestro (V2.2), gated the same way as the formation lock and ignored outside combat. It posts a card with an inline `@Damage[(Nd6)[spirit]]` roll that uses a **basic Will save** against the maestro's class DC (`@Check[will|dc:{classDC}|basic]`). N = 1 + [L≥5] + [L≥9] + [L≥13] + [L≥17]. The GM applies the damage.
   - **Lay Bare:** a pawn reaction (§6.4).
   - **Possession (5):** *puppet's curse* (§7).
   - **Fate's Embrace (11):** a maestro reaction action (§6.4).
@@ -667,7 +667,7 @@ Action feats set `system.actionType` and `system.actions` directly on the feat. 
 | Advance! | maestro | ◆ | formation, magical, maestro, pawn | — |
 | Coordinated Strike | maestro | ◆ (+◆ for Assault) | formation, magical, maestro, pawn | — |
 | Switch Form (Ethereal) | maestro | ◆ | magical, maestro, manipulate (Q4) | — |
-| Putrid Pins | pawn (Flesh, 11) | ◆◆ | magical, maestro, pawn, poison | Frequency 1 per 10 min (per pawn). Dialog: HP to spend (≤ ½ max and ≤ current) → the pawn loses that HP (no Sealed Fate for Flesh). Place a 20-ft cone; damage `k`d4 piercing + `k`d4 poison, where `k = floor(spent/20)`; basic Reflex against the **maestro's class DC** (Q5). On a critical failure, `k`d4 persistent poison. If `k = 0`, warn that no damage will be dealt |
+| Putrid Pins | pawn (Flesh, 11) | ◆◆ | magical, maestro, pawn, poison | Frequency 1 per 10 min (per pawn). Dialog: HP to spend (≤ ½ max and ≤ current) → the pawn loses that HP (no Sealed Fate for Flesh). Place a 20-ft cone; damage `k`d4 piercing + `k`d4 poison, where `k = floor(spent/10)` (V2.2: reverted from a `/20` scaling); basic Reflex against the **maestro's class DC** (Q5). On a critical failure, `k`d4 persistent poison. If `k = 0`, warn that no damage will be dealt |
 | Warp Strike | pawn (Ethereal, 5, attack form) | ◆◆ | attack, magical, maestro, pawn | Frequency 1/round. Strike force bolt with extra dice 1/2/3 at L1–9/10–17/18+ (`DamageDice` predicated on the `warp-strike` option). The target's circumstance AC bonus is reduced by 2 (an `AdjustModifier` on the target's circumstance AC; **verify** that target-side adjustment is possible; fallback is a `FlatModifier` +2 on the attack capped by the target's bonus, done manually, with a note). MAP counter +2 (Q3) |
 | Shield Barrier | pawn (Ethereal, 5, defense form) | ◆ | magical, maestro, pawn | Requires the pawn to be parrying (the system parry effect, **verify**). Aura radius 5, allies: +1 circumstance AC until the start of the maestro's next turn, while the pawn keeps parrying |
 | Lay Bare | pawn (Sympathetic) | ⟳ | magical, maestro, manipulate, pawn | Card for the GM: "Treat the attack as a success without rolling / the save as a failure." Shared reaction |
@@ -820,8 +820,8 @@ Each milestone ends with a tagged commit, passing tests, and an updated CHANGELO
 | Q10 | Instinctive Control makes Take Control a free action. Does the once-per-round frequency still apply? | Yes |
 | Q11 | Stitch Flesh, *wails of the damned*, and *seize soul* must exist in the PF2e compendia. If any is missing in 8.5, what's the substitute? | Implementer stops and asks. No invented content |
 | Q12 | Should pawns (constructs) be immune to spirit damage? This matters because Sympathetic pawns deal spirit damage. | Not immune, as written |
-| Q13 | Sealed Fate triggers on **any** HP loss, including self-inflicted HP loss (for example, *sacrifice pawn*). Intended? | Yes, as written |
-| Q14 | Flanking Strike grants 2 full-Speed moves and a Strike for 1 action. Is that the intended balance? | As written |
+| Q13 | Sealed Fate triggers on **any** HP loss, including self-inflicted HP loss (for example, *sacrifice pawn*). Intended? | Yes, as written (V2.2 added a once-per-round limit on top of this, but doesn't change which HP losses count) |
+| Q14 | Flanking Strike grants 2 full-Speed moves and a Strike for 1 action. Is that the intended balance? | **Superseded by V2.2:** changed to half-Speed moves for both pawns |
 
 ---
 

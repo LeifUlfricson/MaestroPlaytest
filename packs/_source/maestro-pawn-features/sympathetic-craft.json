@@ -13,7 +13,7 @@
     },
     "category": "classfeature",
     "description": {
-      "value": "<p>Your Sympathetic Pawns can make steal essence unarmed attacks. These deal 1d8 spirit damage, are in the brawling group, and have the agile, finesse, spirit, and unarmed traits. A creature damaged by this attack becomes fatebound, linked to the pawn that damaged it.</p><p>Whenever one of your Sympathetic Pawns loses Hit Points, the creature linked to it by the fatebound condition takes spirit damage with a basic Will save against your class DC (Sealed Fate; automated by the module, §6.1).</p><p>Your Sympathetic Pawns gain the Lay Bare reaction.</p>"
+      "value": "<p>Your Sympathetic Pawns can make steal essence unarmed attacks. These deal 1d8 spirit damage, are in the brawling group, and have the agile, finesse, spirit, and unarmed traits. A creature damaged by this attack becomes fatebound, linked to the pawn that damaged it.</p><p>Once per round, whenever one of your Sympathetic Pawns loses Hit Points, the creature linked to it by the fatebound condition takes spirit damage with a basic Will save against your class DC (Sealed Fate; automated by the module, §6.1).</p><p>Your Sympathetic Pawns gain the Lay Bare reaction.</p>"
     },
     "prerequisites": {
       "value": []

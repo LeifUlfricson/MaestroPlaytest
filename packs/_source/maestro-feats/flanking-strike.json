@@ -13,7 +13,7 @@
     },
     "category": "class",
     "description": {
-      "value": "<p>You coordinate your pawns to surround a foe, then strike. Each target moves up to its Speed using any of its available movement types. Both pawns must end their movement within reach of the same enemy. Then, one of the pawns can make a melee Strike against that enemy.</p><p><strong>Targets</strong> 2 Controlled pawns</p>"
+      "value": "<p>You coordinate your pawns to surround a foe, then strike. Each target moves up to half of its Speed using any of its available movement types. Both pawns must end their movement within reach of the same enemy. Then, one of the pawns can make a melee Strike against that enemy.</p><p><strong>Targets</strong> 2 Controlled pawns</p>"
     },
     "level": {
       "value": 2

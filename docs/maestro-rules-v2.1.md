@@ -420,7 +420,7 @@ Your pawns are made with flesh, and bones, to spare. Your Flesh Pawns gain the P
 >
 > **Saving Throw** basic Reflex
 >
-> The pawn fires a spray of toxic bone shards from its body. Choose a number of the pawn’s current Hit Points no greater than half its maximum Hit Points; the pawn loses that many Hit Points. Creatures in the area take 1d4 piercing damage and 1d4 poison damage for every 20 Hit Points lost. A creature that critically fails its save also takes 1d4 persistent poison damage for every 20 Hit Points lost.
+> The pawn fires a spray of toxic bone shards from its body. Choose a number of the pawn’s current Hit Points no greater than half its maximum Hit Points; the pawn loses that many Hit Points. Creatures in the area take 1d4 piercing damage and 1d4 poison damage for every 10 Hit Points lost. A creature that critically fails its save also takes 1d4 persistent poison damage for every 10 Hit Points lost.
 
 #### Blood of the Master · 17TH
 
@@ -558,7 +558,7 @@ Your Craft is born of strong spiritual or emotional ties to other people, whethe
 
 #### Sealed Fate
 
-Your pawns can latch on to another creature’s spiritual essence, intertwining their fates. Whenever one of your Sympathetic Pawns loses Hit Points, the creature linked to it by the fatebound condition (described below) takes 1d6 spirit damage with a basic Will save against your class DC. This damage increases by 1d6 at 5th, 9th, 13th, and 17th levels.
+Your pawns can latch on to another creature’s spiritual essence, intertwining their fates. Once per round, whenever one of your Sympathetic Pawns loses Hit Points, the creature linked to it by the fatebound condition (described below) takes 1d6 spirit damage with a basic Will save against your class DC. This damage increases by 1d6 at 5th, 9th, 13th, and 17th levels.
 
 Your Sympathetic Pawns gain the Lay Bare reaction.
 
@@ -612,13 +612,11 @@ You can use the connection between your pawn and its victim to tug at the very e
 >
 > You subtly manipulate your foe’s fate, drawing it into harm’s way. The target attempts a Will save against your class DC. Regardless of the result, the target is then temporarily immune to Fate’s Embrace until your next daily preparations.
 >
-> **Critical Success** The target is unaffected.
+> **Success** The target is unaffected.
 >
-> **Success** The target takes a –2 status penalty to AC and saving throws against the triggering effect.
+> **Failure** The target takes a –2 status penalty to AC and saving throws against the triggering effect.
 >
-> **Failure** The target lets the triggering effect hit it, as though it were the target of Lay Bare.
->
-> **Critical Failure** As failure, except an attack against the target’s AC is a critical hit, and the target critically fails any saving throw the triggering effect forces it to attempt.
+> **Critical Failure** The target lets the triggering effect hit it, as though it were the target of Lay Bare.
 
 #### Master of Souls · 17TH
 
@@ -681,11 +679,11 @@ You’ve discovered a way to temporarily attach your magic to other objects so y
 
 `MAGICAL` `MAESTRO` `MANIPULATE` `PAWN`
 
-**Trigger** An enemy would damage an ally within 15 feet of one of your Controlled pawns.
+**Trigger** An enemy’s Strike would deal damage to an ally within 15 feet of one of your Controlled pawns.
 
 **Requirements** The ally is within your Range of Control.
 
-You understand that victory sometimes requires sacrifice. At the last moment, your pawn moves between your ally and the source of the damage and takes the damage instead. Afterward, the pawn lands in a space adjacent to that ally. If no space adjacent to your ally is available, you can’t use this reaction to protect them.
+You understand that victory sometimes requires sacrifice. At the last moment, your pawn moves between your ally and the attack. Your ally gains resistance to all damage from the triggering Strike equal to 2 + your level, and your pawn takes the damage your ally resisted this way. Afterward, the pawn lands in a space adjacent to that ally. If no space adjacent to your ally is available, you can’t use this reaction to protect them.
 
 #### Advanced Advance! · FEAT 2
 
@@ -701,7 +699,7 @@ In addition, when you use Advance!, you can also use a single move action availa
 
 **Targets** 2 Controlled pawns
 
-You coordinate your pawns to surround a foe, then strike. Each target moves up to its Speed using any of its available movement types. Both pawns must end their movement within reach of the same enemy. Then, one of the pawns can make a melee Strike against that enemy.
+You coordinate your pawns to surround a foe, then strike. Each target moves up to half of its Speed using any of its available movement types. Both pawns must end their movement within reach of the same enemy. Then, one of the pawns can make a melee Strike against that enemy.
 
 #### Canary · FEAT 2
 
@@ -785,7 +783,7 @@ If the action requires a target, such as a Strike, the pawn can choose any targe
 
 **Targets** 2 Controlled pawns within reach of the same creature
 
-Your pawns work in unison to impose on a single foe. Both targets attempt the same action (Trip, Grapple, or Shove) against the same creature; pawns can’t Shove a creature from opposite sides. Use the higher result to determine the outcome. If both checks are at least successes, treat the result as a critical success. Both checks count toward your multiple attack penalty, but the penalty doesn’t increase until after you’ve made both of them. If the creature becomes grabbed or restrained, it’s freed if either pawn releases its hold.
+Your pawns work in unison to impose on a single foe. Both targets attempt the same action (Trip, Grapple, or Shove) against the same creature; pawns can’t Shove a creature from opposite sides. Use the higher result to determine the outcome. Both checks count toward your multiple attack penalty, but the penalty doesn’t increase until after you’ve made both of them. If the creature becomes grabbed or restrained, it’s freed if either pawn releases its hold.
 
 #### Sacrifice Pawn · FEAT 6
 
@@ -985,7 +983,7 @@ Magical arrays added to your pawns’ internal compartments have made them large
 
 `MAESTRO`
 
-Your pawns are a constant hindrance to foes across the battlefield. Whenever an enemy is off-guard because of flanking by one of your pawns or because of your Group Tactics, it also takes a –2 circumstance penalty to Perception checks and saving throws.
+Your pawns are a constant hindrance to foes across the battlefield. Whenever an enemy is off-guard to you or your pawns because of flanking by one of your pawns or because of your Group Tactics, it also takes a –2 circumstance penalty to Perception checks and saving throws against you and your pawns, including saving throws against effects that you or your pawns create.
 
 #### Giant Maneuver · FEAT 14
 

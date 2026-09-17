@@ -59,6 +59,10 @@ async function handleHPChange(pawn, oldHP, newHP) {
 /**
  * Sympathetic Craft's Sealed Fate (DESIGN.md §6.1): any HP loss on a Sympathetic pawn (Q13:
  * including self-inflicted loss) damages whichever creature is currently fatebound to it.
+ * Limited to once per round (V2.2 balance change): gated the same way as the formation lock
+ * (src/actions/formation-lock.js), keyed on the maestro since a maestro's Sealed Fate is one
+ * ability shared across all of their Sympathetic pawns, not a separate use per pawn. Ignored
+ * outside combat, since "round" isn't otherwise defined.
  * (verify) the @Check/@Damage inline-roll syntax against the installed system.
  */
 async function checkSealedFate(pawn, oldHP, newHP) {
@@ -70,14 +74,30 @@ async function checkSealedFate(pawn, oldHP, newHP) {
   const target = findFateboundBearer(pawn);
   const maestro = pawnFlags.maestroUuid ? await fromUuid(pawnFlags.maestroUuid) : null;
   if (!target || !maestro) return;
+  if (isSealedFateUsedThisRound(maestro)) return;
 
   const level = maestro.system.details.level.value;
   const dice = sealedFateDice(level);
   const classDC = maestroClassDC({ level, intMod: maestro.system.abilities.int.mod });
 
+  await setSealedFateUsedThisRound(maestro);
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: pawn }),
     content: `<p><strong>Sealed Fate:</strong> ${target.name} is fatebound to ${pawn.name}.</p><p>@Check[will|dc:${classDC}|basic] against @Damage[${dice}d6[spirit]]</p>`,
+  });
+}
+
+function isSealedFateUsedThisRound(maestro) {
+  if (!game.combat) return false;
+  const used = maestro.getFlag(MODULE_ID, "maestro")?.sealedFateUsedRound;
+  return used?.combatId === game.combat.id && used?.round === game.combat.round;
+}
+
+async function setSealedFateUsedThisRound(maestro) {
+  if (!game.combat) return;
+  await maestro.setFlag(MODULE_ID, "maestro.sealedFateUsedRound", {
+    combatId: game.combat.id,
+    round: game.combat.round,
   });
 }
 

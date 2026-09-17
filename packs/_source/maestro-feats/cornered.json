@@ -13,7 +13,7 @@
     },
     "category": "class",
     "description": {
-      "value": "<p>Your pawns are a constant hindrance to foes across the battlefield. Whenever an enemy is off-guard because of flanking by one of your pawns or because of your Group Tactics, it also takes a –2 circumstance penalty to Perception checks and saving throws.</p><p><em>Not yet automated: src/pawns/group-tactics.js doesn't grant off-guard at all yet (its own DESIGN.md Q11 gap), so this feat's bonus penalty isn't wired in either.</em></p>"
+      "value": "<p>Your pawns are a constant hindrance to foes across the battlefield. Whenever an enemy is off-guard to you or your pawns because of flanking by one of your pawns or because of your Group Tactics, it also takes a –2 circumstance penalty to Perception checks and saving throws against you and your pawns, including saving throws against effects that you or your pawns create.</p><p><em>Not yet automated: src/pawns/group-tactics.js doesn't grant off-guard at all yet (its own DESIGN.md Q11 gap), so this feat's bonus penalty isn't wired in either.</em></p>"
     },
     "level": {
       "value": 14

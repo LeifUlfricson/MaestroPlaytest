@@ -9,7 +9,7 @@
     "actions": { "value": 2 },
     "category": "offensive",
     "description": {
-      "value": "<p>The pawn fires a spray of toxic bone shards from its body. Choose a number of the pawn's current Hit Points no greater than half its maximum Hit Points; the pawn loses that many Hit Points. Creatures in the area take 1d4 piercing damage and 1d4 poison damage for every 20 Hit Points lost. A creature that critically fails its save also takes 1d4 persistent poison damage for every 20 Hit Points lost.</p><p><strong>Frequency</strong> once per 10 minutes (per pawn)</p><p><strong>Area</strong> 20-foot cone</p><p><strong>Saving Throw</strong> basic Reflex against the maestro's class DC</p>"
+      "value": "<p>The pawn fires a spray of toxic bone shards from its body. Choose a number of the pawn's current Hit Points no greater than half its maximum Hit Points; the pawn loses that many Hit Points. Creatures in the area take 1d4 piercing damage and 1d4 poison damage for every 10 Hit Points lost. A creature that critically fails its save also takes 1d4 persistent poison damage for every 10 Hit Points lost.</p><p><strong>Frequency</strong> once per 10 minutes (per pawn)</p><p><strong>Area</strong> 20-foot cone</p><p><strong>Saving Throw</strong> basic Reflex against the maestro's class DC</p>"
     },
     "frequency": { "max": 1, "per": "PT10M" },
     "publication": {

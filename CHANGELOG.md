@@ -34,6 +34,33 @@ bugs along the way, both fixed:
   8.4.1 does not process `system.rules` on `spell`-type items at all, confirmed by embedding a
   hand-built spell with a rule (no compendium involved) and seeing it come back empty.
 
+**V2.2 balance pass:** the designer supplied a set of rules-text changes (Playtest V2.2, pending
+approval) affecting seven items, applied to the canonical rules text (`docs/maestro-rules-v2.1.md`),
+DESIGN.md, and their compendium sources:
+- **Pyrrhic Defense** now grants resistance (2 + level) to the triggering Strike instead of fully
+  redirecting the damage, and only triggers on Strikes (not any damage source). Still Manual tier —
+  the resistance math and redirect are straightforward to state but the reaction still needs a GM
+  to apply it against a live incoming Strike.
+- **Tandem Maneuver** no longer upgrades to a critical success when both pawns succeed.
+- **Sealed Fate** is now limited to once per round per maestro. `src/pawns/lifecycle.js`'s
+  `checkSealedFate` gates on the same combat-id/round lock pattern as the formation lock
+  (`src/actions/formation-lock.js`), ignored outside combat.
+- **Fate's Embrace** dropped from four success tiers to three: Success (was Critical Success) is
+  unaffected, Failure (was Success) gets the –2 status penalty, and Critical Failure (was Failure)
+  lets the triggering effect through as Lay Bare would. The old Critical Failure tier (crit hit +
+  auto-crit-fail the triggering save) is removed outright, not merged into anything.
+- **Putrid Pins** reverted from scaling on every 20 HP the pawn spends back to every 10 HP —
+  DESIGN.md's own reference table (§6.4) still described the 10-HP version, so this was a
+  content/doc mismatch as much as a balance change.
+- **Cornered** now explicitly scopes its –2 penalty to Perception checks and saves *against the
+  maestro and their pawns* (including against effects the maestro or pawns create), rather than
+  reading as a blanket penalty against anyone.
+- **Flanking Strike** (resolving Q14) changes both pawns' movement from up to full Speed to up to
+  half Speed.
+
+None of these seven had existing code automation beyond Sealed Fate's hook, so this pass is
+mostly compendium/doc text — Sealed Fate's once-per-round lock is the only new logic.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).
