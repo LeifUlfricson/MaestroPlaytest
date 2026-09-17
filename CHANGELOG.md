@@ -130,6 +130,16 @@ time; found no bugs. Confirmed live:
   since PF2e's own item-preparation flow runs ahead of the module's veto hook; the item is
   correctly absent afterward regardless of what's picked.
 
+**Fixed the "Create Pawn" button not appearing on the maestro's sheet.** This was tracked as a
+known gap since M2: `getActorSheetHeaderButtons` never fires on Foundry v14's ApplicationV2
+character sheet, so the button never rendered and a player who took the Maestro class had no
+in-sheet way to make a pawn (only the `api.createPawn` console workaround). Fixed in
+`src/module.js` by switching to the same `renderActorSheet` + direct DOM insertion approach
+`schematics.js`'s "Install Schematic" button already used successfully on pawn sheets. Confirmed
+live: the button now appears on a maestro's sheet and opens the Create Pawn dialog correctly,
+does *not* appear on non-maestro or pawn sheets, and coexists cleanly with "Install Schematic" on
+a pawn's own sheet.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

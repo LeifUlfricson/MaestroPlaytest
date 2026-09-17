@@ -33,18 +33,26 @@ Hooks.once("init", () => {
 });
 
 /**
- * A "Create Pawn" header button on a maestro's sheet (DESIGN.md §5.1). (verify) against the
- * installed PF2e system: v14's ApplicationV2 character sheet may need a different hook than
- * this AppV1-style one.
+ * A "Create Pawn" header button on a maestro's sheet (DESIGN.md §5.1). `getActorSheetHeaderButtons`
+ * never fires on v14's ApplicationV2 character sheet (confirmed live), so this uses the same
+ * `renderActorSheet` + direct DOM insertion approach as schematics.js's "Install Schematic"
+ * button, which is confirmed working on that same sheet class.
  */
-Hooks.on("getActorSheetHeaderButtons", (sheet, buttons) => {
+Hooks.on("renderActorSheet", (sheet, html) => {
   const actor = sheet.actor;
   if (actor?.type !== "character") return;
   if (!actor.items.some((i) => i.type === "class" && i.slug === "maestro")) return;
-  buttons.unshift({
-    label: "Create Pawn",
-    class: "maestro-create-pawn",
-    icon: "fa-solid fa-robot",
-    onclick: () => createPawn(actor),
-  });
+  addCreatePawnButton(sheet, html, actor);
 });
+
+function addCreatePawnButton(sheet, html, actor) {
+  const root = html instanceof HTMLElement ? html : html[0];
+  const header = root?.querySelector(".window-header .window-title")?.parentElement;
+  if (!header || header.querySelector(".maestro-create-pawn")) return;
+
+  const button = document.createElement("a");
+  button.className = "maestro-create-pawn";
+  button.innerHTML = `<i class="fa-solid fa-robot"></i> ${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.Title")}`;
+  button.addEventListener("click", () => createPawn(actor));
+  header.appendChild(button);
+}

@@ -170,11 +170,6 @@ call), not things QA should file as regressions:
 - **Elemental Strikes don't carry the element/parry trait themselves** (confirmed live; see the
   row above and the "Fix bugs found by live testing" commit). The creature-level traits and the
   damage type both work correctly.
-- **The "Create Pawn" sheet header button doesn't appear** on a maestro's character sheet
-  (confirmed live: v14's ApplicationV2 sheet doesn't fire the legacy `getActorSheetHeaderButtons`
-  hook, exactly as flagged `(verify)` since M2). Use `game.modules.get("pf2e-maestro").api.
-  createPawn(actor)` instead — the "Install Schematic" button on a *pawn's* sheet does work,
-  since pawns still use `renderActorSheet`-compatible rendering.
 - **Occasional duplicate documents from a single API call** (confirmed live, see the third and
   fourth sessions' CHANGELOG entries): `grant-spells.js` and `focus-entry.js` are proven, via
   direct instrumentation, to call `createEmbeddedDocuments` exactly once per grant, and the
