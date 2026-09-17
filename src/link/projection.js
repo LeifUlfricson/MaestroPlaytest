@@ -108,23 +108,19 @@ export function rulesEqual(a, b) {
 
 /**
  * The Craft-dependent rule elements for the generated "Maestro Link" effect (DESIGN.md §6.1):
- * the Ethereal form roll option the chassis Strikes predicate on, and the Elemental traits,
- * Solid Body Speed/Resistance, and the physical/magical-element roll options the chassis Strike's
- * conditional traits (parry, the magical-element trait) predicate on. Elemental Warding and
- * Elemental Avatar are level-gated rule elements on the static chassis item instead, since they
- * don't depend on which element was chosen.
+ * the Elemental traits, Solid Body Speed/Resistance, and the physical/magical-element roll
+ * options the chassis Strike's conditional traits (parry, the magical-element trait) predicate
+ * on. Elemental Warding and Elemental Avatar are level-gated rule elements on the static chassis
+ * item instead, since they don't depend on which element was chosen. Ethereal has no
+ * craft-dependent link rules: both of its Strikes are always available (the pawn's attack/defense
+ * form is just a tracking label via effect items, not a roll-option gate — see ethereal-craft.json).
  * @param {object} input
  * @param {"flesh"|"ethereal"|"elemental"|"sympathetic"|null} [input.craft]
  * @param {{physical: string, magical: string}|null} [input.elements]
- * @param {"attack"|"defense"|null} [input.form]
  * @param {number} [input.level]
  */
-export function buildCraftLinkRules({ craft, elements, form, level } = {}) {
+export function buildCraftLinkRules({ craft, elements, level } = {}) {
   const rules = [];
-
-  if (craft === "ethereal" && form) {
-    rules.push({ key: "RollOption", domain: "all", option: `ethereal-form:${form}` });
-  }
 
   if (craft === "elemental" && elements) {
     rules.push({ key: "RollOption", domain: "all", option: `physical-element:${elements.physical}` });

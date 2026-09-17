@@ -37,6 +37,7 @@ export function registerLifecycleHooks() {
 
   Hooks.on("createItem", (item) => handleConditionChange(item));
   Hooks.on("updateItem", (item) => handleConditionChange(item));
+  Hooks.on("createItem", (item) => enforceExclusiveEtherealForm(item).catch((err) => console.error(`${MODULE_ID} |`, err)));
 }
 
 function isPawn(actor) {
@@ -146,6 +147,22 @@ async function handleConditionChange(item) {
     const pawn = await fromUuid(uuid);
     if (pawn?.getFlag(MODULE_ID, "pawn")?.state === "controlled") await setInactive(pawn, { reason: "maestro-unconscious" });
   }
+}
+
+const OTHER_ETHEREAL_FORM = { "attack-form": "defense-form", "defense-form": "attack-form" };
+
+/**
+ * Ethereal Craft's Attack Form / Defense Form effects are a purely fictional tracking label
+ * (Resonant Form's adjacency count), applied and removed by hand rather than by the module — but
+ * the two are mutually exclusive regardless of how one gets applied (dragged from the compendium,
+ * granted by a macro, etc.), so this is a hook rather than logic inside a single action handler.
+ */
+async function enforceExclusiveEtherealForm(item) {
+  const otherSlug = OTHER_ETHEREAL_FORM[item.slug];
+  if (!otherSlug) return;
+  const pawn = item.actor;
+  const other = pawn?.itemTypes.effect?.find((e) => e.slug === otherSlug && e.id !== item.id);
+  if (other) await other.delete();
 }
 
 export async function setControlled(pawn) {

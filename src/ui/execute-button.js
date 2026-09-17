@@ -1,6 +1,5 @@
 import { takeControl } from "../actions/take-control.js";
 import { releaseControl } from "../actions/release-control.js";
-import { switchForm } from "../actions/switch-form.js";
 import { advance } from "../actions/advance.js";
 import { coordinatedStrike } from "../actions/coordinated-strike.js";
 import { castRapidAssembly } from "../spells/cast-rapid-assembly.js";
@@ -16,7 +15,6 @@ import { castBlitz } from "../spells/cast-blitz.js";
 const HANDLERS = {
   "take-control": takeControl,
   "release-control": releaseControl,
-  "switch-form": switchForm,
   advance,
   "coordinated-strike": coordinatedStrike,
   "rapid-assembly": castRapidAssembly,

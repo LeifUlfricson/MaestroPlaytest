@@ -172,7 +172,6 @@ async function projectPawn(pawn, maestroSnapshot) {
     ...buildCraftLinkRules({
       craft: pawnFlags.craft ?? null,
       elements: pawnFlags.elements ?? null,
-      form: pawnFlags.form ?? null,
       level: maestroSnapshot.level,
     }),
     ...buildFeatureLinkRules({ featureSlugs: maestroSnapshot.featureSlugs }),

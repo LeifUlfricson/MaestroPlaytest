@@ -79,11 +79,6 @@
         "NotEnough": "{name} needs at least 2 Controlled pawns for Coordinated Strike.",
         "WrongCount": "Choose exactly 2 pawns (or 3, with Coordinated Assault)."
       },
-      "SwitchForm": {
-        "Title": "Switch Form",
-        "Hint": "Choose pawns to switch form.",
-        "NoneEligible": "{name} has no Controlled Ethereal pawns to switch."
-      },
       "InstallSchematic": {
         "Title": "Install Schematic",
         "Label": "Schematic",

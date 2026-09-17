@@ -115,8 +115,8 @@ followed by the per-craft table below.
 
 | Level | Check |
 |---|---|
-| 1 | **Confirmed live:** force bolt (attack form) and force bash (defense form) Strikes exist, gated by the `ethereal-form:*` roll option from the Maestro Link effect. Switch Form correctly swaps a Controlled pawn between them (smoke test 6 passes) — `api.actions.switchForm(maestro)` opens a picker limited to that maestro's Controlled Ethereal pawns. |
-| 11 | **Confirmed live:** Warp Strike, Shield Barrier, and the Resonant Form effect are all present on the pawn (their `GrantItem`s needed the same fix as Putrid Pins to fire at all — see CHANGELOG). Resonant Form's damage/AC bonus is still **manually tracked** — an explicit stretch goal (DESIGN.md's own M8 note), not automated. |
+| 1 | Force bolt and force bash Strikes are both always available on a fresh pawn, unconditionally (simplified — see CHANGELOG; no longer gated by an `ethereal-form:*` roll option). Switch Form is now Assist tier: confirm using it just posts its own descriptive card, with no Execute button. Applying the Attack Form effect to a pawn removes Defense Form if present, and vice versa (`src/pawns/lifecycle.js`'s `enforceExclusiveEtherealForm`) — not yet exercised live. |
+| 11 | **Confirmed live:** Warp Strike, Shield Barrier, and the Resonant Form effect are all present on the pawn (their `GrantItem`s needed the same fix as Putrid Pins to fire at all — see CHANGELOG), and are no longer gated by form. Resonant Form's damage/AC bonus is still **manually tracked** — an explicit stretch goal (DESIGN.md's own M8 note), not automated. |
 | 17 | **Confirmed live:** with 3+ Controlled Ethereal pawns clustered together, Spatial Surge posts the correct damage card (`@Check[reflex|dc:{classDC}|basic]` against `10d10 force`). Not yet exercised: the warning path when fewer than 2 others are within 10 ft of the chosen origin pawn. |
 
 ## Elemental Craft

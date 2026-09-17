@@ -9,7 +9,7 @@
     "actions": { "value": 1 },
     "category": "utility",
     "description": {
-      "value": "<p>You can switch any number of Controlled Ethereal Pawns from attack form to defense form, or vice versa. Whenever one of your Inactive Ethereal Pawns becomes Controlled, you choose which form it takes.</p><p><em>Traits and action cost per DESIGN.md Q4 (the rules text doesn't give this action a stat block).</em></p>"
+      "value": "<p>You can switch any number of Controlled Ethereal Pawns from attack form to defense form, or vice versa. Whenever one of your Inactive Ethereal Pawns becomes Controlled, you choose which form it takes.</p><p><em>Apply the Attack Form or Defense Form effect to each switched pawn by hand (applying one removes the other). Both of a pawn's Strikes are always available regardless of form; the effect is only a tracking label for Resonant Form's adjacency count. Traits and action cost per DESIGN.md Q4 (the rules text doesn't give this action a stat block).</em></p>"
     },
     "publication": {
       "title": "Maestro (Beta v2.1 / Playtest v1.0)",

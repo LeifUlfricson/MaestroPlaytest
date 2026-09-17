@@ -140,6 +140,22 @@ live: the button now appears on a maestro's sheet and opens the Create Pawn dial
 does *not* appear on non-maestro or pawn sheets, and coexists cleanly with "Install Schematic" on
 a pawn's own sheet.
 
+**Simplified Ethereal Craft (designer-directed):** attack/defense form is no longer a mechanical
+gate. Force bolt and force bash are both always available on every Ethereal pawn, unconditionally
+(the `ethereal-form:attack`/`ethereal-form:defense` roll-option predicate is removed from both
+Strikes in `ethereal-craft.json`); Warp Strike and Shield Barrier were already granted
+unconditionally at level 5 and are unchanged. Switch Form drops to Assist tier: `switch-form.js`
+is deleted, along with its Execute-button entry and `api.actions.switchForm` — using the action
+now just posts its own descriptive PF2e chat card, like any action item with no module handler
+attached. Form is now tracked only as a fictional label for Resonant Form's adjacency count, via
+two new effects (`maestro-effects`): **Attack Form** and **Defense Form**. They're applied to a
+pawn by hand (drag from the compendium, a macro, however), and a new `createItem` hook in
+`src/pawns/lifecycle.js` (`enforceExclusiveEtherealForm`) makes them mutually exclusive
+regardless of how one gets applied, by deleting the other. The old flag-based plumbing this
+replaces — `flags.pf2e-maestro.pawn.form`, its initial assignment in `create-pawn.js`, and
+`buildCraftLinkRules`'s `form` parameter in `projection.js`/`link-service.js` — is removed
+entirely, along with its unit test and the now-dead `PF2E_MAESTRO.UI.SwitchForm.*` lang strings.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

@@ -104,23 +104,11 @@ describe("rulesEqual (idempotency)", () => {
 });
 
 describe("buildCraftLinkRules", () => {
-  it("non-Ethereal, non-Elemental crafts add nothing", () => {
+  it("non-Elemental crafts add nothing", () => {
     expect(buildCraftLinkRules({ craft: "flesh", level: 5 })).toEqual([]);
     expect(buildCraftLinkRules({ craft: "sympathetic", level: 5 })).toEqual([]);
+    expect(buildCraftLinkRules({ craft: "ethereal", level: 5 })).toEqual([]);
     expect(buildCraftLinkRules({})).toEqual([]);
-  });
-
-  it("Ethereal pawns expose their current form as a roll option", () => {
-    expect(buildCraftLinkRules({ craft: "ethereal", form: "attack" })).toContainEqual({
-      key: "RollOption",
-      domain: "all",
-      option: "ethereal-form:attack",
-    });
-    expect(buildCraftLinkRules({ craft: "ethereal", form: "defense" })).toContainEqual({
-      key: "RollOption",
-      domain: "all",
-      option: "ethereal-form:defense",
-    });
   });
 
   it("Elemental metal/fire gets both roll options and both element traits, but no speed or resistance", () => {

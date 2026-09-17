@@ -117,7 +117,7 @@ Extra fixtures:
 | Craft | Skill | Tradition | Base Strike(s) | 5th | 11th | 17th |
 |---|---|---|---|---|---|---|
 | Flesh | Medicine | Occult | rancid bite 1d8 poison (brawling; deadly d8, finesse, grapple, poison, unarmed; on a crit, 1d4 persistent poison per weapon die) | Connective Tissue (+3 HP/level) | Putrid Pins ◆◆ (pawn action) | *blood of the master* ◆ (Focus 9) |
-| Ethereal | Arcana | Arcane | Attack form: force bolt 1d6 force, max range 40 ft (sling; agile, magical, unarmed). Defense form: force bash 1d6 force (shield; finesse, forceful, parry, unarmed) | Greater Form: Warp Strike ◆◆ / Shield Barrier ◆ | Resonant Form | *spatial surge* ◆◆ (Focus 9) |
+| Ethereal | Arcana | Arcane | Both always available: force bolt 1d6 force, max range 40 ft (sling; agile, magical, unarmed) and force bash 1d6 force (shield; finesse, forceful, parry, unarmed) | Greater Form: Warp Strike ◆◆ / Shield Barrier ◆ (both unconditional) | Resonant Form | *spatial surge* ◆◆ (Focus 9) |
 | Elemental | Nature | Primal | elemental blow 1d6 (brawling; finesse, forceful, unarmed, versatile B) and elemental shot 1d6, max range 20 ft (sling; unarmed). Damage type = magical element; both get the element's trait | *elemental font* ◆◆ (Focus 3) | Elemental Warding | Elemental Avatar |
 | Sympathetic | Religion or Occultism | Divine | steal essence 1d8 spirit (brawling; agile, finesse, spirit, unarmed; applies fatebound) | *puppet's curse* ◆◆ (Focus 3) | Fate's Embrace ⟳ | Master of Souls (*wails of the damned*, *seize soul*) |
 
@@ -445,8 +445,10 @@ Behavior:
 4. For each selected pawn:
    - Unpack it if it's packed.
    - Remove the Inactive effect.
-   - Set the chosen Ethereal form (a dialog asks per pawn).
    - Draw its tether.
+
+   Ethereal form (attack/defense) is no longer set here — see §6.1's "Versatile Form" for the
+   simplified model (an effect the GM/player applies by hand, purely for Resonant Form's count).
 
    Moving tokens this way must not trigger movement reactions; that's a table rule and needs no code.
 5. **Exploration mode.** From the exploration activity picker, set a maestro flag. There's no automation beyond a reminder that pawns stay within 10 ft and may only use move actions.
@@ -560,11 +562,21 @@ The **Pawn-side** column names what projection adds to pawns when the maestro ha
   - **Putrid Pins (11):** a pawn action item (§6.4).
   - **Blood of the Master (17):** a spell on the maestro (§7).
 - **Ethereal**
-  - **Versatile Form:** a `RollOption` toggle `ethereal-form` with suboptions `attack` and `defense` (default attack), mirrored to `flags.pawn.form`. The **Switch Form** action on the maestro (Q4 defaults: 1 action, traits `maestro`, `magical`, `manipulate`) opens a dialog to flip the form on selected Controlled Ethereal pawns.
+  - **Versatile Form (simplified, post-M8):** attack/defense form is no longer a roll-option gate
+    on the Strikes — both are always available. Form is tracked only as a fictional label, via
+    the **Attack Form** / **Defense Form** effects (`maestro-effects`), which a player applies to
+    a pawn by hand; a `createItem` hook (`src/pawns/lifecycle.js`) makes the two mutually
+    exclusive regardless of how one gets applied (drag-drop, macro, etc.) by deleting the other.
+    This exists purely so Resonant Form's adjacency count has something to look at. The
+    **Switch Form** action on the maestro (Q4 defaults: 1 action, traits `maestro`, `magical`,
+    `manipulate`) is Assist tier: using it just posts its own descriptive text, same as any other
+    PF2e action card — no handler, no automation. (Originally automated via a `RollOption`
+    toggle mirrored to a pawn flag and a Switch Form handler that flipped it and re-ran
+    projection; removed as an unnecessary layer once both Strikes stopped needing a gate at all.)
   - Schematic install time is 1 minute (text note only).
   - Ethereal Bulk is 5 L (Packed Pawn).
-  - **Strikes:** force bolt as a `Strike` RE (1d6 force, sling group, traits `agile`, `magical`, `unarmed`, **maximum range 40 ft with no increment penalty**; **verify** Strike RE range fields, and if only an increment is supported, set increment 40 and add a `Note` "Max range 40 ft"), predicated on `ethereal-form:attack`. Force bash as a `Strike` RE (1d6 force, shield group, `finesse`, `forceful`, `parry`, `unarmed`), predicated on `ethereal-form:defense`.
-  - **Greater Form (5):** the Warp Strike and Shield Barrier pawn actions (§6.4).
+  - **Strikes:** force bolt as a `Strike` RE (1d6 force, sling group, traits `agile`, `magical`, `unarmed`, **maximum range 40 ft with no increment penalty**; **verify** Strike RE range fields, and if only an increment is supported, set increment 40 and add a `Note` "Max range 40 ft"). Force bash as a `Strike` RE (1d6 force, shield group, `finesse`, `forceful`, `parry`, `unarmed`). Both always available, unconditionally.
+  - **Greater Form (5):** the Warp Strike and Shield Barrier pawn actions (§6.4), granted unconditionally — not gated by form.
   - **Resonant Form (11):** an effect with a **badge counter** for attack-form neighbors (0–4) → `FlatModifier` `strike-damage` circumstance `@item.badge.value`, and a second counter for defense-form neighbors → `FlatModifier` `ac` circumstance. The M8 stretch goal is to have a watcher set the counters automatically from adjacency.
   - **Surge Form (17):** a spell (§7).
 - **Elemental**
@@ -666,10 +678,10 @@ Action feats set `system.actionType` and `system.actions` directly on the feat. 
 | Release Control | maestro | free | maestro | — |
 | Advance! | maestro | ◆ | formation, magical, maestro, pawn | — |
 | Coordinated Strike | maestro | ◆ (+◆ for Assault) | formation, magical, maestro, pawn | — |
-| Switch Form (Ethereal) | maestro | ◆ | magical, maestro, manipulate (Q4) | — |
+| Switch Form (Ethereal) | maestro | ◆ | magical, maestro, manipulate (Q4) | Assist tier (simplified, post-M8): posts its own descriptive card only, no handler. Apply the Attack Form / Defense Form effect on the switched pawn by hand |
 | Putrid Pins | pawn (Flesh, 11) | ◆◆ | magical, maestro, pawn, poison | Frequency 1 per 10 min (per pawn). Dialog: HP to spend (≤ ½ max and ≤ current) → the pawn loses that HP (no Sealed Fate for Flesh). Place a 20-ft cone; damage `k`d4 piercing + `k`d4 poison, where `k = floor(spent/10)` (V2.2: reverted from a `/20` scaling); basic Reflex against the **maestro's class DC** (Q5). On a critical failure, `k`d4 persistent poison. If `k = 0`, warn that no damage will be dealt |
-| Warp Strike | pawn (Ethereal, 5, attack form) | ◆◆ | attack, magical, maestro, pawn | Frequency 1/round. Strike force bolt with extra dice 1/2/3 at L1–9/10–17/18+ (`DamageDice` predicated on the `warp-strike` option). The target's circumstance AC bonus is reduced by 2 (an `AdjustModifier` on the target's circumstance AC; **verify** that target-side adjustment is possible; fallback is a `FlatModifier` +2 on the attack capped by the target's bonus, done manually, with a note). MAP counter +2 (Q3) |
-| Shield Barrier | pawn (Ethereal, 5, defense form) | ◆ | magical, maestro, pawn | Requires the pawn to be parrying (the system parry effect, **verify**). Aura radius 5, allies: +1 circumstance AC until the start of the maestro's next turn, while the pawn keeps parrying |
+| Warp Strike | pawn (Ethereal, 5) | ◆◆ | attack, magical, maestro, pawn | Frequency 1/round. Strike force bolt with extra dice 1/2/3 at L1–9/10–17/18+ (`DamageDice` predicated on the `warp-strike` option). The target's circumstance AC bonus is reduced by 2 (an `AdjustModifier` on the target's circumstance AC; **verify** that target-side adjustment is possible; fallback is a `FlatModifier` +2 on the attack capped by the target's bonus, done manually, with a note). MAP counter +2 (Q3). Granted unconditionally at 5 (not gated by form) |
+| Shield Barrier | pawn (Ethereal, 5) | ◆ | magical, maestro, pawn | Requires the pawn to be parrying (the system parry effect, **verify**). Aura radius 5, allies: +1 circumstance AC until the start of the maestro's next turn, while the pawn keeps parrying. Granted unconditionally at 5 (not gated by form) |
 | Lay Bare | pawn (Sympathetic) | ⟳ | magical, maestro, manipulate, pawn | Card for the GM: "Treat the attack as a success without rolling / the save as a failure." Shared reaction |
 | Fate's Embrace | maestro (Sympathetic, 11) | ⟳ | magical, maestro, manipulate, spirit | `@Check[will|dc:{classDC}]` with degree text. Applies `Fate's Embrace (Success)` (−2 status to AC and saves vs the triggering effect, 1 use) on a success. Applies `Fate's Embrace Immunity` (until daily preparations) always |
 | Vital Surge | maestro (16) | ⟳ | maestro | Requirement: no `Prosthetic Heart (Broken)`. Effect: set HP 1 and add that effect |
@@ -685,6 +697,7 @@ The pack contains these effects:
 - Formation Used
 - Group Tactics (Target)
 - Resonant Form
+- Attack Form / Defense Form (Ethereal, mutually exclusive tracking labels; see §6.1)
 - En Passant
 - Shield Barrier (Ally)
 - Blood of the Master (+4 damage)
@@ -759,7 +772,7 @@ Quench 0.10 is verified only through Foundry 13. Try it first; if it doesn't loa
 3. Moving the maestro 35 ft away makes a pawn Inactive.
 4. Reducing a pawn to 0 HP makes it Inactive and Broken. A second 0 within 10 minutes of world time destroys it.
 5. With a +1 potency armor equipped on the maestro, pawn AC rises by 1.
-6. Switch Ethereal form: the Strikes change.
+6. Ethereal pawn: both force bolt and force bash are available regardless of form. Applying the Attack Form effect removes Defense Form if present, and vice versa.
 7. Elemental metal/fire pawn: elemental blow has parry and deals fire damage, AC item bonus is `I + 1`, and the pawn has the `metal` and `fire` traits. A stone/cold pawn instead has `earth` and `water` and physical resistance `1 + floor(L/2)`.
 8. Sympathetic pawn damaged while a creature is Fatebound: a Sealed Fate card appears with Nd6.
 9. *hold together*: the first 0 HP becomes 1, and the second doesn't.

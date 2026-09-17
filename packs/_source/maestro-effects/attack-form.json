@@ -1,0 +1,18 @@
+{
+  "_id": "aF0rmEthereal01A",
+  "_key": "!items!aF0rmEthereal01A",
+  "name": "Attack Form",
+  "type": "effect",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": {
+      "value": "<p>This Ethereal Pawn is tracking itself as being in attack form, for Resonant Form's adjacency count. Applying this effect removes Defense Form from the same pawn, if present; the two are mutually exclusive. Purely a tracking label — both force bolt and force bash are always available regardless of form.</p>"
+    },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "unidentified": false,
+    "rules": [],
+    "slug": "attack-form",
+    "traits": { "value": [], "rarity": "common" }
+  }
+}

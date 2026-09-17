@@ -13,7 +13,7 @@
     },
     "category": "classfeature",
     "description": {
-      "value": "<p>While in attack form, your Ethereal Pawns can make force bolt ranged unarmed attacks, which have a maximum range of 40 feet. These deal 1d6 force damage, are in the sling group, and have the agile, magical, and unarmed traits. While in defense form, your Ethereal Pawns can make force bash unarmed attacks. These deal 1d6 force damage, are in the shield group, and have the finesse, forceful, parry, and unarmed traits.</p><p>The maestro module tracks the pawn's current form as <code>flags.pf2e-maestro.pawn.form</code> and switches it with the Switch Form action; the generated Maestro Link effect exposes it as the <code>ethereal-form:attack</code> / <code>ethereal-form:defense</code> roll option these Strikes predicate on.</p><p><strong>Greater Form (5th):</strong> your Ethereal Pawns gain the Warp Strike action (attack form) and the Shield Barrier action (defense form).</p><p><strong>Resonant Form (11th):</strong> each of your Ethereal Pawns gains a circumstance bonus to damage with its Strikes equal to the number of attack-form Ethereal Pawns adjacent to it, and a circumstance bonus to AC equal to the number of defense-form Ethereal Pawns adjacent to it.</p>"
+      "value": "<p>Your Ethereal Pawns can make force bolt ranged unarmed attacks, which have a maximum range of 40 feet. These deal 1d6 force damage, are in the sling group, and have the agile, magical, and unarmed traits. Your Ethereal Pawns can also make force bash unarmed attacks. These deal 1d6 force damage, are in the shield group, and have the finesse, forceful, parry, and unarmed traits. Both Strikes are always available.</p><p>A pawn can track itself as being in attack form or defense form by applying the Attack Form or Defense Form effect (Switch Form describes the fiction of changing between them, but doesn't apply either automatically); the two are mutually exclusive, so applying one removes the other. This is purely a tracking label for Resonant Form's adjacency count — it doesn't gate either Strike.</p><p><strong>Greater Form (5th):</strong> your Ethereal Pawns gain the Warp Strike and Shield Barrier actions.</p><p><strong>Resonant Form (11th):</strong> each of your Ethereal Pawns gains a circumstance bonus to damage with its Strikes equal to the number of attack-form Ethereal Pawns adjacent to it, and a circumstance bonus to AC equal to the number of defense-form Ethereal Pawns adjacent to it.</p>"
     },
     "prerequisites": {
       "value": []
@@ -47,9 +47,6 @@
           "agile",
           "magical",
           "unarmed"
-        ],
-        "predicate": [
-          "ethereal-form:attack"
         ]
       },
       {
@@ -70,9 +67,6 @@
           "forceful",
           "parry",
           "unarmed"
-        ],
-        "predicate": [
-          "ethereal-form:defense"
         ]
       },
       {
