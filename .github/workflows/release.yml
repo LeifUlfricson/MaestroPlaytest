@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run pack
+
+      - name: Assemble module package
+        run: |
+          mkdir -p staging/pf2e-maestro
+          cp module.json README.md CHANGELOG.md staging/pf2e-maestro/
+          mkdir -p staging/pf2e-maestro/dist staging/pf2e-maestro/styles staging/pf2e-maestro/lang
+          cp dist/module.js dist/module.js.map staging/pf2e-maestro/dist/
+          cp styles/maestro.css staging/pf2e-maestro/styles/
+          cp lang/en.json staging/pf2e-maestro/lang/
+          mkdir -p staging/pf2e-maestro/packs
+          for dir in packs/*/; do
+            name=$(basename "$dir")
+            [ "$name" = "_source" ] && continue
+            cp -r "$dir" "staging/pf2e-maestro/packs/$name"
+          done
+          cd staging && zip -r ../module.zip pf2e-maestro
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            module.zip

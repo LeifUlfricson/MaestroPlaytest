@@ -43,7 +43,7 @@
       }
     }
   },
-  "url": "",
-  "manifest": "",
-  "download": ""
+  "url": "https://github.com/LeifUlfricson/MaestroPlaytest",
+  "manifest": "https://github.com/LeifUlfricson/MaestroPlaytest/releases/latest/download/module.json",
+  "download": "https://github.com/LeifUlfricson/MaestroPlaytest/releases/latest/download/module.zip"
 }
