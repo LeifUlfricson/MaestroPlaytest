@@ -156,6 +156,26 @@ replaces — `flags.pf2e-maestro.pawn.form`, its initial assignment in `create-p
 `buildCraftLinkRules`'s `form` parameter in `projection.js`/`link-service.js` — is removed
 entirely, along with its unit test and the now-dead `PF2E_MAESTRO.UI.SwitchForm.*` lang strings.
 
+**Cleaned player-facing text on the Maestro's class features and Crafts.** Audited every
+`classfeature`-category item's description in `maestro-features` (all 23 were already clean) and
+`maestro-pawn-features`'s four Craft chassis plus the `Pawn`/`Pawn Frame` stubs, and removed
+implementation asides that had crept in over several live-testing sessions: roll-option names,
+"Maestro Link effect" references, "(verify)"/"known gap (found by live testing)" notes,
+"not automated" caveats, and file/section-number pointers like `src/...` and `DESIGN.md §...`.
+Two spots got more than a trim: Flesh Pawn's Battle Medicine paragraph and Sympathetic Pawn's
+Sealed Fate paragraph were paraphrases written during implementation; replaced both with the
+actual canonical wording from `docs/maestro-rules-v2.1.md` ("Stitched Together" and "Sealed
+Fate," including the 1d6-per-tier damage scaling the paraphrase had dropped). `Pawn` and `Pawn
+Frame` had no canonical equivalent at all (they're Foundry-only ancestry/class stubs invented to
+represent a pawn's sheet) — reworded both from raw dev notes ("ancestry stub... see DESIGN.md
+§4.1") into short factual text pulled from the "Pawns" class feature's own prose (Immunities,
+Size, Speed, proficiencies), so they read as normal PF2e ancestry/class blurbs instead of
+implementation commentary. Deliberately did not touch the Schematic items in the same pack
+(`schematic-*.json`) or anything in `maestro-feats` — those are feat-gated content, not class
+features, and several of them (Air Superiority, Castle, Custom Armament, Extra Space, Injector
+Spike) do carry similar dev asides ("Not yet automated...", "Simplified: DESIGN.md gates
+this...") that are worth a separate pass if wanted.
+
 - M0: repo scaffold (esbuild, Vitest, fvtt-cli pack/unpack, module.json, trait registration, settings, empty packs, CI).
 - M1: Maestro class item and all 23 class features (§6.1). The 12 pure-stat features (Great Fortitude, Weapon/Armor Expertise/Mastery, Evasion, Prescient Evasion, Resolve, Maestro's Expertise/Mastery, Vigilant Senses, Three Moves Ahead) carry real rule elements. The 3 Craft-innovation features (Cunning/Brilliant/Legendary Innovation) and Tactical Opportunist and Instinctive Control are purely descriptive on the maestro's side, as written. Pawns, Formations, Maestro's Craft, Coordinated Strike, Group Tactics, and Coordinated Assault exist with correct name/level/description but no rule elements yet — their mechanics depend on the pawn link service (M2), lifecycle (M3), Crafts (M4), and formations (M5).
 - M2: Pawn template (ancestry + Frame class, `maestro-pawns`/`maestro-pawn-features`), the link service (`src/link/`), and the downtime creation wizard (`src/pawns/create-pawn.js`). `src/rules/pawn-stats.js` implements every §2.2 formula as a pure function, verified against all seven §2.3 worked-example fixtures plus the Metal/Wood/Stone/Large-Con checks from §8.1. `src/link/projection.js` builds the pawn actor-update patch and the generated "Maestro Link" effect's rule elements (AC, ability-based Strike attack, resilient save, skill upgrades, weapon runes, size), covered by unit tests including idempotency. Craft chassis, Packed Pawn items, and the pawn cap/range math are still out of scope (M3/M4).

@@ -22,7 +22,7 @@
       "unarmored": 1
     },
     "description": {
-      "value": "<p>The stub class every pawn carries. Its own numbers (HP 4/level, Trained unarmed and unarmored) are the pawn's baseline before the maestro's Craft chassis and the generated Maestro Link effect layer their own rule elements on top; see DESIGN.md §4.1.</p>"
+      "value": "<p>Your pawns' level is equal to yours. They have expert proficiency in Fortitude, Reflex, and Will saves and are trained in Perception. They're also trained in unarmed attacks and unarmored defense.</p>"
     },
     "generalFeatLevels": {
       "value": []
