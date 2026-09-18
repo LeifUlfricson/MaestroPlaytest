@@ -15,10 +15,11 @@ const PAWN_FEATURES_PACK = `${MODULE_ID}.maestro-pawn-features`;
  * @param {string|null} options.craft
  * @param {"sm"|"med"|"lg"} [options.size]
  * @param {{physical: string, magical: string}|null} [options.elements]
+ * @param {string} [options.img] Portrait/token art; falls back to the template's own art if omitted.
  * @param {object} [options.extraFlags] Merged into flags.pf2e-maestro.pawn (e.g. `temporary`).
  * @returns {Promise<object|null>}
  */
-export async function buildPawnActorSource(maestro, { name, craft, size = "sm", elements = null, extraFlags = {} }) {
+export async function buildPawnActorSource(maestro, { name, craft, size = "sm", elements = null, img = "", extraFlags = {} }) {
   const pack = game.packs.get(PAWN_PACK);
   const [template] = (await pack?.getDocuments({ name: "Pawn" })) ?? [];
   if (!template) {
@@ -30,6 +31,10 @@ export async function buildPawnActorSource(maestro, { name, craft, size = "sm", 
   delete pawnSource._id;
   pawnSource.name = name;
   pawnSource.ownership = foundry.utils.deepClone(maestro.ownership);
+  if (img) {
+    pawnSource.img = img;
+    foundry.utils.setProperty(pawnSource, "prototypeToken.texture.src", img);
+  }
   foundry.utils.setProperty(pawnSource, "system.build.attributes.manual", true);
   foundry.utils.setProperty(pawnSource, `flags.${MODULE_ID}.pawn`, {
     maestroUuid: maestro.uuid,
@@ -64,7 +69,13 @@ export async function createPawn(maestro) {
   const answers = await promptForDetails(maestro, craft, sizeChoices);
   if (!answers) return null;
 
-  const pawnSource = await buildPawnActorSource(maestro, { name: answers.name, craft, size: answers.size, elements: answers.elements });
+  const pawnSource = await buildPawnActorSource(maestro, {
+    name: answers.name,
+    craft,
+    size: answers.size,
+    elements: answers.elements,
+    img: answers.img,
+  });
   if (!pawnSource) return null;
 
   const pawn = await Actor.create(pawnSource);
@@ -108,7 +119,7 @@ const SIZE_LABELS = { sm: "Small", med: "Medium", lg: "Large" };
  * @param {Actor} maestro
  * @param {string|null} craft
  * @param {("sm"|"med"|"lg")[]} sizeChoices
- * @returns {Promise<{name: string, size: string, elements: {physical: string, magical: string}|null}|null>}
+ * @returns {Promise<{name: string, size: string, elements: {physical: string, magical: string}|null, img: string}|null>}
  */
 async function promptForDetails(maestro, craft, sizeChoices) {
   const elementFields =
@@ -153,6 +164,12 @@ async function promptForDetails(maestro, craft, sizeChoices) {
           <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.NameLabel")}</label>
           <input type="text" name="name" value="${maestro.name}'s Pawn" autofocus>
         </div>
+        <div class="form-group">
+          <label>${game.i18n.localize("PF2E_MAESTRO.UI.CreatePawn.ArtLabel")}</label>
+          <div class="form-fields">
+            <file-picker name="img" type="image" value=""></file-picker>
+          </div>
+        </div>
         ${sizeField}
         ${elementFields}
       </form>
@@ -162,12 +179,13 @@ async function promptForDetails(maestro, craft, sizeChoices) {
       callback: (_event, button) => {
         const name = button.form.elements.name.value.trim();
         if (!name) return null;
+        const img = button.form.elements.img.value.trim();
         const size = sizeChoices.length > 1 ? button.form.elements.size.value : sizeChoices[0];
         const elements =
           craft === "elemental"
             ? { physical: button.form.elements.physical.value, magical: button.form.elements.magical.value }
             : null;
-        return { name, size, elements };
+        return { name, size, elements, img };
       },
     },
     rejectClose: false,

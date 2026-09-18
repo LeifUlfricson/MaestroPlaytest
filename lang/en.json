@@ -43,6 +43,7 @@
       "CreatePawn": {
         "Title": "Create Pawn",
         "NameLabel": "Name",
+        "ArtLabel": "Art",
         "SizeLabel": "Size",
         "PhysicalElementLabel": "Physical Element",
         "MagicalElementLabel": "Magical Element",

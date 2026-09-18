@@ -135,6 +135,13 @@ reported from actual play:
   now-stale HUD description in DESIGN.md/QA.md. Shared MAP and the shared reaction remain a
   manual table aid per Decision D5, just without a dedicated widget.
 
+**Pawn art on creation:** the "Create Pawn" dialog (`src/pawns/create-pawn.js`) now has an Art
+field using Foundry's `<file-picker>` element, so a player can browse to or upload custom art for
+a new pawn instead of getting the "Pawn" template's generic image. Picking a file sets both the
+actor's portrait and its prototype token texture; leaving it blank keeps the template's own art,
+unchanged from before. Confirmed live: the browse/upload dialog opens and the chosen path lands
+on both `img` and `prototypeToken.texture.src` for the created actor.
+
 Also confirmed working as designed: Connective Tissue's HP scaling, Blood of the Master's spend/
 heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and Spatial Surge's
 3-Controlled-pawn and 10-ft-proximity requirements with the correct DC/damage. Master of Souls
