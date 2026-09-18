@@ -13,5 +13,4 @@ export const SETTINGS = {
   SEALED_FATE_CARDS: "sealedFateCards",
   TETHERS: "tethers",
   RUNE_SHARING: "runeSharing",
-  SHOW_ACTION_TRACKER: "showActionTracker",
 };

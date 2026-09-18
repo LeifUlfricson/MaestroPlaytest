@@ -61,13 +61,4 @@ export function registerSettings() {
     choices: { builtin: "Built-in", toolbelt: "PF2e Toolbelt" },
     default: "builtin",
   });
-
-  game.settings.register(MODULE_ID, SETTINGS.SHOW_ACTION_TRACKER, {
-    name: `${localize(SETTINGS.SHOW_ACTION_TRACKER)}.Name`,
-    hint: `${localize(SETTINGS.SHOW_ACTION_TRACKER)}.Hint`,
-    scope: "client",
-    config: true,
-    type: Boolean,
-    default: true,
-  });
 }

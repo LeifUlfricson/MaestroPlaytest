@@ -12,7 +12,6 @@ import { registerRapidAssemblyExpiry } from "./spells/cast-rapid-assembly.js";
 import { createPawn } from "./pawns/create-pawn.js";
 import { registerExecuteButton } from "./ui/execute-button.js";
 import { registerTokenHud } from "./ui/token-hud.js";
-import { registerActionTracker } from "./ui/action-tracker.js";
 import { buildApi } from "./api.js";
 
 Hooks.once("init", () => {
@@ -28,7 +27,6 @@ Hooks.once("init", () => {
   registerRapidAssemblyExpiry();
   registerExecuteButton();
   registerTokenHud();
-  registerActionTracker();
   game.modules.get(MODULE_ID).api = buildApi();
 });
 

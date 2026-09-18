@@ -24,10 +24,6 @@
       "runeSharing": {
         "Name": "Rune & Skill Sharing",
         "Hint": "How pawns inherit their maestro's runes and skills."
-      },
-      "showActionTracker": {
-        "Name": "Show Action Tracker HUD",
-        "Hint": "Show a HUD counter for shared actions and the multiple attack penalty."
       }
     },
     "Item": {

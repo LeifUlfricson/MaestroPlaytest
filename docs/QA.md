@@ -51,6 +51,17 @@ bugs:
   cards from one hit. Fixed with an in-memory, synchronously-claimed lock instead of a persisted
   flag; confirmed live across two rounds.
 
+A fifth session reported two UI annoyances: a "MAP step" HUD window on load, and a PF2e
+"already has X, so it has not been added again" notification firing on ordinary play (e.g.
+whenever the maestro gained a feat). The HUD (`src/ui/action-tracker.js` and its setting) was
+removed outright — see CHANGELOG. The notification was a side effect of the four `GrantItem`
+fixes above missing an explicit `flag`; fixed by pinning each rule's `flag` to the name PF2e's
+own auto-generation would already have produced, confirmed silent on repeated updates and on
+feat gain/loss. **Actors that already had one of those five items granted before this fix keep a
+frozen, flag-less copy of its rules and need a one-time repair** (add the matching `flag`, drop
+stray incremented `itemGrants` keys) — see CHANGELOG for the exact mapping if another table hits
+this on pre-existing pawns.
+
 A fifth session tested Formations and Schematics — both **confirmed live**, no bugs found (see
 the sections below). Schematics needed a genuine non-GM player account to test meaningfully,
 since the module's own enforcement hook intentionally lets every GM action through; this world
@@ -165,8 +176,6 @@ call), not things QA should file as regressions:
   table post a reminder card and stop there — the GM and players resolve the mechanic by hand,
   matching the design's own tiering, not a shortcut taken here.
 - **Resonant Form's adjacency counting** is manual (an explicit M8 stretch goal in DESIGN.md).
-- **The action/MAP HUD** (`src/ui/action-tracker.js`) is a minimal MAP-step counter with no
-  reaction marker yet.
 - **Elemental Strikes don't carry the element/parry trait themselves** (confirmed live; see the
   row above and the "Fix bugs found by live testing" commit). The creature-level traits and the
   damage type both work correctly.

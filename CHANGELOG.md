@@ -106,6 +106,35 @@ two real bugs:
   `await`, the same fix shape as the pawn-lock/maestro-lock pattern used elsewhere; confirmed
   live across two rounds (exactly one card each round, second same-round hit correctly blocked).
 
+**Fixing notification spam and removing the MAP HUD (fifth live session):** two UI annoyances
+reported from actual play:
+- **The `reevaluateOnUpdate: true` fix above had a side effect: PF2e's own "already has X, so it
+  has not been added again" notification fired on every relevant actor update once a pawn's
+  Putrid Pins/Warp Strike/Shield Barrier/Resonant Form (or the maestro's Fate's Embrace) had
+  already been granted.** Root cause: none of the five `GrantItem` rules had an explicit `flag`,
+  so PF2e auto-generates one from the granted item's slug — and without `reevaluateOnUpdate`
+  pinning that flag at construction time (it reads `this.flag` before the auto-generation logic
+  ever runs), each re-evaluation regenerated a *new*, incrementing flag key (`warpStrike`,
+  `warpStrike2`, ...) instead of reusing the one that already recorded the grant. Foundry's own
+  `preUpdateActor` short-circuit (skip silently if `itemGrants[this.flag]` already resolves to an
+  owned item) never took effect, so it fell through to the creation path every time and re-hit
+  the "already has it" notice. Fixed by giving all five rules an explicit `flag` matching the
+  name PF2e's own auto-generation would have produced on a fresh grant (`putridPins`,
+  `warpStrike`, `shieldBarrier`, `resonantForm`, `fatesEmbrace`) — confirmed silent on repeated
+  no-op updates and on the maestro gaining/losing a feat. **Existing pawns/maestros that already
+  had one of these five items granted keep the old, flag-less rule data frozen on their embedded
+  item copy** (rule elements are re-instantiated from the item's own stored `system.rules`, not
+  refreshed from the compendium), so the compendium fix alone doesn't reach them; those actors
+  need a one-time repair that adds the matching `flag` to the affected item's rules and drops any
+  stray incremented `itemGrants` keys pointing at the same granted item. Ran and confirmed on the
+  affected live-session actors.
+- **The "MAP step" HUD (`src/ui/action-tracker.js`, DESIGN.md §5.7's Decision D5) was more
+  friction than aid in practice** — a floating window every client had to dismiss or reposition
+  on load. Removed entirely: the source file, its `registerActionTracker()` call in `module.js`,
+  the `showActionTracker` client setting (`config.js`/`settings.js`/`lang/en.json`), and the
+  now-stale HUD description in DESIGN.md/QA.md. Shared MAP and the shared reaction remain a
+  manual table aid per Decision D5, just without a dedicated widget.
+
 Also confirmed working as designed: Connective Tissue's HP scaling, Blood of the Master's spend/
 heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and Spatial Surge's
 3-Controlled-pawn and 10-ft-proximity requirements with the correct DC/damage. Master of Souls

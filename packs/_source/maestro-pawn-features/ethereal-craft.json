@@ -72,6 +72,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.utDxcoxjF2kHMbsa",
+        "flag": "warpStrike",
         "reevaluateOnUpdate": true,
         "predicate": [
           {
@@ -85,6 +86,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-actions.Item.XMJsWNWTCYzhXZ2I",
+        "flag": "shieldBarrier",
         "reevaluateOnUpdate": true,
         "predicate": [
           {
@@ -98,6 +100,7 @@
       {
         "key": "GrantItem",
         "uuid": "Compendium.pf2e-maestro.maestro-effects.Item.KlTzFFSXJrFgyrvu",
+        "flag": "resonantForm",
         "reevaluateOnUpdate": true,
         "predicate": [
           {

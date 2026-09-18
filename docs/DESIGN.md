@@ -254,7 +254,6 @@ pf2e-maestro/
 | `sealedFateCards` | bool | true | Post the Sealed Fate damage card automatically (§6.4) |
 | `tethers` | enum `off/simple/sequencer` | `sequencer` if active, else `simple` | Tether visuals |
 | `runeSharing` | enum `builtin/toolbelt` | `builtin` | Choose D3 |
-| `showActionTracker` (client) | bool | true | HUD counter for shared actions and MAP (manual aid) |
 
 ---
 
@@ -487,11 +486,7 @@ Rule: if an enemy is within melee reach of two or more of your pawns, or of you 
 ### 5.7 Shared action economy and MAP (Decision D5: manual)
 
 - Pawns are **not** added to the combat tracker. The **Execute** step never enforces action costs.
-- The client-side HUD (`showActionTracker`) shows the maestro's actions (◆◆◆ plus a reaction marker) and a MAP step counter (0, 1, 2) that resets when the maestro's turn starts. Pawn and maestro Strikes increment it when rolled through module dialogs; the player can also adjust it by hand.
-- Dialogs that roll Strikes use the HUD's MAP step as their default.
-- **Warp Strike** increments the counter by 2 (Q3 default).
-- **Reactive Strike**, whether used by the maestro or a pawn, never increments it.
-- Reactions are shared: the HUD's reaction marker is spent by the maestro's own reactions and by pawns' reactions (Reactive Strike, Lay Bare, En Passant, Pyrrhic Defense, Canary, Fate's Embrace, Backup Plan).
+- MAP and the shared reaction are tracked by the table, not the module: no HUD is provided. Pawn and maestro Strikes, Warp Strike's double MAP step, and reaction usage (Reactive Strike, Lay Bare, En Passant, Pyrrhic Defense, Canary, Fate's Embrace, Backup Plan) are all manual aids for the players to track themselves.
 
 ### 5.8 Turn timing (Decision D6)
 
