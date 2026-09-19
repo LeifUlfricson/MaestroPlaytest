@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.3",
+    "classic-level": "^1.4.1",
     "esbuild": "^0.25.0",
     "eslint": "^9.17.0",
     "vitest": "^3.0.0"

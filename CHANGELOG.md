@@ -142,6 +142,21 @@ actor's portrait and its prototype token texture; leaving it blank keeps the tem
 unchanged from before. Confirmed live: the browse/upload dialog opens and the chosen path lands
 on both `img` and `prototypeToken.texture.src` for the created actor.
 
+**Fixing empty compendiums in the published GitHub release:** the first public release
+(v0.1.0) installed fine but granted nothing — the Maestro class's features never
+auto-populated. Every compiled compendium pack in that release was silently empty: the raw
+`.ldb` table files on disk genuinely contained the compiled item data (confirmed by grepping
+their bytes directly), but LevelDB's own `CURRENT`/`MANIFEST` bookkeeping didn't reference it,
+so any reader (Foundry included) saw zero entries despite the data physically existing. This
+didn't reproduce locally or in a fresh `git clone` + `npm ci` + `npm run pack` on this machine,
+which points at a `compilePack`/`classic-level` write-manifest race that's more likely to show
+up on a different platform (the release was built on `ubuntu-latest`) than at true root cause
+inside our own code. Rather than chase the upstream timing bug, `tools/pack.mjs` now reopens
+each pack right after compiling it and verifies it has a nonzero entry count, recompiling up to
+twice more before failing the build loudly — turning a silent bad release into a build failure
+instead. `classic-level` (already an indirect dependency of `@foundryvtt/foundryvtt-cli`) is now
+also a direct `devDependency` since `pack.mjs` imports it for this check.
+
 Also confirmed working as designed: Connective Tissue's HP scaling, Blood of the Master's spend/
 heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and Spatial Surge's
 3-Controlled-pawn and 10-ft-proximity requirements with the correct DC/damage. Master of Souls
