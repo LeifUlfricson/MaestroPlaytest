@@ -157,6 +157,20 @@ twice more before failing the build loudly — turning a silent bad release into
 instead. `classic-level` (already an indirect dependency of `@foundryvtt/foundryvtt-cli`) is now
 also a direct `devDependency` since `pack.mjs` imports it for this check.
 
+**Fixing the class item's own feature list showing blank names:** even with packs correctly
+populated (the fix above), the Maestro class's "Class Features" list — both on the compendium
+item and on an embedded copy on an actor — showed a row per level with no name, icon, or link,
+just a blank dash. The grant itself was never affected: creating a fresh character, adding the
+Maestro class, and leveling up all correctly embedded the right feature items with the right
+names (confirmed live) — this was a display-only bug, but one indistinguishable from a broken
+grant just by looking at the class sheet. Root cause: PF2e's own class/ancestry/background sheet
+(`ABCSheetPF2e`) doesn't resolve each `system.items[key]`'s name from its `uuid` at render time —
+it reads `name` and `img` directly off the stored entry, the same fields the sheet's own drag-and-
+drop handler fills in when you drag a feat onto it by hand. `maestro.json`'s `system.items` map
+only ever had `level` and `uuid` for each of its 23 entries. Fixed by populating `name`/`img` on
+every entry from the corresponding `maestro-features` item; confirmed live that the class item's
+feature list now shows the correct name, icon, and level for all 23 entries.
+
 Also confirmed working as designed: Connective Tissue's HP scaling, Blood of the Master's spend/
 heal/Broken-removal/Take-Control/damage-bonus math, Fatebound application, and Spatial Surge's
 3-Controlled-pawn and 10-ft-proximity requirements with the correct DC/damage. Master of Souls

@@ -43,95 +43,141 @@
     "items": {
       "0eBNQIKr5yC46ogY": {
         "level": 1,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0eBNQIKr5yC46ogY"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0eBNQIKr5yC46ogY",
+        "name": "Pawns",
+        "img": "icons/svg/statue.svg"
       },
       "r6JI5rbzQifmaEwa": {
         "level": 1,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.r6JI5rbzQifmaEwa"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.r6JI5rbzQifmaEwa",
+        "name": "Formations",
+        "img": "icons/svg/combat.svg"
       },
       "FfXQhcWOd0Hp7Z7U": {
         "level": 1,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.FfXQhcWOd0Hp7Z7U"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.FfXQhcWOd0Hp7Z7U",
+        "name": "Maestro's Craft",
+        "img": "icons/svg/book.svg"
       },
       "nNhOSVcY2fQ5FSHH": {
         "level": 3,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.nNhOSVcY2fQ5FSHH"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.nNhOSVcY2fQ5FSHH",
+        "name": "Great Fortitude",
+        "img": "icons/svg/combat.svg"
       },
       "ybttvZH7a0KAXKUN": {
         "level": 5,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.ybttvZH7a0KAXKUN"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.ybttvZH7a0KAXKUN",
+        "name": "Weapon Expertise",
+        "img": "icons/svg/sword.svg"
       },
       "kQFMAAHEzfAtIVP2": {
         "level": 5,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kQFMAAHEzfAtIVP2"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kQFMAAHEzfAtIVP2",
+        "name": "Cunning Innovation",
+        "img": "icons/svg/light.svg"
       },
       "mZwE1nrVc1pVhBnF": {
         "level": 7,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.mZwE1nrVc1pVhBnF"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.mZwE1nrVc1pVhBnF",
+        "name": "Coordinated Strike",
+        "img": "icons/svg/combat.svg"
       },
       "SNtdQlo8m2AZp4cC": {
         "level": 7,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.SNtdQlo8m2AZp4cC"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.SNtdQlo8m2AZp4cC",
+        "name": "Evasion",
+        "img": "icons/svg/wingfoot.svg"
       },
       "zyCTEng6W6NPmhc0": {
         "level": 7,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.zyCTEng6W6NPmhc0"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.zyCTEng6W6NPmhc0",
+        "name": "Tactical Opportunist",
+        "img": "icons/svg/sword.svg"
       },
       "oT3QpJWQYTAMX4Sn": {
         "level": 9,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.oT3QpJWQYTAMX4Sn"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.oT3QpJWQYTAMX4Sn",
+        "name": "Group Tactics",
+        "img": "icons/svg/upgrade.svg"
       },
       "EpwtLE1mmp7zWv9x": {
         "level": 9,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EpwtLE1mmp7zWv9x"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EpwtLE1mmp7zWv9x",
+        "name": "Maestro's Expertise",
+        "img": "icons/svg/upgrade.svg"
       },
       "aVnbER2Bu1rDRpEy": {
         "level": 9,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.aVnbER2Bu1rDRpEy"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.aVnbER2Bu1rDRpEy",
+        "name": "Vigilant Senses",
+        "img": "icons/svg/eye.svg"
       },
       "BBvo5sG4B89Z5PVX": {
         "level": 11,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.BBvo5sG4B89Z5PVX"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.BBvo5sG4B89Z5PVX",
+        "name": "Light Armor Expertise",
+        "img": "icons/svg/shield.svg"
       },
       "qIEAFzxiMm72rX5A": {
         "level": 11,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.qIEAFzxiMm72rX5A"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.qIEAFzxiMm72rX5A",
+        "name": "Brilliant Innovation",
+        "img": "icons/svg/light.svg"
       },
       "rubmlYssQHztTR9O": {
         "level": 13,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.rubmlYssQHztTR9O"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.rubmlYssQHztTR9O",
+        "name": "Prescient Evasion",
+        "img": "icons/svg/wingfoot.svg"
       },
       "kch29tRWdBMYTJ92": {
         "level": 13,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kch29tRWdBMYTJ92"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.kch29tRWdBMYTJ92",
+        "name": "Weapon Mastery",
+        "img": "icons/svg/sword.svg"
       },
       "0ZlD5tcXp5iMguFu": {
         "level": 13,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0ZlD5tcXp5iMguFu"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.0ZlD5tcXp5iMguFu",
+        "name": "Three Moves Ahead",
+        "img": "icons/svg/clockwork.svg"
       },
       "T1pZMI1sn3N8Tzla": {
         "level": 15,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.T1pZMI1sn3N8Tzla"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.T1pZMI1sn3N8Tzla",
+        "name": "Coordinated Assault",
+        "img": "icons/svg/combat.svg"
       },
       "EARY2JPZhhlJxzNn": {
         "level": 15,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EARY2JPZhhlJxzNn"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EARY2JPZhhlJxzNn",
+        "name": "Resolve",
+        "img": "icons/svg/mage-shield.svg"
       },
       "6kmBjCIx8FT1rg9L": {
         "level": 17,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.6kmBjCIx8FT1rg9L"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.6kmBjCIx8FT1rg9L",
+        "name": "Legendary Innovation",
+        "img": "icons/svg/light.svg"
       },
       "GVHdtFgV0Y4G2Tyr": {
         "level": 17,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.GVHdtFgV0Y4G2Tyr"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.GVHdtFgV0Y4G2Tyr",
+        "name": "Maestro's Mastery",
+        "img": "icons/svg/upgrade.svg"
       },
       "vGwgKOuOCU9cnfDB": {
         "level": 19,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.vGwgKOuOCU9cnfDB"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.vGwgKOuOCU9cnfDB",
+        "name": "Light Armor Mastery",
+        "img": "icons/svg/shield.svg"
       },
       "EhagNGQSg8zMTePe": {
         "level": 19,
-        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EhagNGQSg8zMTePe"
+        "uuid": "Compendium.pf2e-maestro.maestro-features.Item.EhagNGQSg8zMTePe",
+        "name": "Instinctive Control",
+        "img": "icons/svg/clockwork.svg"
       }
     },
     "keyAbility": {
